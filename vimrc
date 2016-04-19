@@ -82,6 +82,7 @@ nnoremap <leader>v :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
 " Use Most Recent Used files mode for CtrlP
 let g:ctrlp_map='<c-p>'
 let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_mruf_relative = 1
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
