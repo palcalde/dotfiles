@@ -5,5 +5,7 @@
 * `Ctrl-P` Default to MRU mode of CtrlP Plug In, which basically the same, but shows most recent used files on open
 * Enabled `set hidden` option, which allows buffers to save undo-redo history when switching them.
 * `,P` to paste from yank register, so you can do YY and then delete a line for example, and do ,P to paste yanked text
+* set splitright so vim always splits windows vertically on the right 
+* `,v` to open tag in vertical split
 
 The rest is just the default implementation of Maximum Awesome https://github.com/square/maximum-awesome
