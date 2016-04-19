@@ -77,6 +77,10 @@ nnoremap <Leader>p "0p
 xnoremap <Leader>p "0p
 nnoremap <C-p> :CtrlPMRU<CR>
 
+" Use Most Recent Used files mode for CtrlP
+let g:ctrlp_map='<c-p>'
+let g:ctrlp_cmd = 'CtrlPMRU'
+
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
 " Restore default behaviour when leaving Vim.
