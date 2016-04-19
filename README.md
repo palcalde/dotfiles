@@ -1,4 +1,4 @@
-### This forked version adds:
+### This forked version adds
 
 * `Ctrl-S` to save file, and quit insert mode (so u don't need to press escape anymore)
 * Autotag (http://www.vim.org/scripts/script.php?script_id=1343) so whenever you save, Tags are created 
