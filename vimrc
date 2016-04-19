@@ -46,12 +46,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set splitright
-
-" Persistent undo
-" set undofile
-" set undodir=$HOME/.vim/undo
-" set undolevels=1000
-" set undoreload=10000
+set hidden
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
