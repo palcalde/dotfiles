@@ -75,7 +75,6 @@ noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo '
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>p "0p
 xnoremap <Leader>p "0p
-nnoremap <C-p> :CtrlPMRU<CR>
 
 " Use Most Recent Used files mode for CtrlP
 let g:ctrlp_map='<c-p>'
