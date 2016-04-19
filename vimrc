@@ -47,6 +47,7 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set splitright
 set hidden
+set macmeta
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -72,9 +73,11 @@ nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>p "0p
-xnoremap <Leader>p "0p
+nnoremap <leader>w :w<CR>
+nnoremap <leader>p "0p
+xnoremap <leader>p "0p
+nnoremap <leader>v :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
+
 
 " Use Most Recent Used files mode for CtrlP
 let g:ctrlp_map='<c-p>'
