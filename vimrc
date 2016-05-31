@@ -49,6 +49,7 @@ set splitright
 set hidden
 set macmeta
 
+
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
