@@ -47,6 +47,7 @@ set wildmenu                                                 " show a navigable 
 set wildmode=longest,list,full
 set splitright
 set hidden
+set colorcolumn=120                                          " show a length line marker at char 120
 set macmeta
 
 
