@@ -1,7 +1,7 @@
 set nocursorline " don't highlight current line
 
 " keyboard shortcuts
-inoremap jj <ESC>
+" inoremap jj <ESC>
 
 " highlight search
 "set hlsearch
