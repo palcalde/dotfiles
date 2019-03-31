@@ -1,7 +1,7 @@
 set nocursorline " don't highlight current line
 
 " keyboard shortcuts
-" inoremap jj <ESC>
+inoremap jj <ESC>
 
 " highlight search
 "set hlsearch
@@ -10,17 +10,11 @@ set nocursorline " don't highlight current line
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme railscasts
+    colorscheme solarized
   else
     colorscheme desert
   endif
 endif
-
-call togglebg#map("<F5>")
-
-let g:NERDTreeWinSize=33
-
-nnoremap <leader>r :e<CR>
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
 "
@@ -36,9 +30,25 @@ function! s:RemoveConflictingAlignMaps()
   endif
 endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ["mri","rubocop"]
+
+set autowrite
+set nocursorline
+set nowritebackup
+set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
+
+autocmd! bufwritepost .vimrc source ~/.vimrc
+noremap! jj <ESC>
+
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+nmap <c-s> :w<CR>
+vmap <c-s> <Esc><c-s>gv
+imap <c-s> <Esc><c-s>
+
+nmap <F2> :update<CR>
+vmap <F2> <Esc><F2>gv
+imap <F2> <c-o><F2>
