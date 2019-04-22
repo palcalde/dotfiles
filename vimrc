@@ -1,4 +1,6 @@
 " don't bother with vi compatibility
+"
+"
 set nocompatible
 
 " enable syntax highlighting
@@ -45,11 +47,6 @@ set tabstop=8                                                " actual tabs occup
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
-set splitright
-set hidden
-set colorcolumn=120                                          " show a length line marker at char 120
-set macmeta
-
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -68,29 +65,12 @@ nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
-nnoremap <leader>. :CtrlPTag<CR>
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>p "0p
-xnoremap <leader>p "0p
-nnoremap <leader>v :vsp<CR>:exec("tag ".expand("<cword>"))<CR>
-
-" Allow us to use Ctrl-s and Ctrl-q as keybinds
-silent !stty -ixon
-" Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
-nmap <c-s> :w<CR>
-vmap <c-s> <Esc><c-s>gv
-imap <c-s> <Esc><c-s>
-
-nmap <F2> :update<CR>
-vmap <F2> <Esc><F2>gv
-imap <F2> <c-o><F2>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
@@ -140,7 +120,7 @@ vnoremap p "_dP
 if filereadable(expand("~/.vimrc.local"))
   " In your .vimrc.local, you might like:
   "
-  set autowrite
+  " set autowrite
   " set nocursorline
   " set nowritebackup
   " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
