@@ -1,11 +1,14 @@
 set nocursorline " don't highlight current line
 
+let g:mix_format_on_save = 1
+let g:mix_format_silent_errors = 1
+
 " keyboard shortcuts
 inoremap jj <ESC>
 
 " highlight search
-"set hlsearch
-"nmap <leader>hl :let @/ = ""<CR>
+set hlsearch
+nmap <leader>hl :let @/ = ""<CR>
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
@@ -54,3 +57,5 @@ imap <c-s> <Esc><c-s>
 nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
 imap <F2> <c-o><F2>
+
+autocmd vimenter * if !argc() | NERDTree | endif
