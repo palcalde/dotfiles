@@ -1,6 +1,6 @@
 set nocursorline " don't highlight current line
 
-" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+" Mappings for vim-test
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
