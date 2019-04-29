@@ -1,5 +1,4 @@
 Plugin 'elixir-editors/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
 Plugin 'mhinz/vim-mix-format'
 Plugin 'janko-m/vim-test'
-Bundle 'craigemery/vim-autotag'
+Plugin 'ludovicchabant/vim-gutentags'
