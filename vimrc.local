@@ -1,5 +1,8 @@
 set nocursorline " don't highlight current line
 
+" Jumping to tag will show a list if more than one exist, or navigate if one
+nnoremap <C-]> g<C-]>
+
 " Mappings for vim-test
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
@@ -95,3 +98,5 @@ let g:tagbar_type_elixir = {
     \ },
     \ 'sort' : 0
 \ }
+
+
