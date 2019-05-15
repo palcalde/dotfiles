@@ -1,5 +1,7 @@
 set nocursorline " don't highlight current line
 
+let test#strategy = "vimterminal"
+
 " Mappings for vim-test
 nmap <silent> t<C-n> :TestNearest<CR>
 nmap <silent> t<C-f> :TestFile<CR>
@@ -110,5 +112,3 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
-
-
