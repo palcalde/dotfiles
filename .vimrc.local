@@ -60,10 +60,6 @@ let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 let g:NERDTreeWinSize=33
 autocmd vimenter * if !argc() | NERDTree | endif
 
-" Allow us to use Ctrl-s and Ctrl-q as keybinds
-silent !stty -ixon
-" Restore default behaviour when leaving Vim.
-autocmd VimLeave * silent !stty ixon
 nmap <c-s> :w<CR>
 vmap <c-s> <Esc><c-s>gv
 imap <c-s> <Esc><c-s>
@@ -78,8 +74,11 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 
-" Set mixed mru + file + buffer in CtrlP by default
-let g:ctrlp_cmd = 'CtrlPMRUFiles'
+" Enable GitGutter by default
+let g:gitgutter_enabled = 1
+
+" Set this to 1 to set searching by filename (as opposed to full path) as the default
+let g:ctrlp_by_filename = 1
 
 " Mappings for TagBar plugin
 let g:tagbar_type_elixir = {
