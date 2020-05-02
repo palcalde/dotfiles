@@ -1,4 +1,0 @@
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'mhinz/vim-mix-format'
-Plugin 'janko-m/vim-test'
-Plugin 'ludovicchabant/vim-gutentags'

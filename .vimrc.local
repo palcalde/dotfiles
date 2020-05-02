@@ -1,13 +1,12 @@
-set nocursorline " don't highlight current line
-
-let test#strategy = "vimterminal"
+set cursorline " highlight current line
+let test#strategy = "vimux"
 
 " Mappings for vim-test
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
+nmap <leader>tn :TestNearest<CR>
+nmap <leader>tf :TestFile<CR>
+nmap <leader>ts :TestSuite<CR>
+nmap <leader>tl :TestLast<CR>
+nmap <leader>tv :TestVisit<CR>
 
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
@@ -17,12 +16,12 @@ inoremap jj <ESC>
 
 " highlight search
 set hlsearch
-nmap <leader>hl :let @/ = ""<CR>
+  nmap <leader>hl :let @/ = ""<CR>
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme solarized
+    colorscheme gruvbox
   else
     colorscheme desert
   endif
@@ -46,14 +45,20 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 
 set autowrite
-set nocursorline
 set nowritebackup
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
 noremap! jj <ESC>
 
+" This allows to switch tmux windows vertically from NerdTree
+" Bug documented here: https://github.com/christoomey/vim-tmux-navigator/issues/83
+let g:NERDTreeMapJumpNextSibling = '<Nop>'
+let g:NERDTreeMapJumpPrevSibling = '<Nop>'
+
+" Config win size
 let g:NERDTreeWinSize=33
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
@@ -67,7 +72,14 @@ nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
 imap <F2> <c-o><F2>
 
-autocmd vimenter * if !argc() | NERDTree | endif
+" Vimux Configuration
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vx :VimuxInterruptRunner<CR>
+
+" Set mixed mru + file + buffer in CtrlP by default
+let g:ctrlp_cmd = 'CtrlPMRUFiles'
 
 " Mappings for TagBar plugin
 let g:tagbar_type_elixir = {
@@ -112,3 +124,5 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+
