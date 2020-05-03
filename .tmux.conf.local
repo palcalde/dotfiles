@@ -13,7 +13,6 @@
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
-
 # -- windows & pane creation ---------------------------------------------------
 
 # new window retains current path, possible values are:
@@ -260,6 +259,14 @@ tmux_conf_theme_clock_colour='#00afff'  # light blue
 tmux_conf_theme_clock_style='24'
 
 
+# New keybindings for vi-mode when version >= 2.4
+# # https://github.com/tmux/tmux/issues/754
+# # @if "$TMUX_VERSION" >= 2.4
+ if-shell -b '[ "$(echo -e "$TMUX_VERSION\n"2.4 | sort -V | head -n1)" == "2.4" ]' \
+    'bind -T copy-mode-vi "v" send-keys -X begin-selection; \
+     bind -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel "pbcopy"; \
+    '
+
 # -- clipboard -----------------------------------------------------------------
 
 # in copy mode, copying selection also copies to the OS clipboard
@@ -267,7 +274,7 @@ tmux_conf_theme_clock_style='24'
 #   - false (default)
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
-tmux_conf_copy_to_os_clipboard=false
+tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
@@ -281,7 +288,6 @@ set -g mouse on
 
 # focus events to autoreload files https://github.com/tmux-plugins/vim-tmux-focus-events
 set -g focus-events on
-
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
