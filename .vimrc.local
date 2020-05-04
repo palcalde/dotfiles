@@ -11,9 +11,6 @@ nmap <leader>tv :TestVisit<CR>
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 
-" keyboard shortcuts
-inoremap jj <ESC>
-
 " highlight search
 set hlsearch
   nmap <leader>hl :let @/ = ""<CR>
@@ -32,6 +29,17 @@ let g:airline_theme='base16_gruvbox_dark_hard'
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
+
+nmap <c-s> :w<CR>
+vmap <c-s> <Esc><c-s>gv
+imap <c-s> <Esc><c-s>
+
+noremap <silent> <leader>s :update<CR>
+vnoremap <silent> <leader>s <C-C>:update<CR>
+inoremap <silent> <leader>s <C-C>:update<CR>
+
+silent! autocmd VimEnter * unmap <leader>swp
+
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
 "
@@ -55,7 +63,6 @@ set nowritebackup
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
-noremap! jj <ESC>
 
 " This allows to switch tmux windows vertically from NerdTree
 " Bug documented here: https://github.com/christoomey/vim-tmux-navigator/issues/83
@@ -65,14 +72,6 @@ let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 " Config win size
 let g:NERDTreeWinSize=33
 autocmd vimenter * if !argc() | NERDTree | endif
-
-nmap <c-s> :w<CR>
-vmap <c-s> <Esc><c-s>gv
-imap <c-s> <Esc><c-s>
-
-nmap <F2> :update<CR>
-vmap <F2> <Esc><F2>gv
-imap <F2> <c-o><F2>
 
 " Vimux Configuration
 map <Leader>vq :VimuxCloseRunner<CR>
