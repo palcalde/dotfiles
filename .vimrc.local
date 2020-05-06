@@ -26,6 +26,7 @@ endif
 
 " Set airline theme 
 let g:airline_theme='molokai'
+let g:airline#extensions#tmuxline#enabled = 0
 
 nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
@@ -110,3 +111,6 @@ endif
 
 " CtrlP split vertical panes on the right
 set splitright
+
+" Let NerdTree show hiden files
+let NERDTreeShowHidden=1
