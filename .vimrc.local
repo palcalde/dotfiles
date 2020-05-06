@@ -27,13 +27,11 @@ endif
 " Set airline theme 
 let g:airline_theme='molokai'
 
-nmap <c-s> :w<CR>
+nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
 imap <c-s> <Esc><c-s>
 
-noremap <silent> <leader>s :update<CR>
-vnoremap <silent> <leader>s <C-C>:update<CR>
-inoremap <silent> <leader>s <C-C>:update<CR>
+noremap! jj <ESC>
 
 " Remove conflicting mappings with Align plugin (:verbose :map <leader>s)
 silent! autocmd VimEnter * unmap <leader>swp
@@ -110,4 +108,5 @@ if has('persistent_undo')
     set undofile
 endif
 
-
+" CtrlP split vertical panes on the right
+set splitright
