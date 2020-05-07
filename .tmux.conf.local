@@ -24,4 +24,11 @@ set -g focus-events on
 # adjust vertical layout so it matches g:VimuxHeight
 set-window-option -g other-pane-height 11
 
+# load tmuxline styling to color the tmux status bar
 source-file ~/Documents/Projects/dotfiles/.tmux-snapshot
+
+# Alt + direction keys to resize panes
+bind -n M-k resize-pane -U 5
+bind -n M-j resize-pane -D 5
+bind -n M-h resize-pane -L 5
+bind -n M-l resize-pane -R 5

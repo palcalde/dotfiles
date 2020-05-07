@@ -30,6 +30,8 @@ let g:airline_theme='simple'
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#branch#format = 1
 let g:airline_powerline_fonts = 1
+let g:airline_section_z = '%t'
+let g:airline_section_c = ''
 
 nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
