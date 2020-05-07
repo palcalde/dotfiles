@@ -24,3 +24,4 @@ set -g focus-events on
 # adjust vertical layout so it matches g:VimuxHeight
 set-window-option -g other-pane-height 11
 
+source-file ~/Documents/Projects/dotfiles/.tmux-snapshot

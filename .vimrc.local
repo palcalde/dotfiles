@@ -25,11 +25,11 @@ if (&t_Co == 256 || has('gui_running'))
 endif
 
 " Set airline theme 
-let g:airline_theme='molokai'
+let g:airline_theme='simple'
+" disable tmuxline extension so we configure it manually after
 let g:airline#extensions#tmuxline#enabled = 0
-
-" Configure airline branch to show just the tail of the path
 let g:airline#extensions#branch#format = 1
+let g:airline_powerline_fonts = 1
 
 nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
