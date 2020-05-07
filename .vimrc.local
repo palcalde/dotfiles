@@ -28,6 +28,9 @@ endif
 let g:airline_theme='molokai'
 let g:airline#extensions#tmuxline#enabled = 0
 
+" Configure airline branch to show just the tail of the path
+let g:airline#extensions#branch#format = 1
+
 nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
 imap <c-s> <Esc><c-s>
