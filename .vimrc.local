@@ -67,8 +67,14 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 " Enable GitGutter by default
 let g:gitgutter_enabled = 1
 
-" Set this to 1 to set searching by filename (as opposed to full path) as the default
+" Ctrl-p config
 let g:ctrlp_by_filename = 1
+" Only use MRU in current working dir
+let g:ctrlp_mruf_relative = 1
+" CtrlP split vertical panes on the right
+set splitright
+" Use MRU + Files by default
+let g:ctrlp_cmd = 'CtrlPMRUFiles'
 
 " Mappings for TagBar plugin
 let g:tagbar_type_elixir = {
@@ -113,9 +119,6 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
-
-" CtrlP split vertical panes on the right
-set splitright
 
 " Let NerdTree show hiden files
 let NERDTreeShowHidden=1
