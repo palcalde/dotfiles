@@ -71,10 +71,13 @@ let g:gitgutter_enabled = 1
 let g:ctrlp_by_filename = 1
 " Only use MRU in current working dir
 let g:ctrlp_mruf_relative = 1
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
 " CtrlP split vertical panes on the right
 set splitright
 " Use MRU + Files by default
-let g:ctrlp_cmd = 'CtrlPMRUFiles'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Mappings for TagBar plugin
 let g:tagbar_type_elixir = {
