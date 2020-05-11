@@ -1,5 +1,5 @@
 set cursorline " highlight current line
-let test#strategy = "vimux"
+let test#strategy = "vimterminal"
 
 " Mappings for vim-test
 nmap <leader>tn :TestNearest<CR>
@@ -200,3 +200,13 @@ set splitright
 
 " format whole file keeping cursor at the same position
 noremap =a gg=G<C-o><C-o>
+
+" Keep cursor at the bottom of the visual selection after you yank it.
+vmap y ygv<Esc>
+
+" Prevent x from overriding what's in the clipboard.
+noremap x "_x
+noremap X "_x
+
+" Cycle through splits.
+nnoremap <S-Tab> <C-w>w
