@@ -4,7 +4,17 @@ Plugin 'janko-m/vim-test'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'benmills/vimux'
 Plugin 'flazz/vim-colorschemes'
+" Refresh vim window when focusing on it
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+" Vim status line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Bundle 'edkolev/tmuxline.vim'
+" Tmux status line
+Plugin 'edkolev/tmuxline.vim'
+" Awesome zfz fuzzy search
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+" Automatically show Vim's complete menu while typing.
+Plugin 'vim-scripts/AutoComplPop'
+" Automatically clear search highlights after you move your cursor.
+Plugin 'haya14busa/is.vim'

@@ -21,8 +21,13 @@ set -g mouse on
 # focus events to autoreload files https://github.com/tmux-plugins/vim-tmux-focus-events
 set -g focus-events on
 
-# adjust vertical layout so it matches g:VimuxHeight
+# when going to main layout, adjut the new pane to be smaller than main one
 set-window-option -g other-pane-height 11
+set-window-option -g other-pane-width 11
+
+# adjust default opening tmux panes to be 25% of main pane size
+bind-key v split-window -h -c "#{pane_current_path}" -p 25
+bind-key s split-window -v -c "#{pane_current_path}" -p 25
 
 # load tmuxline styling to color the tmux status bar
 source-file ~/Documents/Projects/dotfiles/.tmux-snapshot

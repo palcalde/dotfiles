@@ -24,7 +24,7 @@ if (&t_Co == 256 || has('gui_running'))
   endif
 endif
 
-" Set airline theme 
+" Set airline theme
 let g:airline_theme='base16_monokai'
 " disable tmuxline extension so we configure it manually after
 let g:airline#extensions#tmuxline#enabled = 0
@@ -39,10 +39,6 @@ imap <c-s> <Esc><c-s>
 
 noremap! jj <ESC>
 
-" Remove conflicting mappings with Align plugin (:verbose :map <leader>s)
-silent! autocmd VimEnter * unmap <leader>swp
-silent! autocmd VimEnter * unmap <leader>rwp
-
 set autowrite
 set nowritebackup
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
@@ -53,9 +49,13 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " Bug documented here: https://github.com/christoomey/vim-tmux-navigator/issues/83
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
 let g:NERDTreeMapJumpPrevSibling = '<Nop>'
-
+" Let NerdTree show hiden files
+let NERDTreeShowHidden=1
 " Config win size
 let g:NERDTreeWinSize=33
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeQuitOnOpen=0
+
 autocmd vimenter * if !argc() | NERDTree | endif
 
 " Vimux Configuration
@@ -67,17 +67,10 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 " Enable GitGutter by default
 let g:gitgutter_enabled = 1
 
-" Ctrl-p config
-let g:ctrlp_by_filename = 1
-" Only use MRU in current working dir
-let g:ctrlp_mruf_relative = 1
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
-" CtrlP split vertical panes on the right
-set splitright
-" Use MRU + Files by default
-let g:ctrlp_cmd = 'CtrlPMixed'
+" FZF: exclude .gitignore files plus .git folder and add hidden files
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <C-p> :FZF -m<CR>
 
 " Mappings for TagBar plugin
 let g:tagbar_type_elixir = {
@@ -109,7 +102,7 @@ let g:tagbar_type_elixir = {
 \ }
 
 " persistent vim history on disk
-" " Put plugins and dictionaries in this dir (also on Windows)
+" Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
@@ -123,5 +116,78 @@ if has('persistent_undo')
     set undofile
 endif
 
-" Let NerdTree show hiden files
-let NERDTreeShowHidden=1
+" don't automatically show dictionary words for autocompletion " trigger with ctrlp
+set complete+=kspell
+set completeopt=menuone,longest " configure dictionary in english
+set spelllang=en_us
+set nospell
+
+" Don't update status bar in autocompletion
+set shortmess+=c
+
+" Toggle spell check.
+map <F5> :setlocal spell!<CR>
+
+" Navigate the complete menu items like CTRL+n / CTRL+p would.
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+
+" Select the complete menu item like CTRL+y would.
+inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+inoremap <expr> <Tab> pumvisible() ? "<C-y>" : "<Tab>"
+
+" Cancel the complete menu item like CTRL+e would.
+inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
+
+" Toggle quickfix window.
+function! QuickFix_toggle()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            cclose
+            return
+        endif
+    endfor
+
+    copen
+endfunction
+nnoremap <silent> <Leader>c :call QuickFix_toggle()<CR>
+
+" Auto-resize splits when Vim gets resized.
+autocmd VimResized * wincmd =
+
+" Update a buffer's contents on focus if it changed outside of Vim.
+au FocusGained,BufEnter * :checktime
+
+" Toggle paste mode
+set pastetoggle=<leader>P
+" Unset paste on InsertLeave.
+        autocmd InsertLeave * silent! set nopaste
+
+" Only underline the highlights instead of using custom colors.
+highlight QuickScopePrimary gui=underline cterm=underline
+highlight QuickScopeSecondary gui=underline cterm=underline
+
+" Press * to search for the term under the cursor or a visual selection and
+" then press the key below to replace all instances of it in the current file.
+nnoremap <Leader>r :%s///g<Left><Left>
+nnoremap <Leader>rc :%s///gc<Left><Left><Left>
+
+" The same as above but instead of acting on the whole file it will be
+" restricted to the previously visually selected range. You can do that by
+" pressing *, visually selecting the range you want it to apply to and then
+" press the key below to replace all instances of it in the current selection.
+xnoremap <Leader>r :s///g<Left><Left>
+xnoremap <Leader>rc :s///gc<Left><Left><Left>
+
+" Type a replacement term and press . to repeat the replacement again. Useful
+" for replacing a few instances of the term (comparable to multiple cursors).
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+
+" Swap begin of line keys for easy acces
+noremap <0> ^ " Go to the first non-blank character of a line
+noremap <^> 0 " Just in case you need to go to the very beginning of a line
+
+" vim split on the right always
+set splitright
