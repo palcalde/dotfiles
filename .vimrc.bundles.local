@@ -18,4 +18,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'vim-scripts/AutoComplPop'
 " Automatically clear search highlights after you move your cursor.
 Plugin 'haya14busa/is.vim'
+" Highlight which character to jump to when using motion keys.
 Plugin 'unblevable/quick-scope'
+" Modify * to also work with visual selections.
+Plugin 'nelstrom/vim-visual-star-search'

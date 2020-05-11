@@ -71,6 +71,8 @@ let g:gitgutter_enabled = 1
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 nnoremap <silent> <Leader>l :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>B :History<CR>
 
 " Mappings for TagBar plugin
 let g:tagbar_type_elixir = {

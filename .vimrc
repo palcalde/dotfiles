@@ -54,8 +54,8 @@ endif
 
 " keyboard shortcuts
 let mapleader = ','
+let maplocalleader = ','
 nnoremap <leader>a :Ag<space>
-nnoremap <leader>b :History<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>] :TagbarToggle<CR>
