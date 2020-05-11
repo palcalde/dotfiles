@@ -13,7 +13,7 @@ let g:mix_format_silent_errors = 1
 
 " highlight search
 set hlsearch
-  nmap <leader>hl :let @/ = ""<CR>
+nmap <leader>hl :let @/ = ""<CR>
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
@@ -195,3 +195,6 @@ noremap <^> 0 " Just in case you need to go to the very beginning of a line
 
 " vim split on the right always
 set splitright
+
+" format whole file keeping cursor at the same position
+noremap =a gg=G<C-o><C-o>
