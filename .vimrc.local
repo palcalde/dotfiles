@@ -126,7 +126,7 @@ set nospell
 set shortmess+=c
 
 " Toggle spell check.
-map <F5> :setlocal spell!<CR>
+map <F6> :setlocal spell!<CR>
 
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
@@ -160,9 +160,12 @@ autocmd VimResized * wincmd =
 au FocusGained,BufEnter * :checktime
 
 " Toggle paste mode
-set pastetoggle=<leader>P
+set pastetoggle=<F5>
 " Unset paste on InsertLeave.
-        autocmd InsertLeave * silent! set nopaste
+autocmd InsertLeave * silent! set nopaste
+
+" Trigger a highlight in the appropriate direction when pressing these keys.
+let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 
 " Only underline the highlights instead of using custom colors.
 highlight QuickScopePrimary gui=underline cterm=underline
@@ -177,6 +180,7 @@ nnoremap <Leader>rc :%s///gc<Left><Left><Left>
 " restricted to the previously visually selected range. You can do that by
 " pressing *, visually selecting the range you want it to apply to and then
 " press the key below to replace all instances of it in the current selection.
+" (https://github.com/nickjj/dotfiles/blob/master/.)
 xnoremap <Leader>r :s///g<Left><Left>
 xnoremap <Leader>rc :s///gc<Left><Left><Left>
 

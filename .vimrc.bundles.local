@@ -18,3 +18,4 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'vim-scripts/AutoComplPop'
 " Automatically clear search highlights after you move your cursor.
 Plugin 'haya14busa/is.vim'
+Plugin 'unblevable/quick-scope'
