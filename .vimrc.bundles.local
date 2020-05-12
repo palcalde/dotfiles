@@ -7,8 +7,8 @@ Plugin 'flazz/vim-colorschemes'
 " Refresh vim window when focusing on it
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 " " Vim status line
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Tmux status line
 Plugin 'edkolev/tmuxline.vim'
 " Awesome zfz fuzzy search
@@ -24,3 +24,5 @@ Plugin 'unblevable/quick-scope'
 Plugin 'nelstrom/vim-visual-star-search'
 " Distraction free writing by removing UI elements and centering everything.
 Plugin 'junegunn/goyo.vim'
+" Theme like Atom IDE
+Plugin 'rakr/vim-one'

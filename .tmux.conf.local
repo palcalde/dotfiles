@@ -3,8 +3,7 @@
 # # # @if "$TMUX_VERSION" >= 2.4
 if-shell -b '[ "$(echo -e "$TMUX_VERSION\n"2.4 | sort -V | head -n1)" == "2.4" ]' \
     'bind -T copy-mode-vi "v" send-keys -X begin-selection; \
-    bind -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel "pbcopy"; \
-    '
+    bind -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel "pbcopy"; \ '
 
 # -- clipboard -----------------------------------------------------------------
 
@@ -37,3 +36,19 @@ bind -n M-k resize-pane -U 5
 bind -n M-j resize-pane -D 5
 bind -n M-h resize-pane -L 5
 bind -n M-l resize-pane -R 5
+
+# Enable color support inside of tmux.
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+
+# Colors optimized for Atom One Dark.
+set -g status-style fg=colour110
+set -g status-style bg=default
+
+set -g pane-border-style fg=colour240
+set -g pane-active-border-style fg=colour243
+
+set-window-option -g window-status-current-style fg=colour39
+
+set -g status-left ''
+set -g status-right-length 0

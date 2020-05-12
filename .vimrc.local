@@ -15,23 +15,38 @@ let g:mix_format_silent_errors = 1
 set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
 
-" gui settings
+" Set the color scheme to dark.
+set background=dark
+
+" Pick One colorscheme inspired in Atom
 if (&t_Co == 256 || has('gui_running'))
-  if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme gruvbox
-  else
-    colorscheme desert
-  endif
+  colorscheme one
 endif
 
 " Set airline theme
-let g:airline_theme='base16_monokai'
+let g:airline_theme='one'
+" Allow tabs to display filename
+let g:airline#extensions#tabline#enabled = 1
 " disable tmuxline extension so we configure it manually after
 let g:airline#extensions#tmuxline#enabled = 0
+" show only the tail of the branch name
 let g:airline#extensions#branch#format = 1
+" Use powerline symbols
 let g:airline_powerline_fonts = 1
-let g:airline_section_z = '%t'
-let g:airline_section_c = ''
+" Show the filename instead of the entire path
+let g:airline_section_c = '%t'
+" Show only the filetype, without tags
+let g:airline_section_x='%{airline#util#prepend("",0)}%{airline#util#wrap(airline#parts#filetype(),0)}'
+" Don't show current line info
+let g:airline_section_z = ''
+" Don't show right separators
+let g:airline_right_sep=''
+" Don't show icon for dirty repository
+let g:airline#extensions#branch#vcs_checks = ['untracked']
+" Remove NERDTreeStatusline
+let NERDTreeStatusline=''
+" Don't show git changes to current file in airline
+let g:airline#extensions#hunks#enabled=0
 
 nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
@@ -64,8 +79,8 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 
-" Enable GitGutter by default
-let g:gitgutter_enabled = 1
+" Disable GitGutter by default
+let g:gitgutter_enabled = 0
 
 " FZF: exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
@@ -209,7 +224,8 @@ noremap x "_x
 noremap X "_x
 
 " Cycle through splits.
-nnoremap <S-Tab> <C-w>w
+nnoremap <tab>   <c-w>w
+nnoremap <S-Tab> <C-w>W
 
 " -----------------------------------------------------------------------------
 " Status line
@@ -230,4 +246,18 @@ endfunction
 
 let &statusline = s:statusline_expr()
 
+" -----------------------------------------------------------------------------
+" Color settings
+" -----------------------------------------------------------------------------
 
+" Enable 24-bit true colors if your terminal supports it.
+if (has("termguicolors"))
+  " https://github.com/vim/vim/issues/993#issuecomment-255651605
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+  set termguicolors
+endif
+
+" Enable syntax highlighting.
+syntax on
