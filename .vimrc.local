@@ -1,5 +1,5 @@
 set cursorline " highlight current line
-let test#strategy = "vimterminal"
+let test#strategy = "vimux"
 
 " Mappings for vim-test
 nmap <leader>tn :TestNearest<CR>
