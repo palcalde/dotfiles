@@ -76,7 +76,9 @@ let g:gitgutter_enabled = 0
 
 " FZF: exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <Leader>l :BLines<CR>
+nnoremap <silent> <Leader>l :BLines<CR>
+nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>B :History<CR>
@@ -125,6 +127,8 @@ if has('persistent_undo')
     set undofile
 endif
 
+" ----Autocompletion--------
+"
 " don't automatically show dictionary words for autocompletion " trigger with ctrlp
 set complete+=kspell
 set completeopt=menuone,longest " configure dictionary in english
@@ -137,7 +141,7 @@ set shortmess+=c
 " Toggle spell check.
 map <F6> :setlocal spell!<CR>
 
-" Navigate the complete menu items like CTRL+n / CTRL+p would.
+" Autocompletion window: Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
 
@@ -147,6 +151,8 @@ inoremap <expr> <Tab> pumvisible() ? "<C-y>" : "<Tab>"
 
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
+
+" -----------------------
 
 " Toggle quickfix window.
 function! QuickFix_toggle()
@@ -219,8 +225,7 @@ noremap x "_x
 noremap X "_x
 
 " Cycle through splits.
-nnoremap <tab>   <c-w>w
-nnoremap <S-Tab> <C-w>W
+nnoremap <S-Tab> <C-w>w
 
 " -----------------------------------------------------------------------------
 " Color settings
