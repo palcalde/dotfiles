@@ -15,14 +15,6 @@ let g:mix_format_silent_errors = 1
 set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
 
-" Set the color scheme to dark.
-set background=dark
-
-" Pick One colorscheme inspired in Atom
-if (&t_Co == 256 || has('gui_running'))
-  colorscheme one
-endif
-
 " Set airline theme
 let g:airline_theme='one'
 " Allow tabs to display filename
@@ -185,8 +177,11 @@ autocmd InsertLeave * silent! set nopaste
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 
 " Only underline the highlights instead of using custom colors.
-highlight QuickScopePrimary gui=underline cterm=underline
-highlight QuickScopeSecondary gui=underline cterm=underline
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary gui=underline cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
+augroup END
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press the key below to replace all instances of it in the current file.
@@ -207,8 +202,8 @@ nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
 " Swap begin of line keys for easy acces
-noremap <0> ^ " Go to the first non-blank character of a line
-noremap <^> 0 " Just in case you need to go to the very beginning of a line
+noremap 0 ^
+noremap ^ 0
 
 " vim split on the right always
 set splitright
@@ -242,3 +237,15 @@ endif
 
 " Enable syntax highlighting.
 syntax on
+
+" Set the color scheme to dark.
+set background=dark
+
+" Pick One colorscheme inspired in Atom
+" colorscheme should be applied after some settings
+if (&t_Co == 256 || has('gui_running'))
+  colorscheme one
+endif
+
+" Open tag under cursor in vsplit
+noremap <C-W>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
