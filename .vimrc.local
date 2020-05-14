@@ -71,19 +71,22 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 
-" Disable GitGutter by default
+" GitGutter: disabled by default
 let g:gitgutter_enabled = 0
 
 " FZF: exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+" mappings
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>B :History<CR>
+" enable history, so we can use ctrl-p and ctrl-n to see them
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-" Mappings for TagBar plugin
+" TagBar: Mappings plugin
 let g:tagbar_type_elixir = {
     \ 'ctagstype' : 'elixir',
     \ 'kinds' : [
@@ -214,7 +217,7 @@ noremap ^ 0
 " vim split on the right always
 set splitright
 
-" format whole file keeping cursor at the same position
+" format/indent whole file keeping cursor at the same position
 noremap =a gg=G<C-o><C-o>
 
 " Keep cursor at the bottom of the visual selection after you yank it.
