@@ -35,8 +35,6 @@ let g:airline_section_z = ''
 let g:airline_right_sep=''
 " Don't show icon for dirty repository
 let g:airline#extensions#branch#vcs_checks = ['untracked']
-" Remove NERDTreeStatusline
-let NERDTreeStatusline=''
 " Don't show git changes to current file in airline
 let g:airline#extensions#hunks#enabled=0
 
