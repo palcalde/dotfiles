@@ -255,3 +255,9 @@ endif
 
 " Open tag under cursor in vsplit
 noremap <C-W>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" arrow keys resize windows
+nnoremap <Left> :vertical resize -10<CR>
+nnoremap <Right> :vertical resize +10<CR>
+nnoremap <Up> :resize -10<CR>
+nnoremap <Down> :resize +10<CR>
