@@ -25,8 +25,6 @@ let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#branch#format = 1
 " Use powerline symbols
 let g:airline_powerline_fonts = 1
-" Show the filename instead of the entire path
-let g:airline_section_c = '%t'
 " Show only the filetype, without tags
 let g:airline_section_x='%{airline#util#prepend("",0)}%{airline#util#wrap(airline#parts#filetype(),0)}'
 " Don't show current line info
@@ -195,7 +193,7 @@ augroup END
 nnoremap <Leader>r :%s///g<Left><Left>
 nnoremap <Leader>rc :%s///gc<Left><Left><Left>
 
-" The same as above but instead of acting on the whole file it will be
+" The same as above but insteu of acting on the whole file it will be
 " restricted to the previously visually selected range. You can do that by
 " pressing *, visually selecting the range you want it to apply to and then
 " press the key below to replace all instances of it in the current selection.
