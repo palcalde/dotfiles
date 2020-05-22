@@ -8,8 +8,10 @@ nmap <leader>ts :TestSuite<CR>
 nmap <leader>tl :TestLast<CR>
 nmap <leader>tv :TestVisit<CR>
 
-let g:mix_format_on_save = 1
+" Vim format mappings
+let g:mix_format_on_save = 0
 let g:mix_format_silent_errors = 1
+nnoremap <leader>mf :MixFormat<CR>
 
 " highlight search
 set hlsearch
@@ -259,3 +261,8 @@ nnoremap <Left> :vertical resize -10<CR>
 nnoremap <Right> :vertical resize +10<CR>
 nnoremap <Up> :resize -10<CR>
 nnoremap <Down> :resize +10<CR>
+
+" AG: don't apply mappings
+let g:ag_apply_lmappings=0
+let g:ag_apply_qmappings=0
+
