@@ -71,6 +71,10 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 
 " GitGutter: disabled by default
 let g:gitgutter_enabled = 0
+" Update signs on save
+autocmd BufWritePost * GitGutter
+" Upate refresh time in vim so changes are picked up quicker by GitGutter
+let updatetime=100
 
 " FZF: exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'

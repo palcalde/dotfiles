@@ -2,12 +2,12 @@
 set -g focus-events on
 
 # when going to main layout, adjust the new pane to be smaller than main one
-set-window-option -g other-pane-height 11
-set-window-option -g other-pane-width 11
+set-window-option -g other-pane-height 40
+set-window-option -g other-pane-width 40
 
 # adjust default opening tmux panes to be 25% of main pane size
-bind-key v split-window -h -c "#{pane_current_path}" -p 25
-bind-key s split-window -v -c "#{pane_current_path}" -p 25
+bind-key v split-window -h -c "#{pane_current_path}" -p 40
+bind-key s split-window -v -c "#{pane_current_path}" -p 40
 
 # load tmuxline styling to color the tmux status bar
 source-file ~/Documents/Projects/dotfiles/.tmux-snapshot
