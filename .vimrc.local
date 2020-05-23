@@ -169,7 +169,7 @@ function! QuickFix_toggle()
         endif
     endfor
 
-    copen
+    botright copen
 endfunction
 nnoremap <silent> <Leader>c :call QuickFix_toggle()<CR>
 
