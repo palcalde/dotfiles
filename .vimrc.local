@@ -1,5 +1,6 @@
 set cursorline " highlight current line
 let test#strategy = "dispatch"
+let test#filename_modifier = ":p"
 
 " Mappings for vim-test
 nmap <leader>tn :TestNearest<CR>
@@ -79,7 +80,6 @@ let updatetime=100
 " FZF: exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 " mappings
-nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
@@ -169,7 +169,7 @@ function! QuickFix_toggle()
         endif
     endfor
 
-    botright copen
+    botright Copen
 endfunction
 nnoremap <silent> <Leader>c :call QuickFix_toggle()<CR>
 
