@@ -265,3 +265,8 @@ nnoremap <Left> :vertical resize -10<CR>
 nnoremap <Right> :vertical resize +10<CR>
 nnoremap <Up> :resize -10<CR>
 nnoremap <Down> :resize +10<CR>
+
+" Vim-Dispatch
+" Disable tmux handler so it defaults to Job one, which uses quicklist instead
+" of tmux pane to run tests
+let g:dispatch_no_tmux_make = 1
