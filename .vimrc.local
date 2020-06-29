@@ -21,7 +21,7 @@ nmap <leader>hl :let @/ = ""<CR>
 " Set airline theme
 let g:airline_theme='one'
 " Allow tabs to display filename
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 " disable tmuxline extension so we configure it manually after
 let g:airline#extensions#tmuxline#enabled = 0
 " show only the tail of the branch name
@@ -30,8 +30,6 @@ let g:airline#extensions#branch#format = 1
 let g:airline_powerline_fonts = 1
 " Show only the filetype, without tags
 let g:airline_section_x='%{airline#util#prepend("",0)}%{airline#util#wrap(airline#parts#filetype(),0)}'
-" Don't show current line info
-let g:airline_section_z = ''
 " Don't show right separators
 let g:airline_right_sep=''
 " Don't show icon for dirty repository
