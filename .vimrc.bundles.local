@@ -26,3 +26,5 @@ Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'junegunn/goyo.vim'
 " Theme like Atom IDE
 Plugin 'rakr/vim-one'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'rafi/awesome-vim-colorschemes'

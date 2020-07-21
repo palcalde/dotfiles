@@ -10,32 +10,13 @@ nmap <leader>tl :TestLast<CR>
 nmap <leader>tv :TestVisit<CR>
 
 " Vim format mappings
-let g:mix_format_on_save = 0
+let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 nnoremap <leader>mf :MixFormat<CR>
 
 " highlight search
 set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
-
-" Set airline theme
-let g:airline_theme='one'
-" Allow tabs to display filename
-let g:airline#extensions#tabline#enabled = 0
-" disable tmuxline extension so we configure it manually after
-let g:airline#extensions#tmuxline#enabled = 0
-" show only the tail of the branch name
-let g:airline#extensions#branch#format = 1
-" Use powerline symbols
-let g:airline_powerline_fonts = 1
-" Show only the filetype, without tags
-let g:airline_section_x='%{airline#util#prepend("",0)}%{airline#util#wrap(airline#parts#filetype(),0)}'
-" Don't show right separators
-let g:airline_right_sep=''
-" Don't show icon for dirty repository
-let g:airline#extensions#branch#vcs_checks = ['untracked']
-" Don't show git changes to current file in airline
-let g:airline#extensions#hunks#enabled=0
 
 nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
@@ -47,8 +28,6 @@ set autowrite
 set nowritebackup
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 
-autocmd! bufwritepost .vimrc source ~/.vimrc
-
 " This allows to switch tmux windows vertically from NerdTree
 " Bug documented here: https://github.com/christoomey/vim-tmux-navigator/issues/83
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
@@ -56,11 +35,12 @@ let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 " Let NerdTree show hiden files
 let NERDTreeShowHidden=1
 " Config win size
-let g:NERDTreeWinSize=33
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=0
+let g:NERDTreeMinimalUI = 1
 
-autocmd vimenter * if !argc() | NERDTree | endif
+" Open nerd tree at the current file or close nerd tree if pressed again.
+nnoremap <silent> <expr> <Leader>f g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 " Vimux Configuration
 map <Leader>vq :VimuxCloseRunner<CR>
@@ -70,10 +50,6 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 
 " GitGutter: disabled by default
 let g:gitgutter_enabled = 0
-" Update signs on save
-autocmd BufWritePost * GitGutter
-" Upate refresh time in vim so changes are picked up quicker by GitGutter
-let updatetime=100
 
 " FZF: exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
@@ -171,9 +147,6 @@ function! QuickFix_toggle()
 endfunction
 nnoremap <silent> <Leader>c :call QuickFix_toggle()<CR>
 
-" Auto-resize splits when Vim gets resized.
-autocmd VimResized * wincmd =
-
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
 
@@ -185,12 +158,8 @@ autocmd InsertLeave * silent! set nopaste
 " Trigger a highlight in the appropriate direction when pressing these keys.
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 
-" Only underline the highlights instead of using custom colors.
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary gui=underline cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
-augroup END
+highlight QuickScopePrimary gui=underline cterm=underline
+highlight QuickScopeSecondary gui=underline cterm=underline
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press the key below to replace all instances of it in the current file.
@@ -249,11 +218,28 @@ syntax on
 " Set the color scheme to dark.
 set background=dark
 
-" Pick One colorscheme inspired in Atom
-" colorscheme should be applied after some settings
-if (&t_Co == 256 || has('gui_running'))
-  colorscheme one
-endif
+colorscheme one
+
+" airline {{{ "
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'tomorrow'
+" disable tmuxline extension so we configure it manually after
+let g:airline#extensions#tmuxline#enabled = 0
+" show only the tail of the branch name
+let g:airline#extensions#branch#format = 1
+" Don't show icon for dirty repository
+let g:airline#extensions#branch#vcs_checks = ['untracked']
+" Don't show git changes to current file in airline
+let g:airline#extensions#hunks#enabled=0
+let g:airline_right_sep=''
+let g:airline_left_sep=''
+" Show filename only instead of file path
+let g:airline_section_c = '%t'
+" Show filetype only, without function name
+let g:airline_section_x='%{airline#util#wrap(airline#parts#filetype(),0)}'
+" }}} airline "
 
 " Open tag under cursor in vsplit
 noremap <C-W>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -268,3 +254,9 @@ nnoremap <Down> :resize +10<CR>
 " Disable tmux handler so it defaults to Job one, which uses quicklist instead
 " of tmux pane to run tests
 let g:dispatch_no_tmux_make = 1
+
+" Update highlight color
+hi Search ctermbg=110 ctermfg=235 guibg=#343434 guifg=white cterm=NONE gui=NONE
+
+" Remove background color for panels vertical split separator
+hi VertSplit ctermbg=NONE guibg=NONE
