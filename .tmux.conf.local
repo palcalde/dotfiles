@@ -42,6 +42,22 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-sessionist'
+
+# Start window and pane indices at 1
+set -g base-index 1
+set -g pane-base-index 1
+
+# Status
+set -g status-bg "#1c1c1c"
+set -g status-fg white
+set -g status-left-length 90
+
+set -g status-right "%v %T"
+
+# Window
+set -g window-status-current-format "#[fg=white]:: #[fg=#a98ad2]#I|#W#{?window_zoomed_flag,#[fg=#6787ab][+],}"
+set -g window-status-format ":: #{?window_activity_flag,#[fg=red],}#I|#W"
 
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
