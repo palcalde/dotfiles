@@ -56,6 +56,7 @@ set mouse=a
 let mapleader = ','
 let maplocalleader = ','
 nnoremap <leader>a :Ag<space>
+nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>

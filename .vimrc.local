@@ -2,6 +2,10 @@ set cursorline " highlight current line
 let test#strategy = "dispatch"
 let test#filename_modifier = ":p"
 
+" Fix issue with tmuxnavigator and tmp files
+" https://github.com/christoomey/vim-tmux-navigator/issues/105
+let $TMPDIR = $HOME."/tmp"
+
 " Mappings for vim-test
 nmap <leader>tn :TestNearest<CR>
 nmap <leader>tf :TestFile<CR>
@@ -13,9 +17,6 @@ nmap <leader>tv :TestVisit<CR>
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 nnoremap <leader>mf :MixFormat<CR>
-
-" NerdTree open by default
-au VimEnter *  NERDTree
 
 " highlight search
 set hlsearch
@@ -42,8 +43,8 @@ let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=0
 let g:NERDTreeMinimalUI = 1
 
-" Open nerd tree at the current file or close nerd tree if pressed again.
-nnoremap <silent> <expr> <Leader>f g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
+" open nerd tree on open
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " Vimux Configuration
 map <Leader>vq :VimuxCloseRunner<CR>
