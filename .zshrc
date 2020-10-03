@@ -1,3 +1,7 @@
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 # Allow us to use Ctrl-s and Ctrl-q as keybinds
 stty -ixon
 
@@ -130,8 +134,6 @@ source ~/.rvm/scripts/rvm
 
 # Load z.sh https://github.com/rupa/z
 . ~/z-master/z.sh
-
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
