@@ -56,16 +56,21 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 let g:gitgutter_enabled = 0
 nnoremap <leader>gg :GitGutterToggle<CR>
 
-" FZF: exclude .gitignore files plus .git folder and add hidden files
+" FZF {{{
+" exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+" show bottom in view
+let g:fzf_layout = { 'down': '~40%' }
+" enable history, so we can use ctrl-p and ctrl-n to see them
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 " mappings
 nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>B :History<CR>
-" enable history, so we can use ctrl-p and ctrl-n to see them
-let g:fzf_history_dir = '~/.local/share/fzf-history'
+" FZF }}}
 
 " TagBar: Mappings plugin
 let g:tagbar_type_elixir = {
