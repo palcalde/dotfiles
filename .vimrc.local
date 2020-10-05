@@ -58,7 +58,7 @@ nnoremap <leader>gg :GitGutterToggle<CR>
 " FZF {{{
 " exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
-" show bottom in view
+" show results in bottom layout
 let g:fzf_layout = { 'down': '~40%' }
 " enable history, so we can use ctrl-p and ctrl-n to see them
 let g:fzf_history_dir = '~/.local/share/fzf-history'
