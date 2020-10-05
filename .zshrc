@@ -1,3 +1,7 @@
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 # Allow us to use Ctrl-s and Ctrl-q as keybinds
 stty -ixon
 

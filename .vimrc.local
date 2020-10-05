@@ -1,3 +1,8 @@
+" Neovim config to display command in a split window
+if has('nvim')
+    set inccommand=split
+endif
+
 set cursorline " highlight current line
 let test#strategy = "dispatch"
 let test#filename_modifier = ":p"
@@ -45,12 +50,6 @@ let g:NERDTreeMinimalUI = 1
 
 " open nerd tree on open
 autocmd vimenter * if !argc() | NERDTree | endif
-
-" Vimux Configuration
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
 
 " GitGutter: disabled by default and toggle mapping
 let g:gitgutter_enabled = 0
@@ -276,3 +275,11 @@ nnoremap <silent> <leader>go :Gbrowse<cr>
 xnoremap <silent> <leader>go :Gbrowse<cr>
 nnoremap <silent> <leader>gl :0Glog<cr>
 " }}} fugitive
+
+" Git {{{ "
+command! -nargs=0 Gmrl !lab mr -l
+command! -nargs=* Gmr !lab mr -b <q-args>
+
+nnoremap <silent> <leader>gmr :Gmr<cr>
+nnoremap <leader>gmrl :Gmrl<cr>
+" Git }}} "

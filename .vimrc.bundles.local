@@ -2,7 +2,6 @@ Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
 Plugin 'janko-m/vim-test'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'benmills/vimux'
 Plugin 'flazz/vim-colorschemes'
 " Refresh vim window when focusing on it
 Plugin 'tmux-plugins/vim-tmux-focus-events'
