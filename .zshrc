@@ -139,3 +139,5 @@ source ~/.rvm/scripts/rvm
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias g=git
