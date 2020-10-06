@@ -52,7 +52,8 @@ set mouse=a
 " keyboard shortcuts
 let mapleader = ','
 let maplocalleader = ','
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>a :Rg<space>
+xnoremap <leader>a y:Rg! <c-r>"
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
@@ -64,13 +65,6 @@ cnoremap w!! %!sudo tee > /dev/null %
 
 let g:NERDSpaceDelims=1
 let g:gitgutter_enabled = 0
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-"" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
 
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml

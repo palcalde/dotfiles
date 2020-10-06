@@ -57,7 +57,7 @@ nnoremap <leader>gg :GitGutterToggle<CR>
 
 " FZF {{{
 " exclude .gitignore files plus .git folder and add hidden files
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --hidden -g "!.git" -l ""'
 " show results in bottom layout
 let g:fzf_layout = { 'down': '~40%' }
 " enable history, so we can use ctrl-p and ctrl-n to see them
@@ -288,3 +288,18 @@ command! -nargs=* Gmr !lab mr -b <q-args>
 nnoremap <silent> <leader>gmr :Gmr<cr>
 nnoremap <leader>gmrl :Gmrl<cr>
 " Git }}} "
+
+" Make Rg not list the actual filenames
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   "rg --column --line-number --no-heading --color=always --smart-case --hidden -g '!.git' ".shellescape(<q-args>),
+      \   1,
+      \   fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'),
+      \   <bang>0
+      \ )
+
+"get rid of [  ] around icons in NerdTree
+syntax enable
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
