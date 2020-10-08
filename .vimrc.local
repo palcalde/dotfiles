@@ -30,7 +30,7 @@ nmap <c-s> :update<CR>
 vmap <c-s> <Esc><c-s>gv
 imap <c-s> <Esc><c-s>
 
-noremap! kj <ESC>
+noremap! jk <ESC>
 
 set autowrite
 set nowritebackup
