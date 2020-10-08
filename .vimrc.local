@@ -179,6 +179,11 @@ let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 
 highlight QuickScopePrimary gui=underline cterm=underline
 highlight QuickScopeSecondary gui=underline cterm=underline
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary gui=underline cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
+augroup END
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press the key below to replace all instances of it in the current file.
