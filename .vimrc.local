@@ -26,10 +26,8 @@ let g:mix_format_silent_errors = 1
 set hlsearch
 nmap <leader>hl :let @/ = ""<CR>
 
-nmap <c-s> :update<CR>
-vmap <c-s> <Esc><c-s>gv
-imap <c-s> <Esc><c-s>
-
+" Fast saving
+nmap <leader>w :w!<cr>
 noremap! jk <ESC>
 
 set autowrite
