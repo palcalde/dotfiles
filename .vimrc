@@ -2,9 +2,6 @@
 "
 set nocompatible
 
-" enable syntax highlighting
-syntax enable
-
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
