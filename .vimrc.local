@@ -21,7 +21,6 @@ nmap <leader>tv :TestVisit<CR>
 " Vim format mappings
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
-nnoremap <leader>mf :MixFormat<CR>
 
 " highlight search
 set hlsearch
@@ -69,6 +68,7 @@ nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>B :History<CR>
+nnoremap <leader>m :Marks<CR>
 " FZF }}}
 
 " TagBar: Mappings plugin
@@ -154,7 +154,17 @@ function! QuickFix_toggle()
 
     botright Copen
 endfunction
-nnoremap <silent> <Leader>c :call QuickFix_toggle()<CR>
+nnoremap <silent> <leader>C :call QuickFix_toggle()<CR>
+
+function! ToggleQuickFix()
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    copen
+  else
+    cclose
+  endif
+endfunction
+
+nnoremap <silent> <leader>c :call ToggleQuickFix()<cr>
 
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
