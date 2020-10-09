@@ -28,7 +28,6 @@ nmap <leader>hl :let @/ = ""<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
-noremap! jk <ESC>
 
 set autowrite
 set nowritebackup
