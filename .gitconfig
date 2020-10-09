@@ -1,0 +1,120 @@
+# This is Git's per-user configuration file.
+[user]
+  name = Pablo Alcalde
+  email = pablo.alcalde@cabify.com
+[core]
+  excludesfile = /Users/pabloa/.gitignore
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree2.6.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[commit]
+  template = /Users/pabloa/.stCommitMsg
+[credential]
+  helper = store
+
+# color {{{
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = red reverse
+  local = blue
+  remote = green
+
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red bold
+  new = green
+  plain = white
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+# }}}
+# push/pull/diff/options {{{
+[push]
+  default = current
+[pull]
+  default = current
+[diff]
+  mnemonicprefix = true
+[branch]
+  autosetuprebase = always
+  autosetupmerge = always
+[apply]
+  whitespace = nowarn
+
+#}}}
+# alias {{{
+[alias]
+# basic {{{
+  s = status -s
+  cl = clone
+  ci = commit
+  co = checkout
+  br = branch
+  r = reset
+  cp = cherry-pick
+  gr = grep -Ii
+  pr = pull --rebase
+  cm = commit -m
+  cma = commit -a -m
+  ca = commit --amend
+  amend = commit --amend
+  caa = commit -a --amend -C HEAD
+# }}}
+# log commands {{{
+  ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [a:%an,c:%cn]" --decorate --numstat
+  # log no color, to be used with unix pipes
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  # log dates short
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  lc  = "!f() { git ll "$1"^.."$1"; }; f"
+  le = log --oneline --decorate
+  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  fl = log -u
+  filelog = log -u
+# list branches sorted by last modified
+  b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+# list aliases
+  la = "!git config -l | grep alias | cut -c 7-"
+# }}}
+# diff {{{
+  d = diff --word-diff
+  dc = diff --cached
+  # diff files in last commit
+  dl = "!git ll -1"
+  # diff cached
+  dlc = diff --cached HEAD^
+  dr  = "!f() { git diff -w "$1"^.."$1"; }; f"
+  diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+# }}}
+# reset commands {{{
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+# }}}
+# stash {{{
+  sl = stash list
+  sa = stash apply
+  ss = stash save
+# }}}
+# }}}
+[rerere]
+  enabled = false
+[rebase]
+  autosquash = true
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs sm
