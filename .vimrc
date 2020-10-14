@@ -50,7 +50,7 @@ set mouse=a
 let mapleader = ','
 let maplocalleader = ','
 nnoremap <leader>a :Rg<space>
-xnoremap <leader>a y:Rg! <c-r>"
+xnoremap <leader>a y:Rg <c-r>"
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
