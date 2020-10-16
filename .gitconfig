@@ -65,6 +65,7 @@
   cp = cherry-pick
   gr = grep -Ii
   pr = pull --rebase
+  po = push origin
   cm = commit -m
   cma = commit -a -m
   ca = commit --amend
