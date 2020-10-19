@@ -308,6 +308,14 @@ command! -nargs=* Gmr !lab mr -b <q-args>
 nnoremap <silent> <leader>gmr :Gmr<cr>
 nnoremap <leader>gmrl :Gmrl<cr>
 " Git }}} "
+"
+" vim-go {{{ "
+au FileType go nmap <leader>r <Plug>(go-run)
+
+" use terminal buffer for console in neovim
+let g:go_term_enabled = 1
+let g:go_term_mode = "vsplit"
+" vim-go }}} "
 
 " Make Rg not list the actual filenames
 command! -bang -nargs=* Rg
