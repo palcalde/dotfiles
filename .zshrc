@@ -141,3 +141,5 @@ source ~/.rvm/scripts/rvm
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias g=git
+
+export PATH="/usr/local/opt/erlang@21/bin:$PATH"
