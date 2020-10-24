@@ -143,3 +143,5 @@ source ~/.rvm/scripts/rvm
 alias g=git
 
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
+export GOPATH=$HOME
+export GOBIN=$GOPATH/bin

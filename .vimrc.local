@@ -24,7 +24,8 @@ let g:mix_format_silent_errors = 1
 
 " highlight search
 set hlsearch
-nmap <leader>hl :let @/ = ""<CR>
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -60,12 +61,10 @@ let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
-nnoremap <silent> <Leader>l :BLines<CR>
 nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>B :History<CR>
-nnoremap <leader>m :Marks<CR>
+nnoremap <silent> <Leader><Enter> :Buffers<CR>
+nnoremap <silent> <Leader>` :Marks<CR>
 " FZF }}}
 
 " TagBar: Mappings plugin
@@ -308,8 +307,34 @@ nnoremap <silent> <leader>gmr :Gmr<cr>
 nnoremap <leader>gmrl :Gmrl<cr>
 " Git }}} "
 "
+" Open def in vertical/horizontal split
+:nnoremap <leader>v <C-w>v
+"
 " vim-go {{{ "
-au FileType go nmap <leader>r <Plug>(go-run)
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+au FileType go nmap <silent> <leader>r <Plug>(go-run)
+au FileType go nmap <silent> <leader>t <Plug>(go-test)
+au FileType go nmap <silent> <leader>e <Plug>(go-install)
+au FileType go nmap <silent> <Leader>i <Plug>(go-info)
+au FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
+au FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
+au FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
+au FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
+" Find and open respective test go file
+au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " use terminal buffer for console in neovim
 let g:go_term_enabled = 1
@@ -331,4 +356,20 @@ command! -bang -nargs=* Rg
 if !exists('g:syntax_on')
   syntax enable
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs, windows and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
+
+" Close all the buffers
+" map <leader>ba :bufdo bd<cr>
+
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <C-space> ?
 
