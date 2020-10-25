@@ -339,6 +339,9 @@ au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 " use terminal buffer for console in neovim
 let g:go_term_enabled = 1
 let g:go_term_mode = "vsplit"
+
+" Add go special tab identitation
+autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 " vim-go }}} "
 
 " Make Rg not list the actual filenames
@@ -372,4 +375,3 @@ map <leader>h :bprevious<cr>
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 map <C-space> ?
-
