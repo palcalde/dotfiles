@@ -61,7 +61,6 @@ let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
-nnoremap <silent> <Leader>L :Lines<CR>
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
@@ -224,9 +223,6 @@ vmap y ygv<Esc>
 noremap x "_x
 noremap X "_x
 
-" Cycle through splits.
-nnoremap <S-Tab> <C-w>w
-
 " -----------------------------------------------------------------------------
 " Color settings
 " -----------------------------------------------------------------------------
@@ -329,6 +325,7 @@ au FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
 au FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
 au FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
 au FileType go nmap <silent> <Leader>c <Plug>(go-coverage-toggle)
+au FileType go nmap <silent> <Leader>L <Plug>(go-metalinter)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Find and open respective test go file
 au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
@@ -364,7 +361,7 @@ endif
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>Bd :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
 " map <leader>ba :bufdo bd<cr>
@@ -375,3 +372,25 @@ map <leader>h :bprevious<cr>
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 map <C-space> ?
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+  let l:currentBufNum = bufnr("%")
+  let l:alternateBufNum = bufnr("#")
+
+  if buflisted(l:alternateBufNum)
+    buffer #
+  else
+    bnext
+  endif
+
+  if bufnr("%") == l:currentBufNum
+    new
+  endif
+
+  if buflisted(l:currentBufNum)
+    execute("bdelete! ".l:currentBufNum)
+  endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
