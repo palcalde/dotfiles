@@ -5,7 +5,7 @@ endif
 
 set cursorline " highlight current line
 let test#strategy = "dispatch"
-let test#filename_modifier = ":p"
+" let test#filename_modifier = ":p"
 
 " Fix issue with tmuxnavigator and tmp files
 " https://github.com/christoomey/vim-tmux-navigator/issues/105
