@@ -65,7 +65,7 @@
   cp = cherry-pick
   gr = grep -Ii
   pr = pull --rebase
-  prb = "!f() { git fetch && git rebase origin/$2; };f"
+  prb = "!f() { git fetch && git rebase origin/$1; };f"
   po = push origin
   cm = commit -m
   cma = commit -a -m
