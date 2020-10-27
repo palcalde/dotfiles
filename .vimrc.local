@@ -48,10 +48,6 @@ let g:NERDTreeMinimalUI = 1
 " open nerd tree on open
 autocmd vimenter * if !argc() | NERDTree | endif
 
-" GitGutter: disabled by default and toggle mapping
-let g:gitgutter_enabled = 0
-nnoremap <leader>gg :GitGutterToggle<CR>
-
 " FZF {{{
 " exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'rg --hidden -g "!.git" -l ""'
@@ -232,9 +228,11 @@ augroup END
 " Remove background color for panels vertical split separator
 hi VertSplit ctermbg=NONE guibg=NONE
 
-" Needs to be after colorscheme: Update highlight color
-hi CurrentWordTwins ctermbg=NONE ctermfg=NONE guibg=#414756 guifg=NONE cterm=NONE gui=NONE
-hi CurrentWord ctermbg=NONE ctermfg=NONE guibg=#414756 guifg=NONE cterm=NONE gui=NONE
+" Update highlight color
+hi CurrentWordTwins ctermbg=NONE ctermfg=NONE guibg=#3E4552 guifg=NONE cterm=NONE gui=NONE
+hi CurrentWord ctermbg=NONE ctermfg=NONE guibg=#3E4552 guifg=NONE cterm=NONE gui=NONE
+" Update Visual color
+hi Visual guifg=NONE guibg=#596277 gui=NONE
 
 " airline {{{ "
 let g:airline#extensions#tabline#enabled = 1
@@ -316,10 +314,10 @@ au FileType go nmap <silent> <Leader>tc <Plug>(go-coverage-toggle)
 au FileType go nmap <silent> <Leader>L <Plug>(go-metalinter)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Find and open respective test go file
-au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " use terminal buffer for console in neovim
 let g:go_term_enabled = 1
