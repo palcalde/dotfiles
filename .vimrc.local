@@ -318,7 +318,6 @@ function! s:build_go_files()
 endfunction
 
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
-au FileType go nmap <silent> <leader>t <Plug>(go-test)
 au FileType go nmap <silent> <leader>e <Plug>(go-install)
 au FileType go nmap <silent> <Leader>i <Plug>(go-info)
 au FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
@@ -397,3 +396,14 @@ function! <SID>BufcloseCloseIt()
   endif
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Smart mappings on the command line
+cno $c e <C-\>eCurrentFileDir("e")<cr>
+
+" Bash like keys for the command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
+
+func! CurrentFileDir(cmd)
+  return a:cmd . " " . expand("%:p:h") . "/"
+endfunc
