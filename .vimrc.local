@@ -138,19 +138,6 @@ inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 " -----------------------
 
 " Quickfix window {{{
-function! QuickFix_toggle()
-    for i in range(1, winnr('$'))
-        let bnum = winbufnr(i)
-        if getbufvar(bnum, '&buftype') == 'quickfix'
-            cclose
-            return
-        endif
-    endfor
-
-    botright Copen
-endfunction
-nnoremap <silent> <leader>C :call QuickFix_toggle()<CR>
-
 function! ToggleQuickFix()
   if empty(filter(getwininfo(), 'v:val.quickfix'))
     copen
@@ -160,14 +147,6 @@ function! ToggleQuickFix()
 endfunction
 
 nnoremap <silent> <leader>c :call ToggleQuickFix()<cr>
-
-" Position the (global) quickfix window at the very bottom of the window
-" (useful for making sure that it appears underneath splits)
-"
-" NOTE: Using a check here to make sure that window-specific location-lists
-" aren't effected, as they use the same `FileType` as quickfix-lists.
-autocmd FileType qf if (getwininfo(win_getid())[0].loclist != 1) | wincmd J | endif
-" Quickfix window }}}
 
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
