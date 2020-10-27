@@ -156,17 +156,6 @@ set pastetoggle=<F5>
 " Unset paste on InsertLeave.
 autocmd InsertLeave * silent! set nopaste
 
-" Trigger a highlight in the appropriate direction when pressing these keys.
-let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
-
-highlight QuickScopePrimary gui=underline cterm=underline
-highlight QuickScopeSecondary gui=underline cterm=underline
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary gui=underline cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
-augroup END
-
 " Press * to search for the term under the cursor or a visual selection and
 " then press the key below to replace all instances of it in the current file.
 nnoremap <Leader>r :%s///g<Left><Left>
@@ -205,6 +194,14 @@ noremap X "_x
 " -----------------------------------------------------------------------------
 " Color settings
 " -----------------------------------------------------------------------------
+"
+" Instead of syntax on, use This
+" to avoid problems with devicons
+" https://github.com/ryanoasis/vim-devicons/issues/215#issuecomment-377782464
+if !exists('g:syntax_on')
+  syntax enable
+endif
+
 
 " Enable 24-bit true colors if your terminal supports it.
 if (has("termguicolors"))
@@ -219,6 +216,25 @@ endif
 set background=dark
 
 colorscheme one
+
+" Trigger a highlight in the appropriate direction when pressing these keys.
+let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary gui=underline cterm=underline
+highlight QuickScopeSecondary gui=underline cterm=underline
+
+augroup qs_colors
+  autocmd!
+  autocmd ColorScheme * highlight QuickScopePrimary gui=underline cterm=underline
+  autocmd ColorScheme * highlight QuickScopeSecondary gui=underline cterm=underline
+augroup END
+
+" Remove background color for panels vertical split separator
+hi VertSplit ctermbg=NONE guibg=NONE
+
+" Needs to be after colorscheme: Update highlight color
+hi CurrentWordTwins ctermbg=NONE ctermfg=NONE guibg=#414756 guifg=NONE cterm=NONE gui=NONE
+hi CurrentWord ctermbg=NONE ctermfg=NONE guibg=#414756 guifg=NONE cterm=NONE gui=NONE
 
 " airline {{{ "
 let g:airline#extensions#tabline#enabled = 1
@@ -256,12 +272,6 @@ nnoremap <Down> :resize +10<CR>
 " Disable tmux handler so it defaults to Job one, which uses quicklist instead
 " of tmux pane to run tests
 let g:dispatch_no_tmux_make = 1
-
-" Update highlight color
-hi Search ctermbg=110 ctermfg=235 guibg=#343434 guifg=white cterm=NONE gui=NONE
-
-" Remove background color for panels vertical split separator
-hi VertSplit ctermbg=NONE guibg=NONE
 
 " Fugitive {{{
 let g:fugitive_gitlab_domains = ['https://gitlab.otters.xyz']
@@ -317,6 +327,12 @@ let g:go_term_mode = "vsplit"
 
 " Add go special tab identitation
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_types = 1
 " vim-go }}} "
 
 " Make Rg not list the actual filenames
@@ -327,13 +343,6 @@ command! -bang -nargs=* Rg
       \   fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'),
       \   <bang>0
       \ )
-
-" Instead of syntax on, use This
-" to avoid problems with devicons
-" https://github.com/ryanoasis/vim-devicons/issues/215#issuecomment-377782464
-if !exists('g:syntax_on')
-  syntax enable
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
