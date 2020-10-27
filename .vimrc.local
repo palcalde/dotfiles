@@ -58,7 +58,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
 nnoremap <silent> <C-p> :FZF -m<CR>
-nnoremap <silent> <Leader><Enter> :Buffers<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
 " FZF }}}
 
@@ -234,6 +234,19 @@ hi CurrentWord ctermbg=NONE ctermfg=NONE guibg=#3E4552 guifg=NONE cterm=NONE gui
 " Update Visual color
 hi Visual guifg=NONE guibg=#596277 gui=NONE
 
+" Toggle CurrentWord
+map <leader>j :ToggleCurrentWord<CR>
+command! ToggleCurrentWord call ToggleCurrentWord()
+
+function ToggleCurrentWord()
+  if g:vim_current_word#enabled == 1
+    call vim_current_word#vim_current_word_disable()
+  else
+    call vim_current_word#vim_current_word_enable()
+    call vim_current_word#highlight_word_under_cursor()
+  endif
+endfunction
+
 " airline {{{ "
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -312,7 +325,7 @@ au FileType go nmap <silent> <Leader>s <Plug>(go-def-split)
 au FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
 au FileType go nmap <silent> <Leader>tc <Plug>(go-coverage-toggle)
 au FileType go nmap <silent> <Leader>L <Plug>(go-metalinter)
-au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <silent> <leader>B :<C-u>call <SID>build_go_files()<CR>
 " Find and open respective test go file
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
