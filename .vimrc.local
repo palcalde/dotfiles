@@ -235,7 +235,8 @@ hi CurrentWord ctermbg=NONE ctermfg=NONE guibg=#3E4552 guifg=NONE cterm=NONE gui
 hi Visual guifg=NONE guibg=#596277 gui=NONE
 
 " Toggle CurrentWord
-map <leader>j :ToggleCurrentWord<CR>
+let vim_current_word#enabled = 0
+map <leader>. :ToggleCurrentWord<CR>
 command! ToggleCurrentWord call ToggleCurrentWord()
 
 function ToggleCurrentWord()
