@@ -346,6 +346,10 @@ let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 " vim-go }}} "
 
 " Make Rg not list the actual filenames
@@ -414,9 +418,11 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
-" Disabling highlighting
+" Disabling highlighting in ALE and in vim-go
 let g:ale_set_highlights = 0
+let g:go_fmt_fail_silently = 0
 
 " Only run linting when saving the file
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_lint_on_insert_leave=0
