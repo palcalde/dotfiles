@@ -406,8 +406,10 @@ endfunc
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
 " Disabling highlighting in ALE and in vim-go
+" so it doesn't open quickfix nor location list windows
+" when linting
 let g:ale_set_highlights = 0
-let g:go_fmt_fail_silently = 0
+let g:go_fmt_fail_silently = 1
 
 " Only run linting when saving the file
 let g:ale_lint_on_text_changed = 'never'
