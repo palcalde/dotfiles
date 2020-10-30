@@ -126,7 +126,7 @@ inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
 
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
-inoremap <expr> <Tab> pumvisible() ? "<C-y>" : "<Tab>"
+inoremap <expr> <C-j> pumvisible() ? "<C-y>" : "<Tab>"
 
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
