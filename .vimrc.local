@@ -343,6 +343,10 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
+
+" disable autosave linter, we are using ALE as linter
+let g:go_fmt_autosave = 0
+
 " vim-go }}} "
 
 " Make Rg not list the actual filenames
