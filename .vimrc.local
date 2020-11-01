@@ -120,18 +120,23 @@ set shortmess+=c
 " Toggle spell check.
 map <F6> :setlocal spell!<CR>
 
-" Autocompletion window: Navigate the complete menu items like CTRL+n / CTRL+p would.
+" Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
 
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
-inoremap <expr> <C-j> pumvisible() ? "<C-y>" : "<Tab>"
+inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
-" -----------------------
+" .............................................................................
+" SirVer/ultisnips
+" .............................................................................
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Quickfix window {{{
 function! ToggleQuickFix()
