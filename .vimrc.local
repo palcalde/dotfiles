@@ -51,6 +51,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " FZF {{{
 " exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'rg --hidden -g "!.git" -l ""'
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
 " show results in bottom layout
 let g:fzf_layout = { 'down': '~40%' }
 " enable history, so we can use ctrl-p and ctrl-n to see them
@@ -354,14 +356,12 @@ let g:go_fmt_autosave = 0
 
 " vim-go }}} "
 
-" Make Rg not list the actual filenames
+" Allow to pass commands to RG
+" Search by default hidden files except .git folder
 command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   "rg --column --line-number --no-heading --color=always --smart-case --hidden -g '!.git' ".shellescape(<q-args>),
-      \   1,
-      \   fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'),
-      \   <bang>0
-      \ )
+  \ call fzf#vim#grep(
+  \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
+  \ <q-args>, 1, fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'), <bang>0)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
