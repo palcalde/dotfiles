@@ -21,10 +21,13 @@ filetype plugin indent on
 
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set autoindent                                               " automatically indent on new lines
-set backspace=2                                              " Fix broken backspace in some setups
+set backspace=indent,eol,start                               " Makes backspace key more powerful
 set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
+set nobackup                                                 " Don't create annoying backup files
+set splitbelow                                               " Split horizontal windows below to the current windows
+set noswapfile                                               " Don't use swapfile
 set encoding=utf-8
 set expandtab                                                " expand tabs to spaces
 set ignorecase                                               " case-insensitive search
@@ -35,13 +38,20 @@ set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
 set shiftwidth=2                                             " normal mode indentation commands use 4 spaces
-set showcmd
+set showcmd                                                  " Show me what I'm typing
 set smartcase                                                " case-sensitive search if any caps
 set softtabstop=2                                            " insert mode tab and backspace use 4 spaces
 set tabstop=2                                                " actual tabs occupy 4 characters
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+set autowrite                                                " Automatically save before :next, :make etc.
+set nocursorcolumn                                           " speed up syntax highlighting
+set nocursorline
+set updatetime=300
+set pumheight=10                                             " Completion window max size
+set conceallevel=2                                           " Concealed text is completely hidden
+set lazyredraw
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a

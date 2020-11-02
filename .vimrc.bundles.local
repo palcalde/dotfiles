@@ -5,9 +5,6 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'flazz/vim-colorschemes'
 " Refresh vim window when focusing on it
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-" " Vim status line
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 " Tmux status line
 Plugin 'edkolev/tmuxline.vim'
 " Awesome zfz fuzzy search
