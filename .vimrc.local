@@ -327,8 +327,7 @@ let g:delimitMate_expand_inside_quotes = 0
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'   
 
 " ==================== Completion + Snippet ====================
-" Ultisnips has native support for SuperTab. SuperTab does omnicompletion by
-" pressing tab. I like this better than autocompletion, but it's still fast.
+" Ultisnips has native support for SuperTab.
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"  
@@ -400,11 +399,37 @@ au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " use terminal buffer for console in neovim
-let g:go_term_enabled = 1
-let g:go_term_mode = "vsplit"
+" let g:go_term_enabled = 1
+" let g:go_term_mode = "vsplit"
 
 " Add go special tab identitation
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_debug_windows = {
+      \ 'vars':  'leftabove 35vnew',
+      \ 'stack': 'botright 10new',
+\ }
+
+let g:go_test_prepend_name = 1
+let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 0
+let g:go_auto_sameids = 0
+
+let g:go_null_module_warning = 0
+let g:go_echo_command_info = 1
+
+let g:go_autodetect_gopath = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
+
+let g:go_info_mode = 'gopls'
+let g:go_rename_command='gopls'
+let g:go_gopls_complete_unimported = 1
+let g:go_implements_mode='gopls'
+let g:go_diagnostics_enabled = 1
+let g:go_doc_popup_window = 1
 
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
@@ -415,9 +440,10 @@ let g:go_highlight_types = 0
 let g:go_highlight_operators = 1
 let g:go_highlight_format_strings = 0
 let g:go_highlight_function_calls = 0
+let g:go_gocode_propose_source = 1
 
-" disable autosave linter, we are using ALE as linter
-let g:go_fmt_autosave = 0
+let g:go_modifytags_transform = 'camelcase'
+let g:go_fold_enable = []
 
 " vim-go }}} "
 
@@ -520,3 +546,6 @@ noremap k gk
 
 " Exit on j
 imap jj <Esc>
+
+" Center the screen
+nnoremap <space> zz

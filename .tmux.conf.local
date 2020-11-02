@@ -9,9 +9,6 @@ set-window-option -g other-pane-width 40
 bind-key v split-window -h -c "#{pane_current_path}" -p 40
 bind-key s split-window -v -c "#{pane_current_path}" -p 40
 
-# load tmuxline styling to color the tmux status bar
-source-file ~/Documents/Projects/dotfiles/.tmux-snapshot
-
 # Smart pane switching between tmux and vim, with awareness of fzf
 forward_programs="view|n?vim?|fzf"
 
@@ -34,10 +31,6 @@ bind -n M-l resize-pane -R 5
 set -g default-terminal "screen-256color"
 set -ga terminal-overrides ",*256col*:Tc"
 
-# Colors optimized for Atom One Dark.
-set -g status-style fg=colour110
-set -g status-style bg=default
-
 set -g pane-border-style fg=colour240
 set -g pane-active-border-style fg=colour243
 
@@ -55,6 +48,7 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
+set -g @plugin 'odedlaz/tmux-onedark-theme'
 
 # Start window and pane indices at 1
 set -g base-index 1
