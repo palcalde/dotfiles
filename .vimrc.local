@@ -215,19 +215,19 @@ hi VertSplit ctermbg=NONE guibg=NONE
 "=====================================================
 "===================== STATUSLINE ====================
 " from: https://github.com/fatih/dotfiles/blob/master/vimrc#L138
-let s:modes = {
-      \ 'n': 'NORMAL', 
-      \ 'i': 'INSERT', 
-      \ 'R': 'REPLACE', 
-      \ 'v': 'VISUAL', 
-      \ 'V': 'V-LINE', 
-      \ "\<C-v>": 'V-BLOCK',
-      \ 'c': 'COMMAND',
-      \ 's': 'SELECT', 
-      \ 'S': 'S-LINE', 
-      \ "\<C-s>": 'S-BLOCK', 
-      \ 't': 'TERMINAL'
-      \}
+let s:modes = { 
+            \ 'n': 'NORMAL',
+            \ 'i': 'INSERT',
+            \ 'R': 'REPLACE',
+            \ 'v': 'VISUAL',
+            \ 'V': 'V-LINE',
+            \ "               \ <C-v>": 'V-BLOCK',
+            \ 'c': 'COMMAND',
+            \ 's': 'SELECT',
+            \ 'S': 'S-LINE',
+            \ "               \ <C-s>": 'S-BLOCK',
+            \ 't': 'TERMINAL'
+            \ }
 
 let s:prev_mode = ""
 function! StatusLineMode()
