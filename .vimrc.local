@@ -209,10 +209,6 @@ let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 highlight QuickScopePrimary gui=underline cterm=underline
 highlight QuickScopeSecondary gui=underline cterm=underline
 
-" Updace Visual color
-" hi Visual ctermbg=17 guibg=#3e4452
-" hi Search ctermbg=17 guibg=#3e4452
-
 " Remove background color for panels vertical split separator
 hi VertSplit ctermbg=NONE guibg=NONE
 
