@@ -276,10 +276,14 @@ nnoremap <Left> :vertical resize -10<CR>
 nnoremap <Right> :vertical resize +10<CR>
 nnoremap <Up> :resize -10<CR>
 nnoremap <Down> :resize +10<CR>
+ 
+" ==================== Vim Visual Multi  ====================
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"]    = '<M-j>'   " new cursor down
+let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
 
-" Vim-Dispatch
-" Disable tmux handler so it defaults to Job one, which uses quicklist instead
-" of tmux pane to run tests
+" ==================== Vim-Dispatch ====================
+" Run tests in quicklist
 let g:dispatch_no_tmux_make = 1
 
 " Fugitive {{{
@@ -474,8 +478,6 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_insert_leave=0
 
 " Visual linewise up and down by default (and use gj gk to go quicker)
-noremap <Up> gk
-noremap <Down> gj
 noremap j gj
 noremap k gk
 
