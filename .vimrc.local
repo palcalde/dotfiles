@@ -27,7 +27,6 @@ let g:mix_format_silent_errors = 1
 set hlsearch
 
 " Remove search highlight
-" nnoremap <leader><space> :nohlsearch<CR>
 function! s:clear_highlight()
   let @/ = ""
   call go#guru#ClearSameIds()
@@ -262,7 +261,7 @@ let g:delimitMate_expand_inside_quotes = 0
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'   
 
 " ==================== Completion + Snippet ====================
-" Ultisnips has native support for SuperTab.
+" Ultisnips has native support for Superab.
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"  
@@ -282,10 +281,7 @@ let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"]    = '<M-j>'   " new cursor down
 let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
 
-" ==================== Vim-Dispatch ====================
-" Run tests in quicklist
-let g:dispatch_no_tmux_make = 1
-
+" ==================== Vim-Fugitive ====================
 " Fugitive {{{
 let g:fugitive_gitlab_domains = ['https://gitlab.otters.xyz']
 let g:fugitive_gitlab_domains = ['https://gitlab.otters.xyz']
@@ -424,9 +420,18 @@ map <leader>Ba :bufdo bd<cr>
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <C-space> ?
+" Useful mappings for managing tabs
+map <leader>tc :tabclose<cr>
+map <leader>t<leader> :tabnext 
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
+
+" Let 'tt' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tt :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
