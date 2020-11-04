@@ -31,7 +31,7 @@ function! s:clear_highlight()
   let @/ = ""
   call go#guru#ClearSameIds()
 endfunction
-nnoremap <silent> <leader><space> :<C-u>call <SID>clear_highlight()<CR>
+nnoremap <silent> <leader><CR> :<C-u>call <SID>clear_highlight()<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -66,7 +66,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
 nnoremap <silent> <C-p> :FZF -m<CR>
-nnoremap <silent> <Leader><CR> :Buffers<CR>
+nnoremap <silent> <Leader><space> :Buffers<CR>
 nnoremap <silent> <Leader>s :Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
 " FZF }}}
