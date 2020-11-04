@@ -143,7 +143,7 @@ source ~/.rvm/scripts/rvm
 alias g=git
 
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
+export PATH="/usr/local/Cellar/python@3.9/3.9.0_1/libexec/bin/:$PATH"
+
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/go/bin
-export PATH="$GOBIN:$PATH"
-export PATH="/usr/local/Cellar/python@3.9/3.9.0_1/libexec/bin/:$PATH"
