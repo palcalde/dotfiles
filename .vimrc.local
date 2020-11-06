@@ -65,8 +65,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " mappings
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <silent> <Leader><space> :Buffers<CR>
-nnoremap <silent> <Leader>s :Snippets<CR>
+inoremap <c-l> <c-\><c-o>:Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
+
 " FZF }}}
 
 " TagBar: Adapt for elixir
@@ -264,10 +265,13 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 " Completion + Snippet
 " Ultisnips has native support for Superab.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:UltiSnipsExpandTrigger="<tab>"
+" loop forward in the results list
+let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"  
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
+
+" autocomplete with tab
+inoremap <expr> <tab> pumvisible() ? "<C-y>" : "<Right>"
 
 " make nvim work with python and ruby
 let g:python3_host_prog='/usr/local/bin/python3'
@@ -347,8 +351,8 @@ au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " use terminal buffer for console in neovim
-" let g:go_term_enabled = 1
-" let g:go_term_mode = "vsplit"
+let g:go_term_enabled = 1
+let g:go_term_mode = "vsplit"
 
 " Add go special tab identitation
 autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
