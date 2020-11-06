@@ -271,6 +271,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"  
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
+" make nvim work with python and ruby
+let g:python3_host_prog='/usr/local/bin/python3'
+let g:python_host_prog='/usr/bin/python2'
+let g:ruby_host_prog='/Users/pabloa/.rvm/rubies/ruby-2.6.3/bin/ruby'
+
 " Open tag under cursor in vsplit
 noremap <C-W>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
@@ -399,6 +404,19 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
   \ <q-args>, 1, fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'), <bang>0)
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+if !has('gui_running')
+  set notimeout
+  set ttimeout
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
+endif
 
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = ''
