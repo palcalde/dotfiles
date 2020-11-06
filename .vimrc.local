@@ -59,8 +59,6 @@ autocmd vimenter * if !argc() | NERDTree | endif
 let $FZF_DEFAULT_COMMAND = 'rg --hidden -g "!.git" -l ""'
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
-" show results in bottom layout
-let g:fzf_layout = { 'down': '~40%' }
 " enable history, so we can use ctrl-p and ctrl-n to see them
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
