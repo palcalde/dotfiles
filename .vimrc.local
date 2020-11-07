@@ -270,8 +270,15 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"  
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
-" autocomplete with tab
-inoremap <expr> <tab> pumvisible() ? "<C-y>" : "<Right>"
+" ExpandSnippet: returns 1 if succeded 0 otherwise
+let g:ulti_expand_or_jump_res = 0 
+function! ExpandSnippet()
+  call UltiSnips#ExpandSnippetOrJump()
+  return g:ulti_expand_or_jump_res
+endfunction
+
+" map will try to expand snippet || pick selection from autocomplete || normal tab
+inoremap <tab> <C-R>=(ExpandSnippet() > 0) ? "" : pumvisible() ? "<C-y>" : "<tab>" <CR>
 
 " make nvim work with python and ruby
 let g:python3_host_prog='/usr/local/bin/python3'
