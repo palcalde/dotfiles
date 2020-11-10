@@ -296,8 +296,9 @@ nnoremap <Down> :resize +10<CR>
 " Vim Visual Multi
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:VM_maps = {}
-let g:VM_maps["Add Cursor Down"]    = '<M-j>'   " new cursor down
-let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
+" ESC is ^] which is what iterm sends for Option key in vim
+let g:VM_maps["Add Cursor Down"]    = '<ESC>j'   " new cursor down
+let g:VM_maps["Add Cursor Up"]      = '<ESC>k'   " new cursor up
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
