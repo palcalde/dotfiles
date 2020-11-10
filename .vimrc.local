@@ -132,8 +132,6 @@ set nospell
 set shortmess+=c
 " Toggle spell check.
 map <F6> :setlocal spell!<CR>
-" Select the complete menu item like CTRL+y would.
-inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 
 " Quickfix window {{{
 function! ToggleQuickFix()
@@ -271,14 +269,14 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
 " ExpandSnippet: returns 1 if succeded 0 otherwise
-let g:ulti_expand_or_jump_res = 0 
+let g:ulti_expand_res = 0 
 function! ExpandSnippet()
-  call UltiSnips#ExpandSnippetOrJump()
-  return g:ulti_expand_or_jump_res
+  call UltiSnips#ExpandSnippet()
+  return g:ulti_expand_res
 endfunction
 
 " map will try to expand snippet || pick selection from autocomplete || normal tab
-inoremap <tab> <C-R>=(ExpandSnippet() > 0) ? "" : pumvisible() ? "<C-y>" : "<tab>" <CR>
+inoremap <silent><tab> <C-R>=(ExpandSnippet() > 0) ? "" : pumvisible() ? "<C-y>" : "<tab>" <CR>
 
 " make nvim work with python and ruby
 let g:python3_host_prog='/usr/local/bin/python3'
@@ -300,6 +298,7 @@ nnoremap <Down> :resize +10<CR>
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"]    = '<M-j>'   " new cursor down
 let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Fugitive
