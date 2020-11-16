@@ -65,6 +65,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " mappings
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <silent> <Leader><space> :Buffers<CR>
+nnoremap <silent> <Leader>L       :Lines<CR>
 inoremap <c-l> <c-\><c-o>:Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
 
@@ -345,7 +346,6 @@ au FileType go nmap <silent> <Leader>i <Plug>(go-info)
 au FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
 au FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
 au FileType go nmap <silent> <Leader>tc <Plug>(go-coverage-toggle)
-au FileType go nmap <silent> <Leader>L <Plug>(go-metalinter)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <leader>. :GoSameIdsAutoToggle<CR>
 " Alternate between test and implementation file
