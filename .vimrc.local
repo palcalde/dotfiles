@@ -400,8 +400,6 @@ let g:go_null_module_warning = 0
 let g:go_echo_command_info = 1
 
 let g:go_autodetect_gopath = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint']
 
 let g:go_info_mode = 'gopls'
 let g:go_rename_command='gopls'
@@ -542,6 +540,8 @@ let g:go_fmt_fail_silently = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_insert_leave=0
+" use golang-ci as linter
+let g:ale_linters = { 'go': ['gofmt', 'golint', 'govet', 'golangci-lint'] }
 
 " Visual linewise up and down by default (and use gj gk to go quicker)
 noremap j gj

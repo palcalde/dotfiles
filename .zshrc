@@ -70,3 +70,5 @@ export PATH="/usr/local/opt/erlang@21/bin:$PATH"
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/go/bin
+
+export PATH="$GOPATH/bin:$PATH"
