@@ -46,6 +46,8 @@ let g:NERDTreeMapJumpNextSibling = '<Nop>'
 let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 " Let NerdTree show hiden files
 let NERDTreeShowHidden=1
+" don't show .git
+let NERDTreeIgnore=['\.git$']
 " Config win size
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=0
