@@ -319,11 +319,8 @@ nnoremap <silent> <leader>gl :0Glog<cr>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GITLAB CLI: https://github.com/lighttiger2505/lab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -nargs=0 Gmrl :cexpr system('lab mr -l') | copen
-command! -nargs=0 Gmr :cexpr system(input("", "lab mr -b ")) | copen
-
+command! -nargs=0 Gmr :call system('lab mr -b')
 nnoremap <silent> <leader>gmr :Gmr<cr>
-nnoremap <leader>gmrl :Gmrl<cr>
 
 " Run commands in ex mode and put result in quickfix
 command -nargs=+ Run :cexpr system('<args>') | copen
