@@ -514,8 +514,10 @@ function! <SID>BufcloseCloseIt()
     execute("bdelete! ".l:currentBufNum)
   endif
 endfunction
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart mappings on the command line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " Bash like keys for the command line
@@ -547,6 +549,23 @@ let g:ale_linters = { 'go': ['gofmt', 'golint', 'govet', 'golangci-lint'] }
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = ''
 
+" ----------------------------------------------------------------------------
+" :Root | Change directory to the root of the Git repository
+" from https://github.com/junegunn/dotfiles/blob/master/vimrc#L657
+"  ----------------------------------------------------------------------------
+function! s:root()
+  let root = systemlist('git rev-parse --show-toplevel')[0]
+  if v:shell_error
+    echo 'Not in git repo'
+  else
+    execute 'lcd' root
+    echo 'Changed directory to: '.root
+  endif
+endfunction
+command! Root call s:root()
+
+" """"""""""""""""""""""""""""""
+"
 " Visual linewise up and down by default (and use gj gk to go quicker)
 noremap j gj
 noremap k gk
