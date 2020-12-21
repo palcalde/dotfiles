@@ -387,7 +387,10 @@ augroup filetypedetect
 augroup END
 
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gofmt"
+let g:go_fmt_options = {
+      \ 'gofmt': '-s',
+      \ }
 let g:go_debug_windows = {
       \ 'vars':  'leftabove 35vnew',
       \ 'stack': 'botright 10new',
@@ -538,16 +541,14 @@ nmap <silent> <leader>n <Plug>(ale_next_wrap)
 " so it doesn't open quickfix nor location list windows
 " when linting
 let g:ale_set_highlights = 0
-let g:go_fmt_fail_silently = 1
 
 " Only run linting when saving the file
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
 let g:ale_lint_on_insert_leave=0
 " use golang-ci as linter
-let g:ale_linters = { 'go': ['gofmt', 'golint', 'govet', 'golangci-lint'] }
+let g:ale_linters = { 'go': ['golangci-lint'] }
 let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = ''
+let g:ale_go_golangci_lint_options = '-E gofmt -E goimports -E golint -E govet'
 
 " ----------------------------------------------------------------------------
 " :Root | Change directory to the root of the Git repository
