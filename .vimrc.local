@@ -548,7 +548,7 @@ let g:ale_lint_on_insert_leave=0
 " use golang-ci as linter
 let g:ale_linters = { 'go': ['golangci-lint'] }
 let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = '-E gofmt -E goimports -E golint -E govet'
+let g:ale_go_golangci_lint_options = '-E goimports -E golint -E govet'
 
 " ----------------------------------------------------------------------------
 " :Root | Change directory to the root of the Git repository
