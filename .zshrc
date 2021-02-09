@@ -78,3 +78,9 @@ export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pabloa/Documents/Projects/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc'; fi
