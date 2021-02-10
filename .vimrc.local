@@ -50,11 +50,17 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.git$']
 " Config win size
 let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeQuitOnOpen=0
 let g:NERDTreeMinimalUI = 1
+" add keepopen to default options so stays open when opening a file
+let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'keepopen': 1 }, 'dir': {}}
+" open NerdTree on StartUp
+function! StartUp()
+  if 0 == argc()
+    NERDTree
+  end
+endfunction
 
-" open nerd tree on open
-autocmd vimenter * if !argc() | NERDTree | endif
+autocmd VimEnter * call StartUp()
 
 " FZF {{{
 " exclude .gitignore files plus .git folder and add hidden files
