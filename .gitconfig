@@ -4,7 +4,7 @@
   email = pablo.alcalde@cabify.com
 [core]
   excludesfile = /Users/pabloa/.gitignore
-  editor = /usr/local/bin/nvim
+  editor = /usr/local/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -73,6 +73,7 @@
   ca = commit --amend
   amend = commit --amend
   caa = commit -a --amend -C HEAD
+  prunebr = "!git branch --merged | egrep -v \"(^\\*|master|dev|main)\" | xargs git branch -d "
 # }}}
 # log commands {{{
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
