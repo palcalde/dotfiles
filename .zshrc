@@ -52,10 +52,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source ~/.rvm/scripts/rvm
-
 # Load z.sh https://github.com/rupa/z
 . ~/z-master/z.sh
 
@@ -64,6 +60,7 @@ source ~/.rvm/scripts/rvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# git alias
 alias g=git
 
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
@@ -72,6 +69,7 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/go/bin
 
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$GOPATH/go/bin:$PATH"
 # allow go get to fetch all private repositories from cabify org
 export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*
 
@@ -84,3 +82,7 @@ if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/path.zsh.inc' ]; then
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
