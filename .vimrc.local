@@ -499,9 +499,9 @@ map <leader>t<leader> :tabnext
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
 " Search word under the cursor
-nnoremap <silent> <leader>rg       :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>RG       :Rg <C-R><C-A><CR>
-xnoremap <silent> <leader>rg       y:Rg <C-R>"<CR>
+nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
+xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
 
 " Let 'tt' toggle between this and the last accessed tab
 let g:lasttab = 1
