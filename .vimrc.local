@@ -367,6 +367,7 @@ au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 let g:go_term_enabled = 1
 let g:go_term_mode = "vsplit"
 let g:go_term_close_on_exit = 0
+let g:go_term_reuse = 1
 
 " Add go special tab identitation
 augroup filetypedetect
