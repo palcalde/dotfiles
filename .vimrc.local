@@ -363,12 +363,6 @@ au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
-" use terminal buffer for console in neovim
-let g:go_term_enabled = 1
-let g:go_term_mode = "vsplit"
-let g:go_term_close_on_exit = 0
-let g:go_term_reuse = 1
-
 " Add go special tab identitation
 augroup filetypedetect
   autocmd FileType help wincmd L
@@ -394,7 +388,11 @@ augroup filetypedetect
   autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 
-let g:go_fmt_fail_silently = 1
+" use terminal buffer for console in neovim
+let g:go_term_enabled = 1
+let g:go_term_mode = "split above"
+
+let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_fmt_options = {
       \ 'gofmt': '-s',
@@ -434,6 +432,7 @@ let g:go_gocode_propose_source = 1
 
 let g:go_modifytags_transform = 'camelcase'
 let g:go_fold_enable = []
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
