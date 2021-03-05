@@ -363,6 +363,10 @@ au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
+
+" Indent-guides disable mappings
+let g:indent_guides_default_mapping = 0
+
 " Add go special tab identitation
 augroup filetypedetect
   autocmd FileType help wincmd L
