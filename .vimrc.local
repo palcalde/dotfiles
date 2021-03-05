@@ -446,7 +446,7 @@ let g:go_fold_enable = []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
+  \ "rg --column --line-number --no-heading --color=always --hidden --smart-case -g '!.git/**' " .
   \ <q-args>, 1, fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'), <bang>0)
 
 " Time out on key codes but not mappings.
