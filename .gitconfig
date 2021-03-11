@@ -13,8 +13,6 @@
 	trustExitCode = true
 [commit]
   template = /Users/pabloa/.stCommitMsg
-[credential]
-  helper = store
 
 # color {{{
 [color]
@@ -122,3 +120,7 @@
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs sm
+[credential]
+	helper = store
+[url "git@gitlab.otters.xyz:"]
+	insteadOf = https://gitlab.otters.xyz
