@@ -123,4 +123,4 @@
 [credential]
 	helper = store
 [url "git@gitlab.otters.xyz:"]
-	insteadOf = https://gitlab.otters.xyz
+  insteadOf = https://gitlab.otters.xyz

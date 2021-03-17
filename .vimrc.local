@@ -347,6 +347,8 @@ function! s:build_go_files()
   endif
 endfunction
 
+let g:go_test_timeout= '3600s'
+
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <leader>e <Plug>(go-install)
 au FileType go nmap <silent> <Leader>i <Plug>(go-info)
