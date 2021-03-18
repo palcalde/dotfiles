@@ -19,6 +19,10 @@ nmap <leader>ts :TestSuite<CR>
 nmap <leader>tl :TestLast<CR>
 nmap <leader>tv :TestVisit<CR>
 
+" Move selected lines around
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+
 " Vim format mappings
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
