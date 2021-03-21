@@ -40,6 +40,34 @@ nnoremap <silent> <leader><CR> :<C-u>call <SID>clear_highlight()<CR>
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Same when moving up and down
+noremap <C-d> <C-d>zz
+noremap <C-u> <C-u>zz
+
+" Remap H and L (top, bottom of screen to left and right end of line)
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
+" Act like D and C
+nnoremap Y y$
+
+" Don't move on * I'd use a function for this but Vim clobbers the last search
+" when you're in a function so fuck it, practicality beats purity.
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+
+" mimic the behavior of /%Vfoobar which searches within the previously
+" selected visual selection
+" while in search mode, pressing / will do this
+vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+
 set autowrite
 set nowritebackup
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
@@ -48,7 +76,7 @@ set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 " Bug documented here: https://github.com/christoomey/vim-tmux-navigator/issues/83
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
 let g:NERDTreeMapJumpPrevSibling = '<Nop>'
-" Let NerdTree show hiden files
+" Let NerdTree show hidden files
 let NERDTreeShowHidden=1
 " don't show .git
 let NERDTreeIgnore=['\.git$']
@@ -368,6 +396,8 @@ function! s:create_go_doc_comment()
 endfunction
 nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
 
+augroup go
+autocmd!
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <leader>e <Plug>(go-install)
 au FileType go nmap <silent> <Leader>i <Plug>(go-info)
@@ -383,6 +413,7 @@ au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
 
 
 " Indent-guides disable mappings
