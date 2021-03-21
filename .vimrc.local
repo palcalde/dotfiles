@@ -291,8 +291,8 @@ hi VertSplit ctermbg=NONE guibg=NONE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 
-highlight QuickScopePrimary gui=underline cterm=underline
-highlight QuickScopeSecondary gui=underline cterm=underline
+" highlight QuickScopePrimary gui=underline cterm=underline
+" highlight QuickScopeSecondary gui=underline cterm=underline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " delimitMate config for auto close quotes
@@ -475,17 +475,21 @@ let g:go_gopls_complete_unimported = 1
 let g:go_implements_mode='gopls'
 let g:go_diagnostics_enabled = 1
 let g:go_doc_popup_window = 1
+let g:go_diagnostics_level = 2
 
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 0
 let g:go_highlight_build_constraints = 1
-let g:go_highlight_types = 0
+let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_format_strings = 0
 let g:go_highlight_function_calls = 0
+let g:go_highlight_function_parameters = 0
 let g:go_gocode_propose_source = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
 
 let g:go_modifytags_transform = 'camelcase'
 let g:go_fold_enable = []
