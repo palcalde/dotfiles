@@ -49,17 +49,12 @@ set -g pane-base-index 1
 set -g status-bg "#1c1c1c"
 set -g status-fg white
 set -g status-left-length 90
-
+set -g status-position "top"
 set -g status-right "%v %T"
 
 # Window
 set -g window-status-current-format "#[fg=white]:: #[fg=#a98ad2]#I|#W#{?window_zoomed_flag,#[fg=#6787ab][+],}"
 set -g window-status-format ":: #{?window_activity_flag,#[fg=red],}#I|#W"
-
-# Other examples:
-# set -g @plugin 'github_username/plugin_name'
-# set -g @plugin 'git@github.com/user/plugin'
-# set -g @plugin 'git@bitbucket.com/user/plugin'
 
 # Initialize TMUX plugin manager (
 # ! keep this line at the very bottom of tmux.conf
