@@ -160,6 +160,9 @@ nnoremap <silent> <leader>c :call ToggleQuickFix()<cr>
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
 
+" Print full path
+map <C-f> :echo expand("%:p")<cr>
+
 " Toggle paste mode
 set pastetoggle=<F5>
 " Unset paste on InsertLeave.
@@ -272,6 +275,8 @@ let g:delimitMate_smart_quotes = 1
 let g:delimitMate_expand_inside_quotes = 0    
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'   
 
+imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion + Snippet
 " Ultisnips has native support for Superab.
@@ -352,6 +357,16 @@ function! s:build_go_files()
 endfunction
 
 let g:go_test_timeout= '3600s'
+
+nmap <C-g> :GoDecls<cr>
+
+" create a go doc comment based on the word under the cursor
+function! s:create_go_doc_comment()
+  norm "zyiw
+  execute ":put! z"
+  execute ":norm I// \<Esc>$"
+endfunction
+nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
 
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <leader>e <Plug>(go-install)
