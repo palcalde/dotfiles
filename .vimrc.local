@@ -553,36 +553,10 @@ map <leader>Bd :Bclose<cr>:tabclose<cr>gT
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
-" Search word under the cursor
+" Search word under the cursor across directory
 nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
 nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
 xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
-
-" Let 'tt' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <Leader>tt :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-  let l:currentBufNum = bufnr("%")
-  let l:alternateBufNum = bufnr("#")
-
-  if buflisted(l:alternateBufNum)
-    buffer #
-  else
-    bnext
-  endif
-
-  if bufnr("%") == l:currentBufNum
-    new
-  endif
-
-  if buflisted(l:currentBufNum)
-    execute("bdelete! ".l:currentBufNum)
-  endif
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart mappings on the command line
