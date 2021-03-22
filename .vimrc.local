@@ -291,9 +291,6 @@ hi VertSplit ctermbg=NONE guibg=NONE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 
-" highlight QuickScopePrimary gui=underline cterm=underline
-" highlight QuickScopeSecondary gui=underline cterm=underline
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " delimitMate config for auto close quotes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -401,6 +398,7 @@ autocmd!
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <leader>e <Plug>(go-install)
 au FileType go nmap <silent> <Leader>i <Plug>(go-info)
+au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
 au FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
 au FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
 au FileType go nmap <silent> <Leader>tc <Plug>(go-coverage-toggle)
@@ -496,6 +494,10 @@ let g:go_highlight_variable_assignments = 1
 let g:go_modifytags_transform = 'camelcase'
 let g:go_fold_enable = []
 
+let g:go_test_show_name = 1
+
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
@@ -548,17 +550,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Close the current buffer
 map <leader>Bd :Bclose<cr>:tabclose<cr>gT
 
-" Close all the buffers
-map <leader>Ba :bufdo bd<cr>
-
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
-
-" Useful mappings for managing tabs
-map <leader>tc :tabclose<cr>
-map <leader>t<leader> :tabnext 
-
-" Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
