@@ -408,6 +408,8 @@ au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <leader>. :GoSameIdsAutoToggle<CR>
 " Alternate between test and implementation file
 au FileType go nmap <silent> <leader>ta :A<CR>
+au FileType go nmap <silent> <leader>tn :GoTestFunc -v<CR>
+au FileType go nmap <silent> <leader>tf :GoTest -v<CR>
 " Find and open respective test go file
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
