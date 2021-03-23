@@ -105,6 +105,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " mappings
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <silent> <Leader><space> :Buffers<CR>
+nnoremap <silent> <Leader>h :History<CR>
 nnoremap <silent> <Leader>L       :Lines<CR>
 inoremap <c-l> <c-\><c-o>:Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
@@ -212,6 +213,10 @@ vmap y ygv<Esc>
 " Prevent x from overriding what's in the clipboard.
 noremap x "_x
 noremap X "_x
+
+"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+set clipboard^=unnamed
+set clipboard^=unnamedplus
 
 " -----------------------------------------------------------------------------
 " Color settings
@@ -397,11 +402,11 @@ augroup go
 autocmd!
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <leader>e <Plug>(go-install)
-au FileType go nmap <silent> <Leader>i <Plug>(go-info)
-au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
-au FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
-au FileType go nmap <silent> <Leader>x <Plug>(go-doc-vertical)
-au FileType go nmap <silent> <Leader>tc <Plug>(go-coverage-toggle)
+au FileType go nmap <silent> <leader>i <Plug>(go-info)
+au FileType go nmap <silent> <leader>l <Plug>(go-metalinter)
+au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
+au FileType go nmap <silent> <leader>x <Plug>(go-doc-vertical)
+au FileType go nmap <silent> <leader>tc <Plug>(go-coverage-toggle)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <leader>. :GoSameIdsAutoToggle<CR>
 " Alternate between test and implementation file
@@ -510,6 +515,10 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
   \ <q-args>, 1, fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'), <bang>0)
+
+" ~/.viminfo needs to be writable and readable. Set oldfiles to 1000 last
+" recently opened files, :FzfHistory uses it
+set viminfo='1000
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.

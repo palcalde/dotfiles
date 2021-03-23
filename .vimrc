@@ -23,7 +23,6 @@ set autoread                                                 " reload files when
 set autoindent                                               " automatically indent on new lines
 set backspace=indent,eol,start                               " Makes backspace key more powerful
 set backupcopy=yes                                           " see :help crontab
-set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set nobackup                                                 " Don't create annoying backup files
 set splitbelow                                               " Split horizontal windows below to the current windows
