@@ -448,15 +448,15 @@ augroup END
 let g:go_term_enabled = 1
 let g:go_term_mode = "split above"
 
-let g:go_fmt_fail_silently = 0
+let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
-let g:go_fmt_options = {
-      \ 'gofmt': '-s',
-      \ }
 let g:go_debug_windows = {
       \ 'vars':  'leftabove 35vnew',
       \ 'stack': 'botright 10new',
 \ }
+
+let g:go_imports_autosave=1
+let g:go_imports_mode="goimports"
 
 let g:go_test_prepend_name = 1
 let g:go_list_type = "quickfix"
@@ -496,7 +496,8 @@ let g:go_fold_enable = []
 
 let g:go_test_show_name = 1
 
-let g:go_metalinter_autosave_enabled = ['govet', 'golint', 'deadcode', 'ineffassign', 'rowserrcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['govet', 'golint']
 let g:go_metalinter_enabled = ['govet', 'golint', 'deadcode', 'ineffassign', 'rowserrcheck']
 let g:go_metalinter_command = "golangci-lint"
 
