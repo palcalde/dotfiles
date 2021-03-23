@@ -501,10 +501,10 @@ let g:go_fold_enable = []
 
 let g:go_test_show_name = 1
 
-let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['govet', 'golint']
 let g:go_metalinter_enabled = ['govet', 'golint', 'deadcode', 'ineffassign', 'rowserrcheck']
-let g:go_metalinter_command = "golangci-lint"
+let g:go_metalinter_command = "golangci-lint run --exclude-use-default=true"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
