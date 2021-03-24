@@ -104,9 +104,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
 nnoremap <silent> <C-p> :FZF -m<CR>
-nnoremap <silent> <Leader><space> :Buffers<CR>
-nnoremap <silent> <Leader>h :History<CR>
-nnoremap <silent> <Leader>L       :Lines<CR>
+nnoremap <silent> <Leader><space> :History<CR>
+nnoremap <silent> <Leader>L :Lines<CR>
 inoremap <c-l> <c-\><c-o>:Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
 
