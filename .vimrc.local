@@ -514,6 +514,9 @@ command! -bang -nargs=* Rg
   \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
   \ <q-args>, 1, fzf#vim#with_preview({ 'options': '--delimiter : --nth 4..' }, 'right:50%:hidden', 'ç'), <bang>0)
 
+" Use fzf Snippets to search through description not only name
+command! -bar -bang Snippets call fzf#vim#snippets({'options': '--tiebreak=begin -n ..'}, <bang>0)
+
 " ~/.viminfo needs to be writable and readable. Set oldfiles to 1000 last
 " recently opened files, :FzfHistory uses it
 set viminfo='1000
