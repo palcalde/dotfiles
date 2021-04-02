@@ -186,9 +186,6 @@ endfunction
 
 nnoremap <silent> <leader>c :call ToggleQuickFix()<cr>
 
-" Update a buffer's contents on focus if it changed outside of Vim.
-au FocusGained,BufEnter * :checktime
-
 " Print full path
 map <C-f> :echo expand("%:p")<cr>
 
