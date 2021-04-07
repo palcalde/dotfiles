@@ -66,10 +66,8 @@ alias g=git
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
 
 export GOPATH=$HOME/go
-export GOBIN=$GOPATH/go/bin
 
 export PATH="$GOPATH/bin:$PATH"
-export PATH="$GOPATH/go/bin:$PATH"
 # allow go get to fetch all private repositories from cabify org
 export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*
 
