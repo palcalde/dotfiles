@@ -84,3 +84,9 @@ if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc' ]
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Add help bash command since zsh does not include it
+# this is helpful for built-in bash commands like 'read' that don't have
+# a man page but instead u can use 'help read' to get docu
+function help(){
+  bash -c "help $@"
+}
