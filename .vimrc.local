@@ -35,7 +35,7 @@ function! s:clear_highlight()
   let @/ = ""
   call go#guru#ClearSameIds()
 endfunction
-nnoremap <silent> <leader><CR> :<C-u>call <SID>clear_highlight()<CR>
+nnoremap <silent> <leader>. :<C-u>call <SID>clear_highlight()<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -222,6 +222,12 @@ set clipboard^=unnamedplus
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:lightline#ale#indicator_checking = "\uf110"
+" let g:lightline#ale#indicator_infos = "\uf129"
+" let g:lightline#ale#indicator_warnings = "\uf071"
+" let g:lightline#ale#indicator_errors = "\uf05e"
+" let g:lightline#ale#indicator_ok = "\uf00c"
+
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
@@ -448,14 +454,13 @@ let g:go_term_enabled = 1
 let g:go_term_mode = "split above"
 
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "goimports"
 let g:go_debug_windows = {
       \ 'vars':  'leftabove 35vnew',
       \ 'stack': 'botright 10new',
 \ }
 
+let g:go_fmt_command = "goimports"
 let g:go_imports_autosave=1
-let g:go_imports_mode="goimports"
 
 let g:go_test_prepend_name = 1
 let g:go_list_type = "quickfix"
@@ -584,18 +589,9 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
-" Disabling highlighting in ALE and in vim-go
-" so it doesn't open quickfix nor location list windows
-" when linting
-let g:ale_set_highlights = 0
-
-" Only run linting when saving the file
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave=0
-" use golang-ci as linter
 let g:ale_linters = { 'go': ['golangci-lint'] }
 let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = '-E goimports -E golint -E govet'
+let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck'
 
 " ----------------------------------------------------------------------------
 " :Root | Change directory to the root of the Git repository
