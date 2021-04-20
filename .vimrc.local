@@ -413,6 +413,9 @@ au FileType go nmap <silent> <leader>tc <Plug>(go-coverage-toggle)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Alternate between test and implementation file
 au FileType go nmap <silent> <leader>ta :A<CR>
+au FileType go nmap <silent> <leader>gc :GoCallers<CR>
+au FileType go nmap <silent> <leader>ge :GoCallees<CR>
+au FileType go nmap <silent> <leader>gi :GoImplements<CR>
 " Find and open respective test go file
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
