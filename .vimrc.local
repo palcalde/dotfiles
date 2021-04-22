@@ -308,8 +308,6 @@ let g:delimitMate_smart_quotes = 1
 let g:delimitMate_expand_inside_quotes = 0    
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'   
 
-imap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion + Snippet
 " Ultisnips has native support for Superab.
@@ -325,9 +323,6 @@ function! ExpandSnippet()
   call UltiSnips#ExpandSnippet()
   return g:ulti_expand_res
 endfunction
-
-" map will try to expand snippet || pick selection from autocomplete || normal tab
-inoremap <silent><tab> <C-R>=(ExpandSnippet() > 0) ? "" : pumvisible() ? "<C-y>" : "<tab>" <CR>
 
 " make nvim work with python and ruby
 let g:python3_host_prog='/usr/local/bin/python3'
@@ -349,7 +344,6 @@ nnoremap <Down> :resize +10<CR>
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"]    = ',j'
 let g:VM_maps["Add Cursor Up"]      = ',k'
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-Fugitive
