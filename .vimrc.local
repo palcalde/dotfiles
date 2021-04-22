@@ -592,7 +592,9 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
-let g:ale_linters = { 'go': ['golangci-lint'] }
+let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'] }
+let g:ale_fixers = { 'proto': ['protolint'] }
+let g:ale_proto_protolint_config = "/Users/pabloa/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck'
 
