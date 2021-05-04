@@ -167,7 +167,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " don't automatically show dictionary words for autocompletion " trigger with ctrlp
 set complete+=kspell
-set completeopt=menuone,longest,preview "configure dictionary in english
+set completeopt=menuone,longest "configure dictionary in english
 set spelllang=en_us
 set nospell
 " Don't update status bar in autocompletion
