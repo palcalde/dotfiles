@@ -186,6 +186,9 @@ endfunction
 
 nnoremap <silent> <leader>c :call ToggleQuickFix()<cr>
 
+" Quickfix window open in split vertical window with 's'
+autocmd! FileType qf nnoremap <buffer> s <C-w><Enter><C-w>L
+
 " Print full path
 map <C-f> :echo expand("%:p")<cr>
 
