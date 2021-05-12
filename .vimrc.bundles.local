@@ -33,3 +33,5 @@ Plugin 'mg979/vim-visual-multi'
 Plugin 'dense-analysis/ale'
 Plugin 'maximbaz/lightline-ale'
 Plugin 'codota/tabnine-vim'
+" automatic set paste/nopaste when inserting
+Plugin 'ConradIrwin/vim-bracketed-paste'
