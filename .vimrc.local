@@ -30,11 +30,12 @@ let g:mix_format_silent_errors = 1
 set hlsearch
 
 " Remove search highlight
-function! s:clear_highlight()
-  let @/ = ""
-  call go#guru#ClearSameIds()
-endfunction
-nnoremap <silent> <leader>. :<C-u>call <SID>clear_highlight()<CR>
+nnoremap <leader>. :nohlsearch<CR>
+" function! s:clear_highlight()
+"   let @/ = ""
+"   call go#guru#ClearSameIds()
+" endfunction
+" nnoremap <silent> <leader>. :<C-u>call <SID>clear_highlight()<CR>
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -102,14 +103,25 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
-nnoremap <silent> <C-p> :FZF -m<CR>
-nnoremap <silent> <Leader><space> :Buffers<CR>
-nnoremap <silent> <Leader>h :History<CR>
-nnoremap <silent> <Leader>L :Lines<CR>
-inoremap <c-l> <c-\><c-o>:Snippets<CR>
-nnoremap <silent> <Leader>` :Marks<CR>
+" nnoremap <silent> <C-p> :FZF -m<CR>
+" nnoremap <silent> <Leader><space> :Buffers<CR>
+" nnoremap <silent> <Leader>h :History<CR>
+" nnoremap <silent> <Leader>L :Lines<CR>
+" inoremap <c-l> <c-\><c-o>:Snippets<CR>
+" nnoremap <silent> <Leader>` :Marks<CR>
 
-" FZF }}}
+" Find files using Telescope command-line sugar.
+nnoremap <silent> <C-p> <cmd>Telescope find_files<cr>
+nnoremap <silent> <leader><space> <cmd>Telescope buffers<cr>
+nnoremap <silent> <leader>a <cmd>Telescope live_grep<cr> 
+nnoremap <silent> <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <silent> <leader>h <cmd>Telescope oldfiles<cr>
+
+nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
+xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
+
+set tags=./tags;/
 
 " TagBar: Adapt for elixir
 let g:tagbar_type_elixir = {
@@ -152,14 +164,14 @@ let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
 " Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
-    " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
-    let &undodir = myUndoDir
-    set undofile
-endif
+" if has('persistent_undo')
+"     let myUndoDir = expand(vimDir . '/undodir')
+"     " Create dirs
+"     call system('mkdir ' . vimDir)
+"     call system('mkdir ' . myUndoDir)
+"     let &undodir = myUndoDir
+"     set undofile
+" endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocompletion
@@ -565,9 +577,9 @@ map <leader>Bd :Bclose<cr>:tabclose<cr>gT
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
 " Search word under the cursor across directory
-nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
-xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
+" nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
+" nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
+" xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart mappings on the command line

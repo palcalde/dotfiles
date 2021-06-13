@@ -55,7 +55,7 @@ set mouse=a
 " keyboard shortcuts
 let mapleader = ','
 let maplocalleader = ','
-nnoremap <leader>a :Rg<space>
+" nnoremap <leader>a :Rg<space>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
