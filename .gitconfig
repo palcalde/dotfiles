@@ -13,6 +13,9 @@
 	trustExitCode = true
 [commit]
   template = /Users/pabloa/.stCommitMsg
+# Automatically prune branches in origin that no longer exist in local
+[remote "origin"] 
+  prune = true
 
 # color {{{
 [color]
