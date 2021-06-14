@@ -31,7 +31,7 @@ Plugin 'maximbaz/lightline-ale'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'fatih/vim-go'
 " LangServerProtocol linter
-" Plugin 'dense-analysis/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'codota/tabnine-vim'
 " Awesome zfz fuzzy search
 Plugin 'junegunn/fzf'
@@ -43,4 +43,4 @@ Plugin 'nvim-lua/plenary.nvim'
 " Plugin 'nvim-telescope/telescope.nvim'
 " lsp
 Plugin 'neovim/nvim-lspconfig'
-Plugin 'hrsh7th/nvim-compe'
+Plugin 'nathunsmitty/nvim-ale-diagnostic'
