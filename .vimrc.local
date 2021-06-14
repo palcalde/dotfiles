@@ -103,17 +103,17 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
-" nmap <C-g> :GoDecls<cr>
-" nnoremap <silent> <C-p> :FZF -m<CR>
-" nnoremap <silent> <Leader><space> :Buffers<CR>
-" nnoremap <silent> <Leader>h :History<CR>
-" nnoremap <silent> <Leader>L :Lines<CR>
-" inoremap <c-l> <c-\><c-o>:Snippets<CR>
-" nnoremap <silent> <Leader>` :Marks<CR>
+nmap <C-g> :GoDecls<cr>
+nnoremap <silent> <C-p> :FZF -m<CR>
+nnoremap <silent> <Leader><space> :Buffers<CR>
+nnoremap <silent> <Leader>h :History<CR>
+nnoremap <silent> <Leader>L :Lines<CR>
+inoremap <c-l> <c-\><c-o>:Snippets<CR>
+nnoremap <silent> <Leader>` :Marks<CR>
 
-" nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
-" nnoremap <silent> <leader>SW :Rg <C-R><C-A><CR>
-" xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
+nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>SW :Rg <C-R><C-A><CR>
+xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
 
 " TagBar: Adapt for elixir
 let g:tagbar_type_elixir = {

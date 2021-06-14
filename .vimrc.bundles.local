@@ -40,6 +40,7 @@ Plugin 'junegunn/fzf.vim'
 " ---- nvim ----
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
-Plugin 'nvim-telescope/telescope.nvim'
+" Plugin 'nvim-telescope/telescope.nvim'
 " lsp
 Plugin 'neovim/nvim-lspconfig'
+Plugin 'hrsh7th/nvim-compe'
