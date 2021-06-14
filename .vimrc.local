@@ -38,7 +38,7 @@ nnoremap <leader>. :nohlsearch<CR>
 " nnoremap <silent> <leader>. :<C-u>call <SID>clear_highlight()<CR>
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nnoremap <leader>w :w!<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -103,6 +103,7 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
+" nmap <C-g> :GoDecls<cr>
 " nnoremap <silent> <C-p> :FZF -m<CR>
 " nnoremap <silent> <Leader><space> :Buffers<CR>
 " nnoremap <silent> <Leader>h :History<CR>
@@ -110,18 +111,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " inoremap <c-l> <c-\><c-o>:Snippets<CR>
 " nnoremap <silent> <Leader>` :Marks<CR>
 
-" Find files using Telescope command-line sugar.
-nnoremap <silent> <C-p> <cmd>Telescope find_files<cr>
-nnoremap <silent> <leader><space> <cmd>Telescope buffers<cr>
-nnoremap <silent> <leader>a <cmd>Telescope live_grep<cr> 
-nnoremap <silent> <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <silent> <leader>h <cmd>Telescope oldfiles<cr>
-
-nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
-xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
-
-set tags=./tags;/
+" nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
+" nnoremap <silent> <leader>SW :Rg <C-R><C-A><CR>
+" xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
 
 " TagBar: Adapt for elixir
 let g:tagbar_type_elixir = {
@@ -164,14 +156,14 @@ let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
 " Keep undo history across sessions by storing it in a file
-" if has('persistent_undo')
-"     let myUndoDir = expand(vimDir . '/undodir')
-"     " Create dirs
-"     call system('mkdir ' . vimDir)
-"     call system('mkdir ' . myUndoDir)
-"     let &undodir = myUndoDir
-"     set undofile
-" endif
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocompletion
@@ -324,7 +316,7 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion + Snippet
-" Ultisnips has native support for Superab.
+" Ultisnips has native support for Supertab.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " loop forward in the results list
 " let g:UltiSnipsExpandTrigger="<C-j>"
@@ -397,9 +389,9 @@ function! s:build_go_files()
   endif
 endfunction
 
-let g:go_test_timeout= '3600s'
+let g:go_test_timeout = '3600s'
+let g:go_gopls_enabled = 0
 
-nmap <C-g> :GoDecls<cr>
 
 " create a go doc comment based on the word under the cursor
 function! s:create_go_doc_comment()
@@ -412,25 +404,24 @@ nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
 augroup go
 autocmd!
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
-au FileType go nmap <silent> <leader>e <Plug>(go-install)
-au FileType go nmap <silent> <leader>i <Plug>(go-info)
-au FileType go nmap <silent> <leader>l <Plug>(go-metalinter)
-au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
-au FileType go nmap <silent> <leader>x <Plug>(go-doc-vertical)
-au FileType go nmap <silent> <leader>tc <Plug>(go-coverage-toggle)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
-" Alternate between test and implementation file
 au FileType go nmap <silent> <leader>ta :A<CR>
-au FileType go nmap <silent> <leader>gc :GoCallers<CR>
-au FileType go nmap <silent> <leader>ge :GoCallees<CR>
-au FileType go nmap <silent> <leader>gi :GoImplements<CR>
-" Find and open respective test go file
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+" au FileType go nmap <silent> <leader>e <Plug>(go-install)
+" au FileType go nmap <silent> <leader>i <Plug>(go-info)
+" au FileType go nmap <silent> <leader>l <Plug>(go-metalinter)
+" au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
+" au FileType go nmap <silent> <leader>x <Plug>(go-doc-vertical)
+" au FileType go nmap <silent> <leader>tc <Plug>(go-coverage-toggle)
+" Alternate between test and implementation file
+" au FileType go nmap <silent> <leader>gc :GoCallers<CR>
+" au FileType go nmap <silent> <leader>ge :GoCallees<CR>
+" au FileType go nmap <silent> <leader>gi :GoImplements<CR>
+" Find and open respective test go file
 augroup END
-
 
 " Indent-guides disable mappings
 let g:indent_guides_default_mapping = 0

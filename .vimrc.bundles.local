@@ -29,17 +29,17 @@ Plugin 'mg979/vim-visual-multi'
 Plugin 'maximbaz/lightline-ale'
 " automatic set paste/nopaste when inserting
 Plugin 'ConradIrwin/vim-bracketed-paste'
-" Plugin 'fatih/vim-go'
-" LSP linter
+Plugin 'fatih/vim-go'
+" LangServerProtocol linter
 " Plugin 'dense-analysis/ale'
-" autocompl
-" Plugin 'codota/tabnine-vim'
+Plugin 'codota/tabnine-vim'
 " Awesome zfz fuzzy search
-" Plugin 'junegunn/fzf'
-" Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
-" nvim
+" ---- nvim ----
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
+" lsp
 Plugin 'neovim/nvim-lspconfig'
