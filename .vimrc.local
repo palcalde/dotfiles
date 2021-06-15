@@ -449,6 +449,7 @@ let g:go_null_module_warning = 0
 let g:go_echo_command_info = 1
 
 let g:go_autodetect_gopath = 0
+let g:go_gopls_enabled = 0
 
 let g:go_info_mode = 'gopls'
 let g:go_rename_command='gopls'
