@@ -36,10 +36,7 @@ Plugin 'codota/tabnine-vim'
 " Awesome zfz fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-
 " ---- nvim ----
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
-" Plugin 'nvim-telescope/telescope.nvim'
-" lsp
 Plugin 'neovim/nvim-lspconfig'
