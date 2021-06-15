@@ -43,4 +43,3 @@ Plugin 'nvim-lua/plenary.nvim'
 " Plugin 'nvim-telescope/telescope.nvim'
 " lsp
 Plugin 'neovim/nvim-lspconfig'
-Plugin 'nathunsmitty/nvim-ale-diagnostic'

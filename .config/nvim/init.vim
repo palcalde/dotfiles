@@ -49,39 +49,14 @@ end
 -- Format on save
 vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
 
--- Telescope keymappings
--- local actions = require('telescope.actions')
--- Global remapping
-------------------------------
--- require('telescope').setup{
--- defaults = {
---   mappings = {
---     i = {
---       ["<C-j>"] = actions.move_selection_next,
---       ["<C-k>"] = actions.move_selection_previous,
---       ["<esc>"] = actions.close,
---       },
---     },
---   }
--- } 
-
-
 -- disable publishDiagnostics, I use ALE instead
-require("nvim-ale-diagnostic")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = false,
   virtual_text = false,
-  signs = true,
+  signs = false,
   update_in_insert = false,
   }
 )
 EOF
-
-" Find files using Telescope command-line sugar.
-" nnoremap <silent> <C-p> <cmd>Telescope find_files<cr>
-" nnoremap <silent> <leader><space> <cmd>Telescope buffers<cr>
-" nnoremap <silent> <leader>h <cmd>Telescope oldfiles<cr>
-" nnoremap <silent> <leader>sw <cmd>Telescope grep_string<cr>
-" nnoremap <silent> <leader>a <cmd>Telescope live_grep<cr>
