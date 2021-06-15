@@ -379,8 +379,6 @@ function! s:build_go_files()
 endfunction
 
 let g:go_test_timeout = '3600s'
-let g:go_gopls_enabled = 0
-
 
 " create a go doc comment based on the word under the cursor
 function! s:create_go_doc_comment()
@@ -397,6 +395,7 @@ au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Alternate between test and implementation file
 au FileType go nmap <silent> <leader>ta :A<CR>
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
 augroup END
 
 " Indent-guides disable mappings
