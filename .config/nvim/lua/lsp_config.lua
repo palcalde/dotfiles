@@ -13,6 +13,7 @@ local opts = { noremap=true, silent=true }
 
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 buf_set_keymap('n', '<C-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+buf_set_keymap('n', '<C-W>]', '<C-W>v<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 buf_set_keymap('n', ',gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 buf_set_keymap('n', ',gc', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>', opts)
