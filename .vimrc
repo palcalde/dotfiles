@@ -59,7 +59,6 @@ nnoremap <leader>a :Rg<space>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
-nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " in case you forgot to sudo
@@ -73,7 +72,7 @@ autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 " automatically rebalance windows on vim resize
-autocmd BufNewFile,BufRead Fastfile set filetype=ruby
+autocmd BufNewFile,BufRead Fastfile set filetype
 
 autocmd VimResized * :wincmd =
 

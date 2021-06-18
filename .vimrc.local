@@ -105,10 +105,12 @@ nnoremap <silent> <Leader>h :History<CR>
 nnoremap <silent> <Leader>L :Lines<CR>
 inoremap <c-l> <c-\><c-o>:Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
+" FZF {{{
 
+" seach word under cursor
 nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>SW :Rg <C-R><C-A><CR>
-xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
+" visual mode search text
+xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
 
 " TagBar: Adapt for elixir
 let g:tagbar_type_elixir = {
@@ -489,8 +491,10 @@ let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
-  \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
+  \   'rg --column --line-number --no-heading --color=always --hidden --ignore-case  --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Use fzf Snippets to search through description not only name
 command! -bar -bang Snippets call fzf#vim#snippets({'options': '--tiebreak=begin -n ..'}, <bang>0)
@@ -542,11 +546,6 @@ map <leader>Bd :Bclose<cr>:tabclose<cr>gT
 
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
-
-" Search word under the cursor across directory
-" nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
-" nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
-" xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart mappings on the command line
