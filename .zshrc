@@ -69,7 +69,8 @@ export GOPATH=$HOME/go
 
 export PATH="$GOPATH/bin:$PATH"
 # allow go get to fetch all private repositories from cabify org
-export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*
+export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*,gopkg.cabify.tools/*
+export GONOSUMDB=github.com/cabify/*,gitlab.otters.xyz/*,gopkg.cabify.tools/*
 
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
