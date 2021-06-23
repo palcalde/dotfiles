@@ -490,11 +490,9 @@ let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E 
 " Search by default hidden files except .git folder
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --hidden --ignore-case  --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
+      \ call fzf#vim#grep(
+      \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
+      \ shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 " Use fzf Snippets to search through description not only name
 command! -bar -bang Snippets call fzf#vim#snippets({'options': '--tiebreak=begin -n ..'}, <bang>0)
