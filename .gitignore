@@ -5,4 +5,9 @@ bin/
 
 # ignore git folders by default so RG excludes them
 **/.git/**
+**/vendor/**
+
+# used in rubycore to port forward
+kubefwdconfig.sh
+
 

@@ -381,6 +381,8 @@ function! s:build_go_files()
 endfunction
 
 let g:go_test_timeout = '3600s'
+" Disable <C-]> mapping, I use nvim LSP
+let g:go_def_mapping_enabled = 0
 
 " create a go doc comment based on the word under the cursor
 function! s:create_go_doc_comment()
@@ -482,7 +484,7 @@ let g:go_test_show_name = 1
 
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['govet', 'golint']
-let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck"
+let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
@@ -568,7 +570,7 @@ let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'] }
 let g:ale_fixers = { 'proto': ['protolint'] }
 let g:ale_proto_protolint_config = "/Users/pabloa/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck'
+let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck'
 
 " ----------------------------------------------------------------------------
 " :Root | Change directory to the root of the Git repository

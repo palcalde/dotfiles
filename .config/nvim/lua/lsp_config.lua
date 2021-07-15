@@ -1,4 +1,5 @@
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.solargraph.setup{}
 
 local nvim_lsp = require('lspconfig')
 
@@ -32,7 +33,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "gopls" }
+local servers = { "gopls", "solargraph" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
@@ -41,7 +42,6 @@ end
 vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
 
 -- disable publishDiagnostics, I use ALE instead
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = false,
