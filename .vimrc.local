@@ -109,6 +109,7 @@ nnoremap <silent> <Leader>` :Marks<CR>
 
 " seach word under cursor
 nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
+xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
 " visual mode search text
 xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
 
