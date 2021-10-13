@@ -33,6 +33,9 @@ Plugin 'fatih/vim-go'
 Plugin 'dense-analysis/ale'
 " Adds status bar indicators for ALE linter
 Plugin 'maximbaz/lightline-ale'
+" Routes all nvim LSP diagnostics erros to be displayed by ALE
+" along with the linter errors, all in the same way
+Plugin 'nathanmsmith/nvim-ale-diagnostic'
 " This installs tabnine (as a fork of YCM)
 Plugin 'tabnine/YouCompleteMe'
 " Awesome zfz fuzzy search
