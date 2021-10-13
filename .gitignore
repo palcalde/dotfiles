@@ -7,7 +7,5 @@ bin/
 **/.git/**
 **/vendor/**
 
-# used in rubycore to port forward
-kubefwdconfig.sh
-
-
+tags.lock
+tags.temp
