@@ -31,6 +31,8 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'fatih/vim-go'
 " LangServerProtocol linter
 Plugin 'dense-analysis/ale'
+" Adds status bar indicators for ALE linter
+Plugin 'maximbaz/lightline-ale'
 " This installs tabnine (as a fork of YCM)
 Plugin 'tabnine/YouCompleteMe'
 " Awesome zfz fuzzy search
