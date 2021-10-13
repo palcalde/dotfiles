@@ -239,14 +239,6 @@ let g:lightline = {
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
 
-let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_infos': 'lightline#ale#infos',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
-
 let g:lightline.component_type = {
       \     'linter_checking': 'right',
       \     'linter_infos': 'right',
@@ -436,9 +428,8 @@ let g:go_debug_windows = {
 \ }
 
 let g:go_fmt_command = "goimports"
-let g:go_imports_autosave=1
-" formatting is already done by neovim LSP
-let g:go_fmt_autosave = 0
+let g:go_imports_autosave = 1
+let g:go_fmt_autosave = 1
 
 let g:go_test_prepend_name = 1
 let g:go_list_type = "quickfix"
@@ -479,9 +470,9 @@ let g:go_fold_enable = []
 
 let g:go_test_show_name = 1
 
-" let g:go_metalinter_autosave = 0
-" let g:go_metalinter_autosave_enabled = ['govet', 'golint']
-" let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck"
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_autosave_enabled = ['govet', 'golint']
+let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
