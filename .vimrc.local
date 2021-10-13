@@ -341,7 +341,7 @@ let g:VM_maps["Add Cursor Up"]      = ',k'
 " Vim-Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fugitive_gitlab_domains = ['https://gitlab.otters.xyz', 'https://gitlab.com']
-nmap <silent> <leader>- :Git<cr><c-n>
+nnoremap <silent> <leader>- :Git<cr>
 nnoremap <leader>gp :Gpull<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 nnoremap <silent> <leader>gd :Gvdiff<cr>
