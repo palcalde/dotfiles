@@ -46,7 +46,7 @@ vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()
  vim.lsp.diagnostic.on_publish_diagnostics, {
    underline = false,
    virtual_text = false,
-   signs = true,
+   signs = false,
    update_in_insert = false,
    }
  )
