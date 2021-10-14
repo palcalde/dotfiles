@@ -42,11 +42,11 @@ end
 vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
 
 -- disable publishDiagnostics, I use ALE instead
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = false,
-  virtual_text = false,
-  signs = false,
-  update_in_insert = false,
-  }
-)
+ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+ vim.lsp.diagnostic.on_publish_diagnostics, {
+   underline = false,
+   virtual_text = false,
+   signs = false,
+   update_in_insert = false,
+   }
+ )

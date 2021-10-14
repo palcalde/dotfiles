@@ -567,6 +567,15 @@ let g:ale_fixers = { 'proto': ['protolint'] }
 let g:ale_proto_protolint_config = "/Users/pabloa/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck'
+let g:ale_enabled = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteME (autocompletion and and linter)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" disable all diagnostics so doesn't interfere with ALE
+let g:ycm_show_diagnostics_ui = 0
+
 
 " ----------------------------------------------------------------------------
 " :Root | Change directory to the root of the Git repository
