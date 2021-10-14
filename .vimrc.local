@@ -568,7 +568,8 @@ let g:ale_proto_protolint_config = "/Users/pabloa/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck'
 let g:ale_enabled = 1
-
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteME (autocompletion and and linter)
