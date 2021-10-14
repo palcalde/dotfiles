@@ -30,14 +30,10 @@ let g:mix_format_silent_errors = 1
 set hlsearch
 
 " Remove search highlight
-function! s:clear_highlight()
-  let @/ = ""
-  call go#guru#ClearSameIds()
-endfunction
-nnoremap <silent> <leader>. :<C-u>call <SID>clear_highlight()<CR>
+nnoremap <leader>. :nohlsearch<CR>
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nnoremap <leader>w :w!<CR>
 
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -102,14 +98,20 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
+nmap <C-g> :GoDecls<cr>
 nnoremap <silent> <C-p> :FZF -m<CR>
 nnoremap <silent> <Leader><space> :Buffers<CR>
 nnoremap <silent> <Leader>h :History<CR>
 nnoremap <silent> <Leader>L :Lines<CR>
 inoremap <c-l> <c-\><c-o>:Snippets<CR>
 nnoremap <silent> <Leader>` :Marks<CR>
+" FZF {{{
 
-" FZF }}}
+" seach word under cursor
+nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
+xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
+" visual mode search text
+xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
 
 " TagBar: Adapt for elixir
 let g:tagbar_type_elixir = {
@@ -224,26 +226,14 @@ set clipboard^=unnamedplus
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:lightline#ale#indicator_checking = "\uf110"
-" let g:lightline#ale#indicator_infos = "\uf129"
-" let g:lightline#ale#indicator_warnings = "\uf071"
-" let g:lightline#ale#indicator_errors = "\uf05e"
-" let g:lightline#ale#indicator_ok = "\uf00c"
-
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ 'active': {
-      \   'left': [ ['mode', 'paste'],
-      \             ['fugitive', 'relativepath', 'modified'] ],
+      \   'left': [ ['mode', 'paste'], ['fugitive', 'relativepath'] ],
       \   'right': [ [ 'lineinfo' ], ['percent'] ]
       \ },
       \ 'component': {
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
       \   'fugitive': '%{exists("*FugitiveHead")?FugitiveHead():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*FugitiveHead") && ""!=FugitiveHead())'
       \ },
       \ 'separator': { 'left': ' ', 'right': ' ' },
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
@@ -312,7 +302,7 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Completion + Snippet
-" Ultisnips has native support for Superab.
+" Ultisnips has native support for Supertab.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " loop forward in the results list
 " let g:UltiSnipsExpandTrigger="<C-j>"
@@ -332,7 +322,7 @@ let g:python_host_prog='/usr/bin/python2'
 let g:ruby_host_prog='/Users/pabloa/.rvm/rubies/ruby-2.6.3/bin/ruby'
 
 " Open tag under cursor in vsplit
-noremap <C-W>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" noremap <C-W>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " arrow keys resize windows
 nnoremap <Left> :vertical resize -10<CR>
@@ -351,13 +341,13 @@ let g:VM_maps["Add Cursor Up"]      = ',k'
 " Vim-Fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:fugitive_gitlab_domains = ['https://gitlab.otters.xyz', 'https://gitlab.com']
-nmap <silent> <leader>-  :Gstatus<cr><c-n>
+nnoremap <silent> <leader>- :Git<cr>
 nnoremap <leader>gp :Gpull<cr>
-nnoremap <silent> <leader>gb :Gblame<cr>
+nnoremap <silent> <leader>gb :Git blame<cr>
 nnoremap <silent> <leader>gd :Gvdiff<cr>
 nnoremap <silent> <leader>go :Gbrowse<cr>
 xnoremap <silent> <leader>go :Gbrowse<cr>
-nnoremap <silent> <leader>gl :0Glog<cr>
+nnoremap <silent> <leader>gl :Gclog<cr>
 " }}} fugitive
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -370,7 +360,7 @@ nnoremap <silent> <leader>gmr :Gmr<cr>
 command -nargs=+ Run :cexpr system('<args>') | copen
 "
 " Open def in vertical/horizontal split
-nnoremap <leader>v <C-w>v
+" nnoremap <leader>v <C-w>v
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-go 
@@ -385,9 +375,9 @@ function! s:build_go_files()
   endif
 endfunction
 
-let g:go_test_timeout= '3600s'
-
-nmap <C-g> :GoDecls<cr>
+let g:go_test_timeout = '3600s'
+" Disable <C-]> mapping, I use nvim LSP
+let g:go_def_mapping_enabled = 0
 
 " create a go doc comment based on the word under the cursor
 function! s:create_go_doc_comment()
@@ -400,25 +390,12 @@ nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
 augroup go
 autocmd!
 au FileType go nmap <silent> <leader>r <Plug>(go-run)
-au FileType go nmap <silent> <leader>e <Plug>(go-install)
-au FileType go nmap <silent> <leader>i <Plug>(go-info)
-au FileType go nmap <silent> <leader>l <Plug>(go-metalinter)
-au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
-au FileType go nmap <silent> <leader>x <Plug>(go-doc-vertical)
-au FileType go nmap <silent> <leader>tc <Plug>(go-coverage-toggle)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Alternate between test and implementation file
 au FileType go nmap <silent> <leader>ta :A<CR>
-au FileType go nmap <silent> <leader>gc :GoCallers<CR>
-au FileType go nmap <silent> <leader>ge :GoCallees<CR>
-au FileType go nmap <silent> <leader>gi :GoImplements<CR>
-" Find and open respective test go file
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-au FileType go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-au FileType go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-au FileType go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
 augroup END
-
 
 " Indent-guides disable mappings
 let g:indent_guides_default_mapping = 0
@@ -459,7 +436,8 @@ let g:go_debug_windows = {
 \ }
 
 let g:go_fmt_command = "goimports"
-let g:go_imports_autosave=1
+let g:go_imports_autosave = 0
+let g:go_fmt_autosave = 0
 
 let g:go_test_prepend_name = 1
 let g:go_list_type = "quickfix"
@@ -471,6 +449,7 @@ let g:go_null_module_warning = 0
 let g:go_echo_command_info = 1
 
 let g:go_autodetect_gopath = 0
+let g:go_gopls_enabled = 0
 
 let g:go_info_mode = 'gopls'
 let g:go_rename_command='gopls'
@@ -478,7 +457,7 @@ let g:go_gopls_complete_unimported = 1
 let g:go_implements_mode='gopls'
 let g:go_diagnostics_enabled = 1
 let g:go_doc_popup_window = 1
-let g:go_diagnostics_level = 2
+let g:go_diagnostics_level = 0
 
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
@@ -501,7 +480,7 @@ let g:go_test_show_name = 1
 
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['govet', 'golint']
-let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck"
+let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
@@ -509,9 +488,9 @@ let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E 
 " Search by default hidden files except .git folder
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
-  \ <q-args>, 1, fzf#vim#with_preview(), <bang>0)
+      \ call fzf#vim#grep(
+      \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
+      \ shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 " Use fzf Snippets to search through description not only name
 command! -bar -bang Snippets call fzf#vim#snippets({'options': '--tiebreak=begin -n ..'}, <bang>0)
@@ -564,11 +543,6 @@ map <leader>Bd :Bclose<cr>:tabclose<cr>gT
 " Super useful when editing files in the same directory
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
-" Search word under the cursor across directory
-nnoremap <silent> <leader>sw       :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>SW       :Rg <C-R><C-A><CR>
-xnoremap <silent> <leader>sw       y:Rg <C-R>"<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart mappings on the command line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -588,11 +562,23 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
-let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'] }
+" we don't put gopls here as linter cause nvim already comes with one
+" integrated that shows diagnostic errors as well
+let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'], 'ruby': ['rubocop'] }
 let g:ale_fixers = { 'proto': ['protolint'] }
 let g:ale_proto_protolint_config = "/Users/pabloa/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck'
+let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck'
+let g:ale_enabled = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteME (autocompletion and and linter)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" disable all diagnostics so doesn't interfere with ALE
+let g:ycm_show_diagnostics_ui = 0
+
 
 " ----------------------------------------------------------------------------
 " :Root | Change directory to the root of the Git repository

@@ -60,16 +60,18 @@ export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# git alias
+# alias
 alias g=git
+alias vim="nvim"
 
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
 
-export GOPATH=$HOME/go
+export GOPATH="$HOME/go"
 
 export PATH="$GOPATH/bin:$PATH"
 # allow go get to fetch all private repositories from cabify org
-export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*
+export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*,gopkg.cabify.tools/*
+export GONOSUMDB=github.com/cabify/*,gitlab.otters.xyz/*,gopkg.cabify.tools/*
 
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -81,12 +83,12 @@ if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/path.zsh.inc' ]; then
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pabloa/Documents/Projects/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Add help bash command since zsh does not include it
 # this is helpful for built-in bash commands like 'read' that don't have
 # a man page but instead u can use 'help read' to get docu
 function help(){
   bash -c "help $@"
 }
+
+# use rbenv
+eval "$(rbenv init -)"

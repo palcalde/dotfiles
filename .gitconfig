@@ -4,7 +4,7 @@
   email = pablo.alcalde@cabify.com
 [core]
   excludesfile = /Users/pabloa/.gitignore
-  editor = /usr/local/bin/vim
+  editor = nvim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

@@ -7,9 +7,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 " Tmux status line
 Plugin 'edkolev/tmuxline.vim'
-" Awesome zfz fuzzy search
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
 " Automatically clear search highlights after you move your cursor.
 Plugin 'haya14busa/is.vim'
 " Highlight which character to jump to when using motion keys.
@@ -23,15 +20,28 @@ Plugin 'rakr/vim-one'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'shumphrey/fugitive-gitlab.vim'
-Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'godlygeek/tabular'
 Plugin 'itchyny/lightline.vim'
 Plugin 'mg979/vim-visual-multi'
-Plugin 'dense-analysis/ale'
-Plugin 'maximbaz/lightline-ale'
-Plugin 'codota/tabnine-vim'
 " automatic set paste/nopaste when inserting
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'fatih/vim-go'
+" LangServerProtocol linter
+Plugin 'dense-analysis/ale'
+" Adds status bar indicators for ALE linter
+Plugin 'maximbaz/lightline-ale'
+" Routes all nvim LSP diagnostics erros to be displayed by ALE
+" along with the linter errors, all in the same way
+Plugin 'nathanmsmith/nvim-ale-diagnostic'
+" This installs tabnine (as a fork of YCM)
+Plugin 'tabnine/YouCompleteMe'
+" Awesome zfz fuzzy search
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+" ---- nvim ----
+Plugin 'nvim-lua/popup.nvim'
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'neovim/nvim-lspconfig'
