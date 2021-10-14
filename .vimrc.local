@@ -343,11 +343,11 @@ let g:VM_maps["Add Cursor Up"]      = ',k'
 let g:fugitive_gitlab_domains = ['https://gitlab.otters.xyz', 'https://gitlab.com']
 nnoremap <silent> <leader>- :Git<cr>
 nnoremap <leader>gp :Gpull<cr>
-nnoremap <silent> <leader>gb :Gblame<cr>
+nnoremap <silent> <leader>gb :Git blame<cr>
 nnoremap <silent> <leader>gd :Gvdiff<cr>
 nnoremap <silent> <leader>go :Gbrowse<cr>
 xnoremap <silent> <leader>go :Gbrowse<cr>
-nnoremap <silent> <leader>gl :0Glog<cr>
+nnoremap <silent> <leader>gl :Gclog<cr>
 " }}} fugitive
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
