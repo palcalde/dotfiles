@@ -436,8 +436,8 @@ let g:go_debug_windows = {
 \ }
 
 let g:go_fmt_command = "goimports"
-let g:go_imports_autosave = 1
-let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 0
+let g:go_fmt_autosave = 0
 
 let g:go_test_prepend_name = 1
 let g:go_list_type = "quickfix"
@@ -457,7 +457,7 @@ let g:go_gopls_complete_unimported = 1
 let g:go_implements_mode='gopls'
 let g:go_diagnostics_enabled = 1
 let g:go_doc_popup_window = 1
-let g:go_diagnostics_level = 2
+let g:go_diagnostics_level = 0
 
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
@@ -562,6 +562,8 @@ endfunc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <silent> <leader>n <Plug>(ale_next_wrap)
 
+" we don't put gopls here as linter cause nvim already comes with one
+" integrated that shows diagnostic errors as well
 let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'], 'ruby': ['rubocop'] }
 let g:ale_fixers = { 'proto': ['protolint'] }
 let g:ale_proto_protolint_config = "/Users/pabloa/.protolint.yml"
