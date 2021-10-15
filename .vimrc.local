@@ -277,10 +277,10 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" Set the color scheme to dark.
+colorscheme one
+" Set the color scheme to dark. Needs to be called after setting color scheme
 set background=dark
 
-colorscheme one
 
 " Remove background color for panels vertical split separator
 hi VertSplit ctermbg=NONE guibg=NONE
