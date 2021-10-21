@@ -49,7 +49,6 @@
 [diff]
   mnemonicprefix = true
 [branch]
-  autosetuprebase = always
   autosetupmerge = always
 [apply]
   whitespace = nowarn
