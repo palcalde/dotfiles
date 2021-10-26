@@ -345,8 +345,10 @@ nnoremap <silent> <leader>- :Git<cr>
 nnoremap <leader>gp :Gpull<cr>
 nnoremap <silent> <leader>gb :Git blame<cr>
 nnoremap <silent> <leader>gd :Gvdiff<cr>
-nnoremap <silent> <leader>go :Gbrowse<cr>
-xnoremap <silent> <leader>go :Gbrowse<cr>
+nnoremap <silent> <leader>go :GBrowse!<cr>
+xnoremap <silent> <leader>go :GBrowse!<cr>
+nnoremap <silent> <leader>gO :GBrowse<cr>
+xnoremap <silent> <leader>gO :GBrowse<cr>
 nnoremap <silent> <leader>gl :Gclog<cr>
 " }}} fugitive
 
