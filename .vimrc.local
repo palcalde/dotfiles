@@ -26,9 +26,6 @@ vnoremap K :m '<-2<cr>gv=gv
 let g:mix_format_on_save = 1
 let g:mix_format_silent_errors = 1
 
-" highlight search
-set hlsearch
-
 " Remove search highlight
 nnoremap <leader>. :nohlsearch<CR>
 
@@ -493,8 +490,8 @@ let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
-      \ "rg --column --line-number --no-heading --color=always --hidden --smart-case " .
-      \ shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+      \ "rg --column --line-number --no-heading --hidden --smart-case " .
+      \ shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--color=bg:#272B33,fg:#272B33,bg+:#272B33,preview-bg:#454545'}), <bang>0)
 
 " Use fzf Snippets to search through description not only name
 command! -bar -bang Snippets call fzf#vim#snippets({'options': '--tiebreak=begin -n ..'}, <bang>0)

@@ -27,8 +27,7 @@ buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 -- LSP
 buf_set_keymap('n', ',li', '<cmd>LspInfo<CR>', opts)
-buf_set_keymap('n', ',lr', '<cmd>LspStart<CR>', opts)
-buf_set_keymap('n', ',ls', '<cmd>LspStop<CR>', opts)
+buf_set_keymap('n', ',lr', '<cmd>LspRestart<CR>', opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
