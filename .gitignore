@@ -2,6 +2,7 @@ vim/.netrwhist
 tags
 .DS_Store
 bin/
+test.vim
 
 # ignore git folders by default so RG excludes them
 **/.git/**
