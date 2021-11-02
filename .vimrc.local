@@ -536,8 +536,9 @@ let g:fzf_colors =
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Return to last edit position when opening files (You want this!)
+" exclude files inside .git folder
 autocmd BufReadPost *
-    \ if expand('%:p') !~# '\m/\.git/' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \ if expand('%:p') !~# '.git/' && line("'\"") > 0 && line("'\"") <= line("$") |
     \     exe "normal! g`\"" |
     \ endif
 
