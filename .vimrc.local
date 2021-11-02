@@ -536,7 +536,10 @@ let g:fzf_colors =
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost *
+    \ if expand('%:p') !~# '\m/\.git/' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \     exe "normal! g`\"" |
+    \ endif
 
 " Close the current buffer
 map <leader>Bd :Bclose<cr>:tabclose<cr>gT
