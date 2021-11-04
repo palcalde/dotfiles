@@ -606,9 +606,6 @@ command! Root call s:root()
 noremap j gj
 noremap k gk
 
-" Exit on j
-imap jj <Esc>
-
 " Center the screen
 nnoremap <space> zz
 
