@@ -182,7 +182,7 @@ function! ToggleQuickFix()
   endif
 endfunction
 
-nnoremap <silent> <leader>c :call ToggleQuickFix()<cr>
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 
 " Quickfix window open in split vertical window with 's'
 autocmd! FileType qf nnoremap <buffer> s <C-w><Enter><C-w>L
