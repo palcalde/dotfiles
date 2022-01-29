@@ -37,6 +37,14 @@ for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
 
+require'lspconfig'.elixirls.setup{
+  cmd = { "/Users/pabloa/Documents/Projects/elixir-ls-source/language_server.sh" },
+  on_attach = on_attach
+}
+
+-- Set log level to debug for easy debugging problems
+vim.lsp.set_log_level("debug")
+
 -- Format on save
 vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
 
