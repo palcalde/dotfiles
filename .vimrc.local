@@ -110,6 +110,10 @@ xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
 " visual mode search text
 xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
 
+" paste from 0 register (help when unnamed " has been unintentionally replaced)
+noremap <Leader>p "0p
+vnoremap <Leader>p "0p
+
 " TagBar: Adapt for elixir
 let g:tagbar_type_elixir = {
     \ 'ctagstype' : 'elixir',
