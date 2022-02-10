@@ -3,6 +3,7 @@ tags
 .DS_Store
 bin/
 test.vim
+.idea/
 
 # ignore git folders by default so RG excludes them
 **/.git/**
