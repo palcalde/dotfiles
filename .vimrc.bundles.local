@@ -45,3 +45,4 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'neovim/nvim-lspconfig'
+Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
