@@ -471,6 +471,10 @@ let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['govet', 'golint']
 let g:go_metalinter_command = "golangci-lint run --disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck"
 
+
+" VIM-DELVE
+let g:delve_use_vimux = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FZF
 " Allow to pass commands to RG
