@@ -47,3 +47,4 @@ Plugin 'nvim-lua/plenary.nvim'
 Plugin 'neovim/nvim-lspconfig'
 Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plugin 'benmills/vimux'
+Plugin 'sebdah/vim-delve'

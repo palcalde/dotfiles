@@ -392,12 +392,23 @@ nnoremap <leader>ui :<C-u>call <SID>create_go_doc_comment()<CR>
 
 augroup go
 autocmd!
-au FileType go nmap <silent> <leader>r <Plug>(go-run)
 au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 " Alternate between test and implementation file
 au FileType go nmap <silent> <leader>ta :A<CR>
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
+
+au FileType go nmap <silent> <leader>r :GoRun<cr>
+au FileType go nmap <silent> <leader>bb :GoDebugBreakpoint<CR>
+au FileType go nmap <silent> <leader>br :GoDebugStart<CR>
+au FileType go nmap <silent> <leader>bt :GoDebugTestFunc<CR>
+au FileType go nmap <silent> <leader>bp :GoDebugPrint<CR>
+au FileType go nmap <silent> <leader>bn :GoDebugNext<CR>
+au FileType go nmap <silent> <leader>bc :GoDebugContinue<CR>
+au FileType go nmap <silent> <leader>bi :GoDebugStep<CR>
+au FileType go nmap <silent> <leader>bo :GoDebugStepOut<CR>
+au FileType go nmap <silent> <leader>bs :GoDebugStop<CR>
+
 augroup END
 
 " Indent-guides disable mappings
