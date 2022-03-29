@@ -1,7 +1,3 @@
-require'lspconfig'.gopls.setup{}
-require'lspconfig'.solargraph.setup{}
-
-local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
@@ -32,14 +28,31 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
+local lspconfig = require('lspconfig')
 local servers = { "gopls", "solargraph" }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup { on_attach = on_attach }
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    root_dir = function(fname)
+      -- Return first .git directory or if not found, first with .gitignore
+      return lspconfig.util.find_git_ancestor(fname) or lspconfig.util.root_pattern(".gitignore")(fname)
+    end;
+  }
 end
 
-require'lspconfig'.elixirls.setup{
+-- -- Use a loop to conveniently call 'setup' on multiple servers and
+-- -- map buffer local keybindings when the language server attaches
+-- local servers = { "gopls", "solargraph" }
+-- for _, lsp in ipairs(servers) do
+--   nvim_lsp[lsp].setup {
+--     on_attach = on_attach,
+--     root_dir = require("lspconfig").util.root_pattern(".gitignore")
+--   }
+-- end
+
+lspconfig.elixirls.setup{
   cmd = { "/Users/pabloa/Documents/Projects/elixir-ls-source/language_server.sh" },
-  on_attach = on_attach
+  on_attach = on_attach,
 }
 
 -- Set log level to debug for easy debugging problems
