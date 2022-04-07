@@ -26,10 +26,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ',lr', '<cmd>LspRestart<CR>', opts)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
+-- Put here lsp servers that don't require special config
 local lspconfig = require('lspconfig')
-local servers = { "gopls", "solargraph" }
+local servers = { "solargraph" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -40,16 +39,16 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- -- Use a loop to conveniently call 'setup' on multiple servers and
--- -- map buffer local keybindings when the language server attaches
--- local servers = { "gopls", "solargraph" }
--- for _, lsp in ipairs(servers) do
---   nvim_lsp[lsp].setup {
---     on_attach = on_attach,
---     root_dir = require("lspconfig").util.root_pattern(".gitignore")
---   }
--- end
+-- gopls lsp config
+lspconfig.gopls.setup{
+  on_attach = on_attach,
+  root_dir = function(fname)
+    -- Return go.mod dir as root, if not found use first git repo 
+    return lspconfig.util.root_pattern("go.mod")(fname) or lspconfig.util.find_git_ancestor(fname)
+  end;
+}
 
+-- elixirls lsp config
 lspconfig.elixirls.setup{
   cmd = { "/Users/pabloa/Documents/Projects/elixir-ls-source/language_server.sh" },
   on_attach = on_attach,
