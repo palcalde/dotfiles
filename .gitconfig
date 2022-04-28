@@ -3,7 +3,7 @@
   name = Pablo Alcalde
   email = pablo.alcalde@cabify.com
 [core]
-  excludesfile = /Users/pabloa/.gitignore
+  excludesfile = /Users/pablo.alcalde/.gitignore
   editor = nvim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -11,8 +11,6 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree2.6.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-  template = /Users/pabloa/.stCommitMsg
 # Automatically prune branches in origin that no longer exist in local
 [remote "origin"] 
   prune = true

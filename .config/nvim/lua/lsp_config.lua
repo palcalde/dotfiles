@@ -50,7 +50,7 @@ lspconfig.gopls.setup{
 
 -- elixirls lsp config
 lspconfig.elixirls.setup{
-  cmd = { "/Users/pabloa/Documents/Projects/elixir-ls-source/language_server.sh" },
+  cmd = { "/Users/pablo.alcalde/Documents/Projects/elixir-ls-source/language_server.sh" },
   on_attach = on_attach,
 }
 
