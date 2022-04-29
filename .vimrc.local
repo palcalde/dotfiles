@@ -352,12 +352,6 @@ xnoremap <silent> <leader>gO :GBrowse<cr>
 nnoremap <silent> <leader>gl :Gclog<cr>
 " }}} fugitive
 
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GITLAB CLI: https://github.com/lighttiger2505/lab
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -nargs=0 Gmr :call system('lab mr -b')
-nnoremap <silent> <leader>gmr :Gmr<cr>
-
 " Run commands in ex mode and put result in quickfix
 command -nargs=+ Run :cexpr system('<args>') | copen
 "
