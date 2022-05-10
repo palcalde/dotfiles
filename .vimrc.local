@@ -4,6 +4,8 @@ if has('nvim')
     set inccommand=split
 endif
 
+set shell=/bin/bash
+
 set cursorline " highlight current line
 let test#strategy = "dispatch"
 
