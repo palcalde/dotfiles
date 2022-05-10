@@ -55,7 +55,7 @@ lspconfig.elixirls.setup{
 }
 
 -- Set log level to debug for easy debugging problems
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("info")
 
 -- Format on save
 vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
