@@ -40,7 +40,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Required by maximum awesome
-export PATH="~/bin:$PATH"
+export PATH="/Users/pablo.alcalde/bin:$PATH"
 
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
@@ -51,6 +51,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # source "$HOME/.evm/scripts/evm"
 
 export PATH="/usr/local/sbin:$PATH"
+
+export PATH="/Users/pablo.alcalde/.local/bin:$PATH"
 
 # Load z.sh https://github.com/rupa/z
 . ~/z-master/z.sh
