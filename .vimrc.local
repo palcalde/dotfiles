@@ -230,7 +230,7 @@ set clipboard^=unnamedplus
 " => lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \   'left': [ ['mode', 'paste'], ['fugitive', 'relativepath'] ],
       \   'right': [ [ 'lineinfo' ], ['percent'] ]
@@ -280,8 +280,8 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme one
-" Set the color scheme to dark. Needs to be called after setting color scheme
+let g:tokyonight_style = "storm"
+colorscheme tokyonight 
 set background=dark
 
 
