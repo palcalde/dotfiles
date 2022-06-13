@@ -308,9 +308,9 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 " Ultisnips has native support for Supertab.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " loop forward in the results list
-" let g:UltiSnipsExpandTrigger="<C-j>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"  
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
+let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"  
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
 " ExpandSnippet: returns 1 if succeded 0 otherwise
 let g:ulti_expand_res = 0 
@@ -623,3 +623,6 @@ command! -bang Profile call s:profile(<bang>0)
 
 " show split window always at the very bottom of all other windows
 :autocmd FileType qf wincmd J
+
+" web-devicons
+let g:DevIconsEnableFoldersOpenClose = 1

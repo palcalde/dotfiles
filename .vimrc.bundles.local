@@ -38,9 +38,11 @@ Plugin 'maximbaz/lightline-ale'
 Plugin 'nathanmsmith/nvim-ale-diagnostic'
 " This installs tabnine (as a fork of YCM)
 Plugin 'tabnine/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 " Awesome zfz fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'yamatsum/nvim-cursorline'
 " ---- nvim ----
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
