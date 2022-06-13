@@ -37,12 +37,12 @@ Plugin 'maximbaz/lightline-ale'
 " along with the linter errors, all in the same way
 Plugin 'nathanmsmith/nvim-ale-diagnostic'
 " This installs tabnine (as a fork of YCM)
-Plugin 'tabnine/YouCompleteMe'
+" Plugin 'tabnine/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 " Awesome zfz fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'yamatsum/nvim-cursorline'
+" Plugin 'yamatsum/nvim-cursorline'
 " ---- nvim ----
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
@@ -52,3 +52,11 @@ Plugin 'benmills/vimux'
 Plugin 'sebdah/vim-delve'
 Plugin 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plugin 'ray-x/lsp_signature.nvim'
+" ---- nvim-cmp ----
+Plugin 'hrsh7th/cmp-nvim-lsp'
+Plugin 'hrsh7th/cmp-buffer'
+Plugin 'hrsh7th/cmp-path'
+Plugin 'hrsh7th/cmp-cmdline'
+Plugin 'hrsh7th/nvim-cmp'
+Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
+Plugin 'tzachar/cmp-tabnine', { 'do': './install.sh' }
