@@ -50,3 +50,5 @@ Plugin 'neovim/nvim-lspconfig'
 Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plugin 'benmills/vimux'
 Plugin 'sebdah/vim-delve'
+Plugin 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plugin 'ray-x/lsp_signature.nvim'
