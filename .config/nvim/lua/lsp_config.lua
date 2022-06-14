@@ -73,35 +73,3 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 }
 )
 
-require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "go",
-
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- List of parsers to ignore installing
-  ignore_install = {  },
-
-  highlight = {
-    enable = true,
-    -- Setting this to true will run `syntax` highlighting with tree-sitter at the same time
-    additional_vim_regex_highlighting = false,
-  },
-}
-
- -- require('nvim-cursorline').setup {
- --   cursorline = {
- --     enable = true,
- --     timeout = 1000,
- --     number = false,
- --   },
- --   cursorword = {
- --     enable = true,
- --     min_length = 3,
- --     hl = { underline = true },
- --   }
- -- }
-
- -- nvim-cmp
- --
