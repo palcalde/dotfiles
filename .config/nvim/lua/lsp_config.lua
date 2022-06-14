@@ -2,6 +2,7 @@
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  require 'illuminate'.on_attach(client)
   require "lsp_signature".on_attach(clinet)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

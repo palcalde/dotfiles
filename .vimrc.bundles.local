@@ -60,3 +60,6 @@ Plugin 'hrsh7th/cmp-cmdline'
 Plugin 'hrsh7th/nvim-cmp'
 Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
 Plugin 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+" ---- highlight word under cursor
+Plugin 'RRethy/vim-illuminate'
+
