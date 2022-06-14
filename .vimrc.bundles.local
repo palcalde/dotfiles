@@ -17,7 +17,7 @@ Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'junegunn/goyo.vim'
 " Theme like Atom IDE
 Plugin 'rakr/vim-one'
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'kyazdani42/nvim-web-devicons' " for file icons
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'shumphrey/fugitive-gitlab.vim'
 Plugin 'tpope/vim-rhubarb'
@@ -42,7 +42,6 @@ Plugin 'SirVer/ultisnips'
 " Awesome zfz fuzzy search
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-" Plugin 'yamatsum/nvim-cursorline'
 " ---- nvim ----
 Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
@@ -62,4 +61,6 @@ Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
 Plugin 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 " ---- highlight word under cursor
 Plugin 'RRethy/vim-illuminate'
+" ---- nvim-tree
+Plugin 'kyazdani42/nvim-tree.lua'
 

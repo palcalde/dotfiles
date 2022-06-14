@@ -1,4 +1,3 @@
-
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -24,9 +23,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ',R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  -- LSP
-  buf_set_keymap('n', ',li', '<cmd>LspInfo<CR>', opts)
-  buf_set_keymap('n', ',lr', '<cmd>LspRestart<CR>', opts)
 end
 
 -- Put here lsp servers that don't require special config
@@ -58,7 +54,7 @@ lspconfig.elixirls.setup{
 }
 
 -- Set log level to debug for easy debugging problems
-vim.lsp.set_log_level("info")
+vim.lsp.set_log_level("trace")
 
 -- Format on save
 vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
@@ -66,8 +62,8 @@ vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()
 -- disable publishDiagnostics, I use ALE instead
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = false,
-  virtual_text = false,
+  underline = true,
+  virtual_text = true,
   signs = false,
   update_in_insert = false,
 }

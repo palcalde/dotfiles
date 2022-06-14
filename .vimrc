@@ -56,16 +56,13 @@ set mouse=a
 let mapleader = ','
 let maplocalleader = ','
 nnoremap <leader>a :Rg<space>
-nnoremap <leader>f :NERDTreeFind<CR>
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>f :NvimTreeFindFile<CR>
+nnoremap <leader>d :NvimTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
-
-let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
 
 " fdoc is yaml
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml

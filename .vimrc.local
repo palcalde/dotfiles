@@ -66,28 +66,6 @@ set autowrite
 set nowritebackup
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 
-" This allows to switch tmux windows vertically from NerdTree
-" Bug documented here: https://github.com/christoomey/vim-tmux-navigator/issues/83
-let g:NERDTreeMapJumpNextSibling = '<Nop>'
-let g:NERDTreeMapJumpPrevSibling = '<Nop>'
-" Let NerdTree show hidden files
-let NERDTreeShowHidden=1
-" don't show .git
-let NERDTreeIgnore=['\.git$']
-" Config win size
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeMinimalUI = 1
-" add keepopen to default options so stays open when opening a file
-let NERDTreeCustomOpenArgs = {'file': {'reuse': 'all', 'where': 'p', 'keepopen': 1 }, 'dir': {}}
-" open NerdTree on StartUp
-function! StartUp()
-  if 0 == argc()
-    NERDTree
-  end
-endfunction
-
-autocmd VimEnter * call StartUp()
-
 " FZF {{{
 " exclude .gitignore files plus .git folder and add hidden files
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
@@ -445,7 +423,7 @@ let g:go_debug_windows = {
 \ }
 
 let g:go_fmt_command = "goimports"
-let g:go_imports_autosave = 1
+let g:go_imports_autosave = 0 " we are using ale fixers instead
 let g:go_fmt_autosave = 0
 
 let g:go_test_prepend_name = 1
@@ -568,7 +546,8 @@ nmap <silent> <leader>n <Plug>(ale_next_wrap)
 " we don't put gopls here as linter cause nvim already comes with one
 " integrated that shows diagnostic errors as well
 let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'], 'ruby': ['rubocop'] }
-let g:ale_fixers = { 'proto': ['protolint'] }
+let g:ale_fixers = { 'proto': ['protolint'], 'go': ['goimports'] }
+let g:ale_fix_on_save = 1
 let g:ale_proto_protolint_config = "/Users/pablo.alcalde/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
 let g:ale_go_golangci_lint_options = '--disable-all -e composites -E goimports -E golint -E govet -E ineffassign -E rowserrcheck -E stylecheck'
@@ -623,6 +602,3 @@ command! -bang Profile call s:profile(<bang>0)
 
 " show split window always at the very bottom of all other windows
 :autocmd FileType qf wincmd J
-
-" web-devicons
-let g:DevIconsEnableFoldersOpenClose = 1
