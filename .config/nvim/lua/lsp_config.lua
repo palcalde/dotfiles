@@ -21,8 +21,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ',sr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', ',se', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', ',R', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  -- buf_set_keymap('n', ',n', '<cmd>lua vim.lsp.diagnostic.goto_next({float = false})<CR>', opts)
 end
 
 -- Put here lsp servers that don't require special config
@@ -68,4 +67,7 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   update_in_insert = false,
 }
 )
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with( vim.lsp.handlers.signature_help, { border = "single" })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with( vim.lsp.handlers.hover, { border = "single" })
 
