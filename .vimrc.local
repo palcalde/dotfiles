@@ -370,27 +370,19 @@ au FileType go nmap <silent> <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <silent> <leader>ta :A<CR>
 au FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 au FileType go nmap <silent> <leader>v <Plug>(go-def-vertical)
-
-au FileType go nmap <silent> <leader>r :GoRun<cr>
-" au FileType go nmap <silent> <leader>bb :GoDebugBreakpoint<CR>
-" au FileType go nmap <silent> <leader>br :GoDebugStart<CR>
-" au FileType go nmap <silent> <leader>bt :GoDebugTestFunc<CR>
-" au FileType go nmap <silent> <leader>bp :GoDebugPrint<CR>
-" au FileType go nmap <silent> <leader>bn :GoDebugNext<CR>
-" au FileType go nmap <silent> <leader>bc :GoDebugContinue<CR>
-" au FileType go nmap <silent> <leader>bi :GoDebugStep<CR>
-" au FileType go nmap <silent> <leader>bo :GoDebugStepOut<CR>
-" au FileType go nmap <silent> <leader>bs :GoDebugStop<CR>
-
 augroup END
 
 " Indent-guides disable mappings
 let g:indent_guides_default_mapping = 0
 
+" Open help in vsplit (taken from junnegun)
+augroup vimrc_help
+  autocmd!
+  autocmd BufEnter *.txt if &buftype == 'help' | wincmd L | endif
+augroup END
+
 " Add go special tab identitation
 augroup filetypedetect
-  autocmd FileType help wincmd L
-
   autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
   autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
   autocmd BufNewFile,BufRead *.hcl setf conf
