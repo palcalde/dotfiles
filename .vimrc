@@ -59,7 +59,7 @@ nnoremap <leader>a :Rg<space>
 nnoremap <leader>f :NvimTreeFindFile<CR>
 nnoremap <leader>d :NvimTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>
-noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
