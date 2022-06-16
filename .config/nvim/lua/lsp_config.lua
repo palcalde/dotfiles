@@ -7,6 +7,15 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+  -- Jump to next LSP diag, if not exist then try with ALE's ones  
+  function next_diagnostic()
+    if vim.diagnostic.get_next_pos() == false then 
+      vim.call('execute', 'ALENextWrap')
+    else
+      vim.diagnostic.goto_next({ float = false })
+    end
+  end
+
   -- Mappings.
   local opts = { noremap=true, silent=true }
 
@@ -19,6 +28,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ',e', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', ',rf', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', ',rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', ',n', '<cmd>lua next_diagnostic()<CR>', opts)
 end
 
 -- Put here lsp servers that don't require special config

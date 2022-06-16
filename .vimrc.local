@@ -530,24 +530,6 @@ func! CurrentFileDir(cmd)
   return a:cmd . " " . expand("%:p:h") . "/"
 endfunc
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ale (syntax checker and linter)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" jump to LSP diagnostic if exist or to ALE one otherwise
-function! s:next_diagnostic()
-  let pos = luaeval("vim.diagnostic.get_next_pos()")
-  if type(pos) == 6 " type 6 is v:false, means no matches
-    execute 'ALENextWrap'
-  else
-lua << EOF
-  vim.diagnostic.goto_next({ float = false })
-EOF
-  endif
-endfunction
-
-command! NextDiagnostic call s:next_diagnostic()
-nmap <silent> <leader>n :NextDiagnostic<CR>
-
 " we don't put gopls here as linter cause nvim already comes with one
 " integrated that shows diagnostic errors as well
 let g:ale_linters = { 'go': ['golangci-lint'], 'proto': ['protolint'], 'ruby': ['rubocop'] }
