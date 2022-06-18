@@ -32,10 +32,13 @@ local on_attach = function(client, bufnr)
 end
 
 -- Put here lsp servers that don't require special config
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lspconfig = require('lspconfig')
 local servers = { "solargraph" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     root_dir = function(fname)
       -- Return first .git directory or if not found, first with .gitignore
@@ -44,8 +47,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- gopls lsp config
 lspconfig.gopls.setup{
+  capabilities = capabilities,
   on_attach = on_attach,
   root_dir = function(fname)
     -- Return go.mod dir as root, if not found use first git repo 
@@ -55,6 +58,7 @@ lspconfig.gopls.setup{
 
 -- elixirls lsp config
 lspconfig.elixirls.setup{
+   capabilities = capabilities,
   cmd = { "/Users/pablo.alcalde/Documents/Projects/elixir-ls-source/language_server.sh" },
   on_attach = on_attach,
 }

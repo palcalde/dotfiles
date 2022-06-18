@@ -63,4 +63,7 @@ Plugin 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plugin 'RRethy/vim-illuminate'
 " ---- nvim-tree
 Plugin 'kyazdani42/nvim-tree.lua'
+" ---- telescope
+Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
