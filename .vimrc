@@ -55,7 +55,6 @@ set mouse=a
 " keyboard shortcuts
 let mapleader = ','
 let maplocalleader = ','
-nnoremap <leader>a :Rg<space>
 nnoremap <leader>f :NvimTreeFindFile<CR>
 nnoremap <leader>d :NvimTreeToggle<CR>
 nnoremap <leader>] :TagbarToggle<CR>

@@ -83,12 +83,11 @@ nnoremap <silent> <Leader>L :lua require'telescope.builtin'.live_grep{}<CR>
 inoremap <c-l> <c-\><c-o>:Snippets<CR>
 
 " seach word under cursor
-" nnoremap <silent> <leader>sw :Rg <C-R><C-W><CR>
-" xnoremap <silent> <leader>sw y:Rg <C-R>"<CR>
 nnoremap <silent> <leader>sw :lua require'telescope.builtin'.grep_string{}<cr>
-" visual mode search text
-" xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
-xnoremap <silent> <leader>a <cmd>Telescope live_grep<cr>
+"
+" Search with The Silver Searcher Ag
+nnoremap <leader>a :Rg<space>
+xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
 
 " paste from 0 register (help when unnamed " has been unintentionally replaced)
 noremap <Leader>p "0p
