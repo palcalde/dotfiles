@@ -66,8 +66,9 @@ lspconfig.elixirls.setup{
 -- Set log level to debug for easy debugging problems
 vim.lsp.set_log_level("trace")
 
--- Format on save
-vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
+-- Format on save (bugged: tabbing a line and save strips chars from beginning)
+-- using ale for now
+-- vim.api.nvim_command[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]]
 
 -- disable publishDiagnostics, I use ALE instead
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
