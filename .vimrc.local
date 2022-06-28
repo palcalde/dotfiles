@@ -556,6 +556,7 @@ let g:ale_sign_warning = ""
 " disable all diagnostics so doesn't interfere with ALE
 let g:ycm_show_diagnostics_ui = 0
 
+
 " """"""""""""""""""""""""""""""
 "
 " Visual linewise up and down by default (and use gj gk to go quicker)
@@ -581,3 +582,6 @@ command! -bang Profile call s:profile(<bang>0)
 
 " show split window always at the very bottom of all other windows
 autocmd FileType qf wincmd J
+
+" change working directory to the location of the current file
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>

@@ -64,7 +64,7 @@ lspconfig.elixirls.setup{
 }
 
 -- Set log level to debug for easy debugging problems
-vim.lsp.set_log_level("trace")
+vim.lsp.set_log_level("ERROR")
 
 -- Format on save (bugged: tabbing a line and save strips chars from beginning)
 -- using ale for now
