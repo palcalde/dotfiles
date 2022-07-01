@@ -43,8 +43,12 @@ require'nvim-tree'.setup {
         }
     },
 
+	-- nvim-tree.actions.open_file.window_picker.enable
     actions = {
         open_file = {
+			window_picker = {
+				enable = false,
+			},
             quit_on_open = false,
         },
     },
