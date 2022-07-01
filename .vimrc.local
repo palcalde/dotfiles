@@ -584,4 +584,4 @@ command! -bang Profile call s:profile(<bang>0)
 autocmd FileType qf wincmd J
 
 " change working directory to the location of the current file
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+command! CD :cd %:p:h
