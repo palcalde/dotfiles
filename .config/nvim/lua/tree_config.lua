@@ -38,8 +38,7 @@ require'nvim-tree'.setup {
     view = {
         mappings = {
             list = {
-                { key = {"<CR>", "l" }, action = "edit", mode = "n"},
-                { key = {"<BS>", "h" }, action = "close_node", mode = "n"},
+                { key = {"s" }, action = "vsplit"},
             }
         }
     },
