@@ -94,3 +94,6 @@ function help(){
 
 # use rbenv
 eval "$(rbenv init -)"
+
+# tell kubectl to use our vim
+export KUBE_EDITOR="/usr/local/bin/nvim"
