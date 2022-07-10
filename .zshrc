@@ -79,6 +79,9 @@ export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
+# private stuff that we don't wanna put in git
+test -f ~/.zshrc_private && source ~/.zshrc_private
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -91,9 +94,6 @@ if [ -f '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/completion.zsh
 function help(){
   bash -c "help $@"
 }
-
-# use rbenv
-eval "$(rbenv init -)"
 
 # tell kubectl to use our vim
 export KUBE_EDITOR="/usr/local/bin/nvim"
