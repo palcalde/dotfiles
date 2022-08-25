@@ -50,13 +50,13 @@ Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plugin 'benmills/vimux'
 Plugin 'sebdah/vim-delve'
 Plugin 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plugin 'ray-x/lsp_signature.nvim'
 " ---- nvim-cmp ----
 Plugin 'hrsh7th/cmp-nvim-lsp'
 Plugin 'hrsh7th/cmp-buffer'
 Plugin 'hrsh7th/cmp-path'
 Plugin 'hrsh7th/cmp-cmdline'
 Plugin 'hrsh7th/nvim-cmp'
+Plugin 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
 Plugin 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 " ---- highlight word under cursor

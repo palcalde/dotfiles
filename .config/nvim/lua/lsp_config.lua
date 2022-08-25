@@ -2,7 +2,6 @@
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   require 'illuminate'.on_attach(client)
-  require "lsp_signature".on_attach(clinet)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
