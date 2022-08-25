@@ -35,6 +35,8 @@ end
 local luasnip_present, luasnip = pcall(require, "luasnip")
 
 cmp.setup({
+	-- Don't auto select the first entry
+	preselect = cmp.PreselectMode.None,
 	-- Disable for comments
 	enabled = function ()
 		buftype = vim.api.nvim_buf_get_option(0, "buftype")
@@ -52,7 +54,6 @@ cmp.setup({
 	completion = {
 		completeopt = "menu,menuone,noselect",
 	},
-	preselect = cmp.PreselectMode.None,
 	window = {
 		documentation = cmp.config.window.bordered(),
 		completion = cmp.config.window.bordered(),
@@ -104,12 +105,13 @@ cmp.setup({
 	},
 	-- Order matters: it will determine the prioritization of sources when showing autocomplete suggestions
 	sources = {
-		{ name = "cmp_tabnine"},
-		{ name = "nvim_lsp"},
+		-- { name = "cmp_tabnine", max_item_count = 5},
+		{ name = "nvim_lsp", max_item_count = 5,},
 		{ name = 'ultisnips'},
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "dap" },
+		{ name = 'nvim_lsp_signature_help' },
 	},
 })
 
