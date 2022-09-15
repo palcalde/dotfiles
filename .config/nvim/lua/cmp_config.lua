@@ -37,19 +37,14 @@ local luasnip_present, luasnip = pcall(require, "luasnip")
 cmp.setup({
 	-- Don't auto select the first entry
 	preselect = cmp.PreselectMode.None,
-	-- Disable for comments
 	enabled = function ()
+		-- disable autocompletion in prompt (wasn't playing good with telescope)
 		buftype = vim.api.nvim_buf_get_option(0, "buftype")
 		if buftype == "prompt" then return false end
 
 		local context = require 'cmp.config.context'
-		-- keep autocompletion in command mode
-		if vim.api.nvim_get_mode().mode == 'c' then
-			return true
-		else
-			-- disable autocompletion in comments 
-			return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
-		end
+		-- disable autocompletion in comments 
+		return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
 	end,
 	completion = {
 		completeopt = "menu,menuone,noselect",
