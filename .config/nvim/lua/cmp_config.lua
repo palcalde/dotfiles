@@ -100,7 +100,6 @@ cmp.setup({
 	},
 	-- Order matters: it will determine the prioritization of sources when showing autocomplete suggestions
 	sources = {
-		-- { name = "cmp_tabnine", max_item_count = 5},
 		{ name = "nvim_lsp", max_item_count = 5,},
 		{ name = 'ultisnips'},
 		{ name = "buffer" },
