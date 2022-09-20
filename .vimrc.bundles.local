@@ -58,7 +58,6 @@ Plugin 'hrsh7th/cmp-cmdline'
 Plugin 'hrsh7th/nvim-cmp'
 Plugin 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
-Plugin 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 " ---- highlight word under cursor
 Plugin 'RRethy/vim-illuminate'
 " ---- nvim-tree
