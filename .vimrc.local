@@ -75,19 +75,19 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " mappings
-nmap <C-g> :lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+nmap <C-g> :lua require'telescope.builtin'.lsp_document_symbols{}<cr>
 nnoremap <silent> <C-p> :lua require'telescope.builtin'.find_files({hidden=true})<cr>
 nnoremap <silent> <Leader><space> :lua require'telescope.builtin'.buffers({sort_mru=true})<cr>
-nnoremap <silent> <Leader>h :lua require'telescope.builtin'.oldfiles{}<CR>
-nnoremap <silent> <Leader>L :lua require'telescope.builtin'.live_grep{}<CR>
-inoremap <c-l> <c-\><c-o>:Snippets<CR>
+nnoremap <silent> <Leader>h :lua require'telescope.builtin'.oldfiles({only_cwd=true})<cr>
+nnoremap <silent> <Leader>L :lua require'telescope.builtin'.live_grep{}<cr>
+inoremap <c-l> <c-\><c-o>:Snippets<cr>
 
 " seach word under cursor
 nnoremap <silent> <leader>sw :lua require'telescope.builtin'.grep_string{}<cr>
 "
 " Search with The Silver Searcher Ag
 nnoremap <leader>a :Rg<space>
-xnoremap <silent> <leader>a y:Rg <C-R>"<CR>
+xnoremap <silent> <leader>a y:Rg <C-R>"<cr>
 
 " paste from 0 register (help when unnamed " has been unintentionally replaced)
 noremap <Leader>p "0p
@@ -521,7 +521,7 @@ let g:ale_fixers = { 'proto': ['protolint'], 'go': ['goimports'] }
 let g:ale_fix_on_save = 1
 let g:ale_proto_protolint_config = "/Users/pablo.alcalde/.protolint.yml"
 let g:ale_go_golangci_lint_package = 1
-let g:ale_go_golangci_lint_options = '-e composites -E stylecheck -E goimports -E revive -E govet -E rowserrcheck -E exhaustive -E gocognit'
+let g:ale_go_golangci_lint_options = '-e composites -E stylecheck -E goimports -E revive -E govet -E rowserrcheck -E gocognit'
 let g:ale_enabled = 1
 let g:ale_sign_info = ""
 let g:ale_sign_error = ""
