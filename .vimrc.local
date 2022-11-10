@@ -172,6 +172,8 @@ autocmd! FileType qf nnoremap <buffer> s <C-w><Enter><C-w>L
 
 " Print full path
 map <C-f> :echo expand("%:p")<cr>
+" Copy current file path to clipboard
+nnoremap <silent> <C-c> :let @* = expand("%:h")<cr>
 
 " Toggle paste mode
 set pastetoggle=<F5>
@@ -195,7 +197,8 @@ vmap y ygv<Esc>
 noremap x "_x
 noremap X "_x
 
-"http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+" http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
+" Uses register * (mac clipboard) for everything
 set clipboard^=unnamed
 set clipboard^=unnamedplus
 
