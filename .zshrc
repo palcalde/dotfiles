@@ -100,4 +100,4 @@ function help(){
 }
 
 # tell kubectl to use our vim
-export KUBE_EDITOR="/usr/local/bin/nvim"
+export KUBE_EDITOR="$(which nvim)"
