@@ -86,12 +86,6 @@ export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # private stuff that we don't wanna put in git
 test -f ~/.zshrc_private && source ~/.zshrc_private
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pablo.alcalde/Documents/Projects/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Add help bash command since zsh does not include it
 # this is helpful for built-in bash commands like 'read' that don't have
 # a man page but instead u can use 'help read' to get docu
