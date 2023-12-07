@@ -24,6 +24,7 @@ local icons = {
 	Event = "",
 	Operator = "",
 	TypeParameter = "",
+    Copilot = "",
 }
 
 local present, cmp = pcall(require, "cmp")
@@ -100,12 +101,13 @@ cmp.setup({
 	},
 	-- Order matters: it will determine the prioritization of sources when showing autocomplete suggestions
 	sources = {
+	    { name = "copilot"},
 		{ name = "nvim_lsp", max_item_count = 5,},
-		{ name = 'ultisnips'},
-		{ name = "buffer" },
+		-- { name = 'ultisnips'},
+		-- { name = "buffer" },
 		{ name = "path" },
-		{ name = "dap" },
-		{ name = 'nvim_lsp_signature_help' },
+		-- { name = "dap" },
+		-- { name = 'nvim_lsp_signature_help' },
 	},
 })
 
@@ -134,3 +136,4 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
+

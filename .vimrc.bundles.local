@@ -58,6 +58,7 @@ Plugin 'hrsh7th/cmp-cmdline'
 Plugin 'hrsh7th/nvim-cmp'
 Plugin 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
+Plugin 'zbirenbaum/copilot-cmp'
 " ---- highlight word under cursor
 Plugin 'RRethy/vim-illuminate'
 " ---- nvim-tree
@@ -65,4 +66,4 @@ Plugin 'kyazdani42/nvim-tree.lua'
 " ---- telescope
 Plugin 'nvim-telescope/telescope.nvim'
 Plugin 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
+Plugin 'zbirenbaum/copilot.lua'
