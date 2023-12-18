@@ -95,3 +95,7 @@ function help(){
 
 # tell kubectl to use our vim
 export KUBE_EDITOR="$(which nvim)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/pablo.alcalde/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
