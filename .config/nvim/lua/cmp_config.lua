@@ -80,30 +80,29 @@ cmp.setup({
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		},
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+		["<CR>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
+		-- if trouble when there is text behind, check has_words_before method in copilot-cmp repo: https://github.com/zbirenbaum/copilot-cmp/issues/79
+		["<Tab>"] = vim.schedule_wrap(
+			function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+				else
+					fallback()
+				end
+			end),
+		["<S-Tab>"] = vim.schedule_wrap(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
 	},
 	-- Order matters: it will determine the prioritization of sources when showing autocomplete suggestions
 	sources = {
-	    { name = "copilot"},
-		{ name = "nvim_lsp", max_item_count = 5,},
-		-- { name = 'ultisnips'},
+	    { name = "copilot", group_index = 2},
+		{ name = "nvim_lsp"},
+		{ name = 'ultisnips'},
 		-- { name = "buffer" },
 		{ name = "path" },
 		-- { name = "dap" },

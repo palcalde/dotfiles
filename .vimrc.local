@@ -287,8 +287,6 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 " Ultisnips
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " loop forward/backward in the snippet
-let g:UltiSnipsJumpForwardTrigger="<tab>"  
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 let g:UltiSnipsListSnippets="<c-x>"
 
 " make nvim work with python and ruby
