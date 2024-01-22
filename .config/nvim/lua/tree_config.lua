@@ -1,5 +1,4 @@
 require'nvim-tree'.setup {
-    open_on_setup = true,
     update_cwd = true,
 	reload_on_bufenter = true,
     hijack_cursor = true,
@@ -35,13 +34,13 @@ require'nvim-tree'.setup {
         custom = {"^\\.git$"},
     },
 
-    view = {
-        mappings = {
-            list = {
-                { key = {"s" }, action = "vsplit"},
-            }
-        }
-    },
+    -- view = {
+    --     mappings = {
+    --         list = {
+    --             { key = {"s" }, action = "vsplit"},
+    --         }
+    --     }
+    -- },
 
 	-- nvim-tree.actions.open_file.window_picker.enable
     actions = {

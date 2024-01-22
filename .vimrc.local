@@ -534,6 +534,8 @@ let g:ale_sign_warning = ""
 " disable all diagnostics so doesn't interfere with ALE
 let g:ycm_show_diagnostics_ui = 0
 
+" disable perl to avoid issue in nvim :checkhealth
+:let g:loaded_perl_provider = 0
 
 " """"""""""""""""""""""""""""""
 "
