@@ -1,4 +1,18 @@
+ local function my_on_attach(bufnr)
+    local api = require('nvim-tree.api')
+
+    local function opts(desc)
+      return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    -- copy defaults
+    api.config.mappings.default_on_attach(bufnr)
+
+    vim.keymap.set('n', 's',   api.node.open.vertical,              opts('Open: Vertical Split'))
+  end
+
 require'nvim-tree'.setup {
+	on_attach = my_on_attach,
     update_cwd = true,
 	reload_on_bufenter = true,
     hijack_cursor = true,
@@ -34,15 +48,6 @@ require'nvim-tree'.setup {
         custom = {"^\\.git$"},
     },
 
-    -- view = {
-    --     mappings = {
-    --         list = {
-    --             { key = {"s" }, action = "vsplit"},
-    --         }
-    --     }
-    -- },
-
-	-- nvim-tree.actions.open_file.window_picker.enable
     actions = {
         open_file = {
 			window_picker = {
@@ -52,9 +57,6 @@ require'nvim-tree'.setup {
         },
     },
 }
-
--- exit vim after closing last opened buff
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
 -- configure nvim to open on startup
 -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
