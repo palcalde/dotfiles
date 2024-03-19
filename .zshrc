@@ -59,7 +59,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/pablo.alcalde/.local/bin:$PATH"
 
 # Load z.sh https://github.com/rupa/z
-. ~/z-master/z.sh
+. ~/Documents/Projects/z/z.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
