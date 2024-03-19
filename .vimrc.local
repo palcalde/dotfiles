@@ -290,8 +290,8 @@ let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
 let g:UltiSnipsListSnippets="<c-x>"
 
 " make nvim work with python and ruby
-let g:python3_host_prog='/usr/local/bin/python3'
-let g:ruby_host_prog='/Users/pablo.alcalde/.asdf/installs/ruby/2.7.5/bin/ruby'
+let g:python3_host_prog='/opt/homebrew/bin/python3'
+let g:ruby_host_prog='/Users/pablo.alcalde/.asdf/shims/ruby'
 
 " arrow keys resize windows
 nnoremap <Left> :vertical resize -10<CR>
