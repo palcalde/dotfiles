@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-  name = Pablo Alcalde
-  email = pablo.alcalde@cabify.com
+	name = Pablo Alcalde
+	email = pablo.alcalde@cabify.com
 [core]
   excludesfile = /Users/pablo.alcalde/.gitignore
   editor = nvim
