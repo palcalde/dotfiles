@@ -65,7 +65,7 @@ lspconfig.elixirls.setup{
 }
 
 -- ruby lsp config
-require("lspconfig").ruby_ls.setup{
+require("lspconfig").ruby_lsp.setup{
     capabilities = capabilities,
 }
 
