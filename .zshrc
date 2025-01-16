@@ -100,4 +100,3 @@ export KUBE_EDITOR="$(which nvim)"
 export PATH="/Users/pablo.alcalde/.rd/bin:$PATH"
 
 export AWS_PROFILE=cabify-kte
-source /Users/pablo.alcalde/.config/op/plugins.sh

@@ -100,7 +100,8 @@ cmp.setup({
 	},
 	-- Order matters: it will determine the prioritization of sources when showing autocomplete suggestions
 	sources = {
-	    { name = "copilot", group_index = 2},
+		{ name = "supermaven", group_index = 2 },
+	    -- { name = "copilot", group_index = 2},
 		{ name = "nvim_lsp", group_index = 2},
 		{ name = 'ultisnips', group_index = 2},
 		{ name = "path", group_index = 2 },
