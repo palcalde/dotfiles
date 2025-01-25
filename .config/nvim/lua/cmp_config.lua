@@ -54,11 +54,6 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 		completion = cmp.config.window.bordered(),
 	},
-	snippet = {
-		expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body)
-		end,
-	},
 	formatting = {
 		format = function(entry, vim_item)
 			vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
@@ -66,7 +61,6 @@ cmp.setup({
 			vim_item.menu = ({
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
-				cmp_tabnine = "[Tabnine]",
 				path = "[Path]",
 			})[entry.source.name]
 
@@ -74,40 +68,19 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-p>"] = cmp.mapping.select_prev_item(),
-		["<C-n>"] = cmp.mapping.select_next_item(),
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<Tab>"] = cmp.mapping.select_next_item(),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true, },
-		-- if trouble when there is text behind, check has_words_before method in copilot-cmp repo: https://github.com/zbirenbaum/copilot-cmp/issues/79
-		["<Tab>"] = vim.schedule_wrap(
-			function(fallback)
-				if cmp.visible() then
-					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-				else
-					fallback()
-				end
-			end),
-		["<S-Tab>"] = vim.schedule_wrap(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
 	},
 	-- Order matters: it will determine the prioritization of sources when showing autocomplete suggestions
 	sources = {
-		{ name = "supermaven", group_index = 2 },
-	    -- { name = "copilot", group_index = 2},
-		{ name = "nvim_lsp", group_index = 2},
-		{ name = 'ultisnips', group_index = 2},
-		{ name = "path", group_index = 2 },
-		{ name = 'nvim_lsp_signature_help', group_index = 2 },
-		-- { name = "buffer" },
-		-- { name = "dap" },
+		-- { name = "supermaven"},
+		{ name = "nvim_lsp"},
+		{ name = "path"},
+		{ name = 'nvim_lsp_signature_help'},
+		{ name = "buffer" },
 	},
 })
 

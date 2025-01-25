@@ -283,12 +283,6 @@ let g:delimitMate_smart_quotes = 1
 let g:delimitMate_expand_inside_quotes = 0    
 let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'   
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ultisnips
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" loop forward/backward in the snippet
-let g:UltiSnipsListSnippets="<c-x>"
-
 " make nvim work with python and ruby
 let g:python3_host_prog='/usr/bin/python3'
 let g:ruby_host_prog='/Users/pablo.alcalde/.asdf/shims/ruby'
