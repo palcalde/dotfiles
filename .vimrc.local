@@ -80,7 +80,6 @@ nnoremap <silent> <C-p> :lua require'telescope.builtin'.find_files({hidden=true}
 nnoremap <silent> <Leader><space> :lua require'telescope.builtin'.buffers({sort_mru=true})<cr>
 nnoremap <silent> <Leader>h :lua require'telescope.builtin'.oldfiles({only_cwd=true})<cr>
 nnoremap <silent> <Leader>L :lua require'telescope.builtin'.live_grep{}<cr>
-inoremap <c-l> <c-\><c-o>:Snippets<cr>
 
 " seach word under cursor
 nnoremap <silent> <leader>sw :lua require'telescope.builtin'.grep_string{}<cr>
@@ -439,9 +438,6 @@ command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
       \ "rg --column --line-number --no-heading --hidden --smart-case " .
       \ shellescape(<q-args>), 1, fzf#vim#with_preview({'options': '--color=bg:#272B33,fg:#272B33,bg+:#272B33,preview-bg:#454545'}), <bang>0)
-
-" Use fzf Snippets to search through description not only name
-command! -bar -bang Snippets call fzf#vim#snippets({'options': '--tiebreak=begin -n ..'}, <bang>0)
 
 " ~/.viminfo needs to be writable and readable. Set oldfiles to 1000 last
 " recently opened files, :FzfHistory uses it
