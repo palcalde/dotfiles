@@ -174,8 +174,6 @@ map <C-f> :echo expand("%:p")<cr>
 " Copy current file path to clipboard
 nnoremap <silent> <C-c> :let @* = expand("%:h")<cr>
 
-" Toggle paste mode
-set pastetoggle=<F5>
 " Unset paste on InsertLeave.
 autocmd InsertLeave * silent! set nopaste
 
