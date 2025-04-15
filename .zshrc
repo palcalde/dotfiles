@@ -69,6 +69,7 @@ export PATH="/Users/pablo.alcalde/.local/bin:$PATH"
 # alias
 alias g=git
 alias vim="nvim"
+alias vi="nvim"
 
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
 
