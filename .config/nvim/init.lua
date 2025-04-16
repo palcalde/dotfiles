@@ -3,9 +3,11 @@ local opt = vim.opt
 opt.wildignore:prepend { "~/.vim", "runtimepath" }
 opt.wildignore:append { "~/.vim/after", "runtimepath" }
 
--- Check if vim.g.vscode exists
+vim.cmd("source ~/.vimrc")
+
+-- Check if term doesn't come from vscode
+-- as it interfieres with cursor neovim plugin
 if vim.g.vscode == nil then
-	vim.cmd("source ~/.vimrc")
 	-- Load configs
 	require("lsp_config")
 	require("cmp_config")
