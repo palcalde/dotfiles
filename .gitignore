@@ -4,6 +4,7 @@ tags
 bin/
 test.vim
 .idea/
+.common_env
 
 # ignore git folders by default so RG excludes them
 **/.git/**

@@ -97,7 +97,9 @@ function help(){
 # tell kubectl to use our vim
 export KUBE_EDITOR="$(which nvim)"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/pablo.alcalde/.rd/bin:$PATH"
-
 export AWS_PROFILE=cabify-kte
+
+# load common env vars
+if [ -f ~/Documents/Projects/dotfiles/.common_env ]; then
+    source ~/Documents/Projects/dotfiles/.common_env
+fi
