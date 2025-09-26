@@ -5,9 +5,9 @@ opt.wildignore:append { "~/.vim/after", "runtimepath" }
 
 vim.cmd("source ~/.vimrc")
 
--- Check if term doesn't come from vscode
--- as it interfieres with cursor neovim plugin
+-- Specific things for VIM in terminal
 if vim.g.vscode == nil then
+	vim.g.ale_enabled = 1
 	-- Load configs
 	require("lsp_config")
 	require("cmp_config")
