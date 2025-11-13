@@ -84,6 +84,7 @@ export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/Users/pablo.alcalde/Documents/Projects/pact/pact-workshop-go/pact/bin:$PATH"
+export PATH="$(go env GOPATH)/bin:$PATH"
 
 # private stuff that we don't wanna put in git
 test -f ~/.zshrc_private && source ~/.zshrc_private
