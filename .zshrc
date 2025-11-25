@@ -73,9 +73,6 @@ alias vi="nvim"
 
 export PATH="/usr/local/opt/erlang@21/bin:$PATH"
 
-export GOPATH="$HOME/go"
-
-export PATH="$GOPATH/bin:$PATH"
 # allow go get to fetch all private repositories from cabify org
 export GOPRIVATE=github.com/cabify/*,gitlab.otters.xyz/*,gopkg.cabify.tools/*
 export GONOSUMDB=github.com/cabify/*,gitlab.otters.xyz/*,gopkg.cabify.tools/*
