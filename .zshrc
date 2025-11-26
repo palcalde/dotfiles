@@ -98,7 +98,7 @@ export KUBE_EDITOR="$(which nvim)"
 
 export AWS_PROFILE=cabify-kte
 
-# load common env vars
+# load common env vars from a gitignored file for sensitive info
 if [ -f ~/Documents/Projects/dotfiles/.common_env ]; then
     source ~/Documents/Projects/dotfiles/.common_env
 fi
