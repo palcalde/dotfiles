@@ -1,0 +1,177 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "space",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert",
+        "command": "vscode-neovim.send",
+        "args": "zz"
+    },
+    {
+        "command": "editor.action.revealDefinitionAside",
+        "key": "ctrl+w ctrl+]",
+        "when": "editorHasDefinitionProvider && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "showNextParameterHint",
+        "when": "editorTextFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "showPrevParameterHint",
+        "when": "editorTextFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen && neovim.mode != 'cmdline'"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen && neovim.mode != 'cmdline'"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+        "when": "!terminalFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.focusLastEditorGroup",
+        "when": "filesExplorerFocus",
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "!terminalFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.focusRightGroup",
+        "when": "!terminalFocus && !filesExplorerFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "!terminalFocus && !filesExplorerFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": "ctrl+j",
+        "command": "",
+        "when": "editorTextFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": "ctrl+w q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "!vantServicefilesExplorerFocus && !searchViewletFocus && !terminalFocus && neovim.mode != 'cmdline'"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.gotoSymbol",
+        "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+    },
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.gotoSymbol",
+        "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+    },
+    {
+        "key": "cmd+j",
+        "command": "terminal.focus",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "key": ", d",
+        "command": "editor.action.goToTypeDefinition",
+        "when": "editorTextFocus && neovim.mode == 'normal' && editorHasTypeDefinitionProvider"
+    },
+    {
+        "key": ", f",
+        "command": "workbench.files.action.showActiveFileInExplorer",
+        "when": "editorFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": ", t",
+        "command": "-",
+        "when": "editorFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": ", t a",
+        "command": "go.toggle.test.file",
+        "when": "editorFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": ", w",
+        "command": "-",
+        "when": "editorFocus && neovim.mode == 'normal'",
+    },
+    {
+        "key": ", w",
+        "command": "workbench.action.files.save",
+        "when": "editorFocus && neovim.mode == 'normal'",
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": ", .",
+        "when": "editorTextFocus && neovim.mode != insert",
+        "args": ":nohlsearch<CR>",
+    },
+    {
+        "key": ", -",
+        "command": "workbench.view.scm",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "key": ", i",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "key": ", g",
+        "command": "-",
+        "when": "editorTextFocus && (neovim.mode == 'normal' || neovim.mode == 'visual')",
+    },
+    {
+        "key": ", g shift+o",
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && (neovim.mode == 'normal' || neovim.mode == 'visual')",
+        "args": ",gO"
+    },
+    {
+        "key": ", g o",
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && (neovim.mode == 'normal' || neovim.mode == 'visual')",
+        "args": ",go"
+    },
+]
