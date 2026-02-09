@@ -102,3 +102,6 @@ export AWS_PROFILE=cabify-kte
 if [ -f ~/Documents/Projects/dotfiles/.common_env ]; then
     source ~/Documents/Projects/dotfiles/.common_env
 fi
+
+# 1Password CLI sign-in
+alias opsignin='eval $(op signin --account my)'
